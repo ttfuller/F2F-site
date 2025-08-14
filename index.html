@@ -4,37 +4,52 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Fade to Focus Photography — Omaha</title>
-  <meta name="description" content="Moody, real-life images. Real moments > stiff poses." />
+  <meta name="description" content="Candid, moody, real-life images. Real moments > stiff poses." />
+
+  <!-- Use your uploaded logo path exactly (spaces URL-encoded) -->
+  <meta property="og:title" content="Fade to Focus Photography" />
+  <meta property="og:description" content="Candid, moody, real-life images. Real moments > stiff poses." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/branding/Gothic%20Photography%20Logo%20with%20Intertwined%20Icon.png" />
+
   <style>
     :root{
-      --bg:#0b0f14;
-      --bg-soft:#121821;
-      --ink:#e9edf2;
-      --muted:#9aa6b2;
-      --accent:#ffffff;
-      /* Uses your uploaded filename exactly (spaces URL-encoded) */
+      --bg:#0b0f14;         /* site background */
+      --bg-soft:#121821;    /* cards/panels */
+      --ink:#e9edf2;        /* main text */
+      --muted:#9aa6b2;      /* secondary text */
+      --stroke:#1b2533;     /* borders */
       --brand-logo:url('assets/branding/Gothic%20Photography%20Logo%20with%20Intertwined%20Icon.png');
-      /* Watermark opacity (0–1). Darker => larger number. */
-      --wm-opacity: .14;
+
+      /* Watermark controls */
+      --wm-opacity:.14;     /* darker than before (0–1) */
+      --wm-size:130px;      /* watermark size on gallery tiles */
+      --wm-inset:10px;      /* padding from bottom-right */
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    html,body{margin:0;background:var(--bg);color:var(--ink);
+      font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
     a{color:var(--ink);text-decoration:none}
     .wrap{max-width:1100px;margin:auto;padding:20px}
-    header{position:sticky;top:0;z-index:50;background:rgba(11,15,20,.7);backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid #1b2533}
+
+    /* Header */
+    header{position:sticky;top:0;z-index:50;background:rgba(11,15,20,.72);
+      backdrop-filter:saturate(140%) blur(8px);border-bottom:1px solid var(--stroke)}
     .bar{display:flex;align-items:center;gap:14px;padding:12px 18px}
     .brand-logo{height:40px;width:auto;display:block}
     nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
     .pill{padding:8px 14px;border:1px solid #243244;border-radius:999px;background:#0f1520}
-    .cta{background:var(--ink);color:#0c1117;border-color:transparent;font-weight:600}
-    /* hero */
+    .cta{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:600}
+
+    /* Hero */
     #hero{position:relative;background:linear-gradient(180deg,#0c1117,#0a0e13 55%,#090d11)}
     #hero .wrap{padding:54px 20px 36px}
     .hero-inner{display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center}
     .hero-logo{max-width:140px;aspect-ratio:1/1;object-fit:contain;filter:drop-shadow(0 2px 18px rgba(255,255,255,.05))}
     .title{font-size:28px;font-weight:800;letter-spacing:.5px;margin:0}
     .tag{color:var(--muted);margin:6px 0 0}
-    /* watermark in hero */
+    /* subtle watermark behind hero */
     #hero::after{
       content:""; position:absolute; inset:auto 0 6%; height:240px;
       background-image:var(--brand-logo);
@@ -43,44 +58,40 @@
     }
 
     /* Sections */
-    section{padding:28px 0;border-top:1px solid #1b2533;background:var(--bg)}
+    section{padding:28px 0;border-top:1px solid var(--stroke);background:var(--bg)}
     h3{margin:0 0 14px;font-size:20px;letter-spacing:.4px}
     p.muted{color:var(--muted);margin:8px 0}
 
-    /* Gallery */
-    .gallery{
-      display:grid; gap:12px;
-      grid-template-columns:repeat(12,1fr)
-    }
-    .ph{
-      grid-column:span 6; background:var(--bg-soft); border:1px solid #1b2533; border-radius:16px; overflow:hidden;
-      position:relative; isolation:isolate;
-    }
-    .ph img{display:block;width:100%;height:100%;object-fit:cover}
-    /* watermark over each tile */
-    .ph::after{
-      content:""; position:absolute; inset:auto 10px 10px auto; width:130px; height:130px;
-      background-image:var(--brand-logo); background-size:contain; background-repeat:no-repeat;
-      opacity:var(--wm-opacity); pointer-events:none; filter:grayscale(1) contrast(1.1);
-    }
-    @media(min-width:740px){
-      .ph{grid-column:span 4}
-    }
-
-    /* Packages */
+    /* Cards (Packages/Policies/Contact) */
     .cards{display:grid;gap:12px}
     @media(min-width:780px){ .cards{grid-template-columns:repeat(3,1fr)} }
-    .card{background:var(--bg-soft);border:1px solid #1b2533;border-radius:16px;padding:16px}
+    .card{background:var(--bg-soft);border:1px solid var(--stroke);border-radius:16px;padding:16px}
     .price{font-weight:800;font-size:22px;margin:2px 0 8px}
     ul.tiny{margin:0 0 4px 18px;padding:0;color:var(--muted)}
     ul.tiny li{margin:2px 0}
 
+    /* Gallery */
+    .gallery{display:grid;gap:12px;grid-template-columns:repeat(12,1fr)}
+    .ph{
+      grid-column:span 6; background:var(--bg-soft); border:1px solid var(--stroke);
+      border-radius:16px; overflow:hidden; position:relative; isolation:isolate;
+    }
+    .ph img{display:block;width:100%;height:100%;object-fit:cover}
+    /* watermark over each tile */
+    .ph::after{
+      content:""; position:absolute; right:var(--wm-inset); bottom:var(--wm-inset);
+      width:var(--wm-size); height:var(--wm-size);
+      background-image:var(--brand-logo); background-size:contain; background-repeat:no-repeat;
+      opacity:var(--wm-opacity); pointer-events:none; filter:grayscale(1) contrast(1.1);
+    }
+    @media(min-width:740px){ .ph{grid-column:span 4} }
+
     /* Contact */
     .contact{display:flex;flex-wrap:wrap;gap:10px}
-    .btn{padding:10px 14px;border-radius:10px;border:1px solid #1b2533;background:#0f1520}
-    .btn.primary{background:var(--ink);color:#0c1117;border-color:transparent;font-weight:700}
+    .btn{padding:10px 14px;border-radius:10px;border:1px solid var(--stroke);background:#0f1520}
+    .btn.primary{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
 
-    footer{border-top:1px solid #1b2533;color:var(--muted);padding:26px 18px;text-align:center;background:#0a0e13}
+    footer{border-top:1px solid var(--stroke);color:var(--muted);padding:26px 18px;text-align:center;background:#0a0e13}
     .tiny{font-size:12px;color:var(--muted)}
   </style>
 </head>
@@ -88,6 +99,7 @@
 
 <header>
   <div class="bar">
+    <!-- YOUR new logo everywhere (no renaming needed) -->
     <img class="brand-logo" src="assets/branding/Gothic%20Photography%20Logo%20with%20Intertwined%20Icon.png" alt="Fade to Focus Photography logo">
     <nav>
       <a class="pill" href="#packages">Packages</a>
@@ -104,12 +116,13 @@
       <img class="hero-logo" src="assets/branding/Gothic%20Photography%20Logo%20with%20Intertwined%20Icon.png" alt="Brand crest">
       <div>
         <h1 class="title">Fade to Focus • Omaha</h1>
-        <p class="tag">Moody, real-life images. <strong>Real moments &gt; stiff poses.</strong></p>
+        <p class="tag">Candid, moody, real-life images. <strong>Real moments &gt; stiff poses.</strong></p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- PACKAGES (kept in your original spirit/voice, now with Minis + Boudoir 18+) -->
 <section id="packages">
   <div class="wrap">
     <h3>Packages</h3>
@@ -126,31 +139,59 @@
         <div class="price">$250 — Story</div>
         <ul class="tiny">
           <li>90 minutes • up to 2 locations</li>
-          <li>35 edited images</li>
-          <li>Delivery in 7 days</li>
+          <li>35 edited images • custom vibe</li>
+          <li>Delivery in 7 days (rush available)</li>
         </ul>
+      </div>
+      <div class="card">
+        <div class="price">Minis — Seasonal</div>
+        <ul class="tiny">
+          <li>Short &amp; sweet sessions announced on Facebook/Instagram</li>
+          <li>Limited time slots • location/theme posted with each drop</li>
+          <li>Watch socials for dates &amp; pricing</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cards" style="margin-top:12px">
+      <div class="card">
+        <div class="price">Boudoir (18+) — By Inquiry</div>
+        <ul class="tiny">
+          <li>Private, body-positive, consent-forward</li>
+          <li>Studio, on-location, or in-home</li>
+          <li>Email for details, styling, and rates</li>
+        </ul>
+        <a class="btn" href="mailto:book@fadetofocusphoto.com?subject=Boudoir%20Inquiry%20(18%2B)">Request details</a>
       </div>
       <div class="card">
         <div class="price">Custom</div>
         <ul class="tiny">
           <li>Events • creative • editorial • brand</li>
-          <li>Let’s plan the right thing</li>
+          <li>We’ll shape the right coverage</li>
           <li><a href="#contact">Get a quote →</a></li>
         </ul>
       </div>
+      <div class="card">
+        <div class="price">Policies</div>
+        <ul class="tiny">
+          <li>$25 booking deposit holds your time (credited to session)</li>
+          <li>24h reschedule window</li>
+          <li>Weather: photographer’s call; free reschedule if we cancel</li>
+          <li>Personal use rights included; commercial use by permission</li>
+        </ul>
+      </div>
     </div>
-    <p class="muted" style="margin-top:12px">Add-ons: rush delivery, extra edits, outfit changes, additional locations.</p>
   </div>
 </section>
 
+<!-- GALLERY (same filenames you already uploaded) -->
 <section id="gallery">
   <div class="wrap">
     <h3>Sample work</h3>
     <div class="gallery">
-      <!-- Use whatever images you’ve uploaded into the repo root; keep or change as you like -->
       <div class="ph"><img src="IMG_0446.jpeg" alt="Stage performance with fog and warm light" loading="lazy" decoding="async"></div>
       <div class="ph"><img src="IMG_0695.jpeg" alt="Aerial artist in blue/green light" loading="lazy" decoding="async"></div>
-      <div class="ph"><img src="IMG_0796.jpeg" alt="Girl on carousel" loading="lazy" decoding="async"></div>
+      <div class="ph"><img src="IMG_0796.jpeg" alt="Carousel candid" loading="lazy" decoding="async"></div>
       <div class="ph"><img src="IMG_1117.jpeg" alt="Candid portrait outdoors" loading="lazy" decoding="async"></div>
       <div class="ph"><img src="IMG_1169.jpeg" alt="Portrait close-up" loading="lazy" decoding="async"></div>
       <div class="ph"><img src="IMG_1240.jpeg" alt="Kids playing, driveway" loading="lazy" decoding="async"></div>
@@ -158,14 +199,17 @@
       <div class="ph"><img src="IMG_1968.jpeg" alt="Candid fireworks prep" loading="lazy" decoding="async"></div>
       <div class="ph"><img src="IMG_1985.jpeg" alt="Driveway game action" loading="lazy" decoding="async"></div>
     </div>
-    <p class="tiny" style="margin-top:10px">Watermark is for on-site preview only; delivered galleries are clean unless requested.</p>
+    <p class="tiny" style="margin-top:10px;color:var(--muted)">
+      On-site watermark is for previews only; delivered images are clean unless requested.
+    </p>
   </div>
 </section>
 
+<!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
     <h3>Contact</h3>
-    <p class="muted">Tell me what you’re dreaming up—family, portraits, lifestyle, events, creative/editorial.</p>
+    <p class="muted">Tell me what you’re dreaming up—family, portraits, lifestyle, events, creative/editorial, and boudoir (18+).</p>
     <div class="contact">
       <a class="btn primary" href="mailto:book@fadetofocusphoto.com">book@fadetofocusphoto.com</a>
       <a class="btn" href="tel:+15315413891">(531) 541-3891</a>
@@ -176,11 +220,10 @@
 
 <footer>
   <div>© <span id="y"></span> Fade to Focus Photography • Omaha</div>
-  <div class="tiny">Built on GitHub Pages</div>
+  <div class="tiny">Real moments &gt; stiff poses</div>
 </footer>
 
 <script>
-  // year stamp
   document.getElementById('y').textContent = new Date().getFullYear();
 </script>
 </body>
