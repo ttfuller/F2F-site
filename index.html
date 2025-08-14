@@ -4,59 +4,45 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Fade to Focus Photography — Omaha</title>
-  <meta name="description" content="Fade to Focus Photography — moody, real-life images across portraits, events, and boudoir (18+, consent-first). Real moments &gt; stiff poses." />
-  <meta property="og:title" content="Fade to Focus Photography — Omaha" />
-  <meta property="og:description" content="Moody, real-life images. Real moments &gt; stiff poses." />
+  <meta name="description" content="Moody, real-life images across portraits, families, couples, events, and boudoir/erotic (18+, consent-first). Real moments > stiff poses." />
   <meta name="theme-color" content="#0b0b0b" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Playfair+Display:wght@600;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%230b0b0b'/><text x='50%' y='54%' dominant-baseline='middle' text-anchor='middle' font-family='Arial, Helvetica, sans-serif' font-size='24' fill='white' font-weight='700'>F2F</text></svg>">
   <style>
-    :root{
-      --bg:#0b0b0b; --bg2:#111; --ink:#eaeaea; --muted:#a7a7a7; --accent:#ffffff; --line:#1f1f1f;
-    }
+    :root{--bg:#0b0b0b;--panel:#0f0f0f;--ink:#eaeaea;--muted:#a7a7a7;--line:#1e1e1e;--accent:#ffffff}
     *{box-sizing:border-box}
-    html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;}
-    a{color:var(--ink);text-decoration:none}
-    a:hover{opacity:.9}
-    .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-    header{position:sticky;top:0;z-index:10;background:linear-gradient(0deg, rgba(11,11,11,0), rgba(11,11,11,1));backdrop-filter:saturate(1.1) blur(4px)}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid var(--line)}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+    a{color:var(--ink);text-decoration:none} a:hover{opacity:.9}
+    .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+    header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,rgba(11,11,11,.95),rgba(11,11,11,.85));backdrop-filter:blur(6px)}
+    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}
     .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:38px;height:38px;border-radius:50%;
-      display:grid;place-items:center;border:1px solid #2a2a2a;
-      background:radial-gradient(120px at 40% 40%,#1a1a1a,#0b0b0b);
-      font-family:"Playfair Display",serif;font-weight:800;letter-spacing:.5px
-    }
-    .logo span{font-size:18px}
-    .brand h1{font-size:16px;margin:0;font-weight:800;letter-spacing:.6px;text-transform:uppercase}
+    .logo{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;border:1px solid #2a2a2a;background:radial-gradient(120px at 40% 40%,#1a1a1a,#0b0b0b);font-weight:800}
+    .brand h1{margin:0;font-size:16px;letter-spacing:.6px;text-transform:uppercase}
     .brand small{display:block;color:var(--muted);font-weight:400}
-    .nav a.btn{padding:10px 14px;border:1px solid var(--line);border-radius:999px}
-    .nav a.cta{background:var(--accent);color:#000;border-color:transparent;font-weight:700}
-
-    .hero{padding:84px 0 56px;border-bottom:1px solid var(--line);background:radial-gradient(600px at 20% 0%, #151515, transparent)}
-    .hero h2{font-family:"Playfair Display",serif;font-weight:800;font-size:44px;line-height:1.08;margin:10px 0 12px}
+    .nav a.btn{padding:10px 14px;border:1px solid var(--line);border-radius:999px;margin-left:8px}
+    .nav a.cta{background:var(--accent);color:#000;border-color:transparent;font-weight:800}
+    .hero{padding:84px 0 56px;border-bottom:1px solid var(--line);background:radial-gradient(600px at 18% -10%, #151515, transparent)}
+    .hero h2{font-weight:800;font-size:42px;line-height:1.08;margin:4px 0 12px}
     .hero p{color:var(--muted);font-size:18px;max-width:720px}
     .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
     .btn{display:inline-block;padding:12px 16px;border:1px solid var(--line);border-radius:12px}
     .btn.primary{background:var(--accent);color:#000;border-color:transparent;font-weight:800}
-
     section{padding:56px 0;border-bottom:1px solid var(--line)}
     h3{font-size:22px;margin:0 0 16px;font-weight:800;letter-spacing:.4px}
     .grid{display:grid;gap:16px}
     @media(min-width:800px){.grid.cols-3{grid-template-columns:repeat(3,1fr)}.grid.cols-2{grid-template-columns:repeat(2,1fr)}}
-
-    .card{border:1px solid var(--line);border-radius:16px;padding:18px;background:linear-gradient(180deg,#0f0f0f,#0b0b0b)}
+    .card{border:1px solid var(--line);border-radius:16px;padding:18px;background:linear-gradient(180deg,var(--panel),#0b0b0b)}
     .card h4{margin:0 0 6px;font-size:18px}
     .price{font-weight:800;font-size:28px;margin:6px 0}
     .muted{color:var(--muted)}
     ul.clean{list-style:none;padding:0;margin:10px 0}
     ul.clean li{margin:6px 0;color:#cfcfcf}
 
+    /* Gallery */
     .gallery{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
     @media(min-width:900px){.gallery{grid-template-columns:repeat(4,1fr)}}
-    .ph{aspect-ratio:3/4;border:1px dashed #2a2a2a;border-radius:12px;background:#111;display:grid;place-items:center;color:#777;font-size:12px}
+    /* Preserve original image ratios/quality */
+    .gallery img{width:100%;height:auto;border-radius:12px;border:1px solid #2a2a2a;background:#111}
 
     footer{padding:32px 0;color:#8a8a8a}
     .footgrid{display:grid;gap:12px}
@@ -68,7 +54,7 @@
   <header>
     <div class="wrap nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true"><span>F2F</span></div>
+        <div class="logo" aria-hidden="true">F2F</div>
         <div>
           <h1>Fade to Focus <small>Photography • Omaha</small></h1>
         </div>
@@ -88,7 +74,7 @@
         <h2>Real moments &gt; stiff poses.</h2>
         <p>Moody, real-life images across portraits, couples, families, events, and boudoir / erotic (18+, consent-first). You live it — I frame it.</p>
         <div class="cta-row">
-          <a class="btn primary" href="tel:+15315413891">Text / Call: 531‑541‑3891</a>
+          <a class="btn primary" href="tel:+15315413891">Text / Call: 531-541-3891</a>
           <a class="btn" href="mailto:hello@fadetofocusphoto.com">hello@fadetofocusphoto.com</a>
           <a class="btn" href="#packages">See packages</a>
         </div>
@@ -138,24 +124,36 @@
             </ul>
           </div>
         </div>
-        <p class="muted" style="margin-top:12px">Add‑ons: Rush 48h +$25 • +5 edits +$20 • Second location +$35 • Outfit changes welcome.</p>
+        <p class="muted" style="margin-top:12px">Add-ons: Rush 48h +$25 • +5 edits +$20 • Second location +$35 • Outfit changes welcome.</p>
       </div>
     </section>
 
     <section id="gallery">
       <div class="wrap">
         <h3>Sample Work</h3>
+
         <div class="gallery">
-          <div class="ph">Your photo here</div>
-          <div class="ph">Your photo here</div>
-          <div class="ph">Your photo here</div>
-          <div class="ph">Your photo here</div>
-          <div class="ph">Your photo here</div>
-          <div class="ph">Your photo here</div>
-          <div class="ph">Your photo here</div>
-          <div class="ph">Your photo here</div>
+          <img src="IMG_0446.jpeg" alt="Stage performance with fog and warm light" loading="lazy" decoding="async">
+          <img src="IMG_0695.jpeg" alt="Aerial artist in blue/green light" loading="lazy" decoding="async">
+          <img src="IMG_0796.jpeg" alt="Child on carousel" loading="lazy" decoding="async">
+          <img src="IMG_0337.jpeg" alt="Street candid" loading="lazy" decoding="async">
+          <img src="IMG_0463.jpeg" alt="Candid moment" loading="lazy" decoding="async">
+          <img src="IMG_0472.jpeg" alt="Event detail" loading="lazy" decoding="async">
+          <img src="IMG_0484.jpeg" alt="Event scene" loading="lazy" decoding="async">
+          <img src="IMG_0610.jpeg" alt="Candid portrait" loading="lazy" decoding="async">
+          <img src="IMG_0791.jpeg" alt="Profile portrait outdoors" loading="lazy" decoding="async">
+          <img src="IMG_0794.jpeg" alt="Portrait close-up" loading="lazy" decoding="async">
+          <img src="IMG_1117.jpeg" alt="Moment in motion" loading="lazy" decoding="async">
+          <img src="IMG_1169.jpeg" alt="Candid profile" loading="lazy" decoding="async">
+          <img src="IMG_1240.jpeg" alt="Kids playing, driveway" loading="lazy" decoding="async">
+          <img src="IMG_0707.jpeg" alt="Event candid" loading="lazy" decoding="async">
+          <img src="IMG_0766.jpeg" alt="Event candid" loading="lazy" decoding="async">
+          <img src="IMG_1967.jpeg" alt="Candid fireworks prep" loading="lazy" decoding="async">
+          <img src="IMG_1968.jpeg" alt="Candid fireworks table" loading="lazy" decoding="async">
+          <img src="IMG_1985.jpeg" alt="Driveway game action" loading="lazy" decoding="async">
         </div>
-        <p class="tiny" style="margin-top:10px">Replace the placeholders with your images: just swap each <code>.ph</code> box for an <code>&lt;img src="..." alt="..." /&gt;</code> and keep the same grid.</p>
+
+        <p class="tiny" style="margin-top:10px">More galleries coming soon. Socials coming soon.</p>
       </div>
     </section>
 
@@ -163,11 +161,11 @@
       <div class="wrap">
         <h3>Policies</h3>
         <ul class="clean">
-          <li>$25 non‑refundable retainer to book. One reschedule with 24‑hour notice.</li>
+          <li>$25 non-refundable retainer to book. One reschedule with 24-hour notice.</li>
           <li>Weather reschedules at photographer’s discretion.</li>
           <li>Delivery: Minis 72h • Full sessions 7 days. Rush +$25 (48h).</li>
-          <li>Personal‑use license; photographer retains copyright. Commercial use requires a separate license.</li>
-          <li>Boudoir / erotic sessions are 18+ and consent‑first. Discretion guaranteed.</li>
+          <li>Personal-use license; photographer retains copyright. Commercial use requires a separate license.</li>
+          <li>Boudoir / erotic sessions are 18+ and consent-first. Discretion guaranteed.</li>
         </ul>
       </div>
     </section>
@@ -179,17 +177,17 @@
           <div class="card">
             <h4>Get in touch</h4>
             <ul class="clean">
-              <li><strong>Text / Call:</strong> <a href="tel:+15315413891">531‑541‑3891</a></li>
+              <li><strong>Text / Call:</strong> <a href="tel:+15315413891">531-541-3891</a></li>
               <li><strong>Email:</strong> <a href="mailto:hello@fadetofocusphoto.com">hello@fadetofocusphoto.com</a></li>
               <li><strong>Book:</strong> <a href="mailto:book@fadetofocusphoto.com?subject=Session%20Inquiry&body=Hi%20Terry%2C%20I'd%20like%20to%20book%20a%20session...">book@fadetofocusphoto.com</a></li>
             </ul>
           </div>
           <div class="card">
             <h4>Socials</h4>
-            <p class="muted">Add your handles once created, e.g.:</p>
+            <p class="muted">Handles coming soon.</p>
             <ul class="clean">
-              <li><strong>Instagram:</strong> @fadetofocusphoto</li>
-              <li><strong>Facebook:</strong> Fade to Focus Photography</li>
+              <li>Instagram: <em>@fadetofocusphoto</em> (placeholder)</li>
+              <li>Facebook: <em>Fade to Focus Photography</em> (placeholder)</li>
             </ul>
           </div>
         </div>
@@ -206,6 +204,22 @@
 
   <script>
     document.getElementById('y').textContent = new Date().getFullYear();
+
+    // LocalBusiness schema (update URL when your custom domain is connected)
+    const schema = {
+      "@context":"https://schema.org",
+      "@type":"LocalBusiness",
+      "name":"Fade to Focus Photography",
+      "url": window.location.origin,
+      "telephone":"+1-531-541-3891",
+      "email":"hello@fadetofocusphoto.com",
+      "areaServed":"Omaha, NE",
+      "sameAs": []
+    };
+    const el = document.createElement('script');
+    el.type = 'application/ld+json';
+    el.text = JSON.stringify(schema);
+    document.head.appendChild(el);
   </script>
 </body>
 </html>
