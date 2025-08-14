@@ -13,6 +13,8 @@
     html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 -apple-system,BlinkMacSystemFont,Inter,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
     a{color:var(--ink);text-decoration:none} a:hover{opacity:.9}
     .wrap{max-width:1060px;margin:0 auto;padding:0 20px}
+
+    /* Header / nav */
     header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,rgba(11,11,11,.95),rgba(11,11,11,.85));backdrop-filter:blur(6px)}
     .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line)}
     .brand{display:flex;align-items:center;gap:12px}
@@ -21,12 +23,18 @@
     .brand small{display:block;color:var(--muted);font-weight:400}
     .nav a.btn{padding:10px 14px;border:1px solid var(--line);border-radius:999px;margin-left:8px}
     .nav a.cta{background:var(--accent);color:#000;border-color:transparent;font-weight:800}
-    .hero{padding:84px 0 56px;border-bottom:1px solid var(--line);background:radial-gradient(600px at 18% -10%, #151515, transparent)}
+
+    /* Hero */
+    .hero{padding:72px 0 24px;border-bottom:1px solid var(--line);background:radial-gradient(600px at 18% -10%, #151515, transparent)}
     .hero h2{font-weight:800;font-size:42px;line-height:1.08;margin:4px 0 12px}
     .hero p{color:var(--muted);font-size:18px;max-width:720px}
     .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:18px}
     .btn{display:inline-block;padding:12px 16px;border:1px solid var(--line);border-radius:12px}
     .btn.primary{background:var(--accent);color:#000;border-color:transparent;font-weight:800}
+    /* Hero image */
+    .hero-media{ margin-top:22px; border-radius:16px; overflow:hidden; border:1px solid #2a2a2a; }
+    .hero-media img{ width:100%; height:clamp(220px,45vh,520px); object-fit:cover; display:block; }
+
     section{padding:56px 0;border-bottom:1px solid var(--line)}
     h3{font-size:22px;margin:0 0 16px;font-weight:800;letter-spacing:.4px}
     .grid{display:grid;gap:16px}
@@ -38,11 +46,14 @@
     ul.clean{list-style:none;padding:0;margin:10px 0}
     ul.clean li{margin:6px 0;color:#cfcfcf}
 
-    /* Gallery */
-    .gallery{display:grid;gap:10px;grid-template-columns:repeat(2,1fr)}
-    @media(min-width:900px){.gallery{grid-template-columns:repeat(4,1fr)}}
-    /* Preserve original image ratios/quality */
-    .gallery img{width:100%;height:auto;border-radius:12px;border:1px solid #2a2a2a;background:#111}
+    /* Gallery — masonry columns (natural ratios, tidy spacing) */
+    .gallery{ column-count:2; column-gap:12px; }
+    @media(min-width:900px){ .gallery{ column-count:4; } }
+    .gallery img{
+      width:100%; display:block; margin:0 0 12px;
+      border-radius:12px; border:1px solid #2a2a2a; background:#111;
+      break-inside:avoid; -webkit-column-break-inside:avoid;
+    }
 
     footer{padding:32px 0;color:#8a8a8a}
     .footgrid{display:grid;gap:12px}
@@ -77,6 +88,11 @@
           <a class="btn primary" href="tel:+15315413891">Text / Call: 531-541-3891</a>
           <a class="btn" href="mailto:hello@fadetofocusphoto.com">hello@fadetofocusphoto.com</a>
           <a class="btn" href="#packages">See packages</a>
+        </div>
+
+        <!-- Hero image -->
+        <div class="hero-media">
+          <img src="IMG_0796.jpeg" alt="Child on carousel — Fade to Focus">
         </div>
       </div>
     </section>
