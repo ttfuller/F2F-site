@@ -12,7 +12,10 @@
       --ink:#e9edf2;
       --muted:#9aa6b2;
       --accent:#ffffff;
+      /* Uses your uploaded filename exactly (spaces URL-encoded) */
       --brand-logo:url('assets/branding/Gothic%20Photography%20Logo%20with%20Intertwined%20Icon.png');
+      /* Watermark opacity (0–1). Darker => larger number. */
+      --wm-opacity: .14;
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
@@ -36,7 +39,7 @@
       content:""; position:absolute; inset:auto 0 6%; height:240px;
       background-image:var(--brand-logo);
       background-repeat:no-repeat; background-position:center; background-size:420px auto;
-      opacity:.06; pointer-events:none; filter:grayscale(1) contrast(1.1);
+      opacity:var(--wm-opacity); pointer-events:none; filter:grayscale(1) contrast(1.1);
     }
 
     /* Sections */
@@ -57,7 +60,8 @@
     /* watermark over each tile */
     .ph::after{
       content:""; position:absolute; inset:auto 10px 10px auto; width:130px; height:130px;
-      background-image:var(--brand-logo); background-size:contain; background-repeat:no-repeat; opacity:.06; pointer-events:none; filter:grayscale(1) contrast(1.1)
+      background-image:var(--brand-logo); background-size:contain; background-repeat:no-repeat;
+      opacity:var(--wm-opacity); pointer-events:none; filter:grayscale(1) contrast(1.1);
     }
     @media(min-width:740px){
       .ph{grid-column:span 4}
@@ -154,7 +158,7 @@
       <div class="ph"><img src="IMG_1968.jpeg" alt="Candid fireworks prep" loading="lazy" decoding="async"></div>
       <div class="ph"><img src="IMG_1985.jpeg" alt="Driveway game action" loading="lazy" decoding="async"></div>
     </div>
-    <p class="tiny" style="margin-top:10px">Watermark is subtle on-site only; delivered galleries come clean unless you request otherwise.</p>
+    <p class="tiny" style="margin-top:10px">Watermark is for on-site preview only; delivered galleries are clean unless requested.</p>
   </div>
 </section>
 
