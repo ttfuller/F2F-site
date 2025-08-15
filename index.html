@@ -183,6 +183,19 @@ a:focus {
   color: inherit !important;
 }
 
+/* Book-now pill: force black text in every state */
+.pill.cta,
+.pill.cta:link,
+.pill.cta:visited,
+.pill.cta:hover,
+.pill.cta:focus,
+.pill.cta:active {
+  color: #0c1117 !important;   /* near-black */
+  background: #ffffff;         /* keep it white */
+  border-color: transparent;
+  text-decoration: none !important;
+}
+    
 /* Buttons: ensure readable text; keep white button dark text */
 .btn { color: var(--ink) !important; }
 .btn.primary { color: #0c1117 !important; }
@@ -191,6 +204,15 @@ a:focus {
 .gallery-filter{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 12px}
 .gallery-filter .pill{cursor:pointer}
 .gallery-filter .pill.active{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
+
+/* Gallery: show full image, no cropping */
+.gallery .ph img{
+  display: block;
+  width: 100%;
+  height: auto;            /* let height flow with aspect ratio */
+  object-fit: contain;     /* safe even if a height sneaks in elsewhere */
+  background: #0a0e13;     /* subtle letterbox fill on tall/wide images */
+}
     
   </style>
 </head>
