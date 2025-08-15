@@ -79,15 +79,16 @@
     .pill:link,.pill:visited,.pill:hover,.pill:active{color:var(--ink)}
     .pill.cta{background:#ffffff;color:#0c1117 !important;border-color:transparent;font-weight:700}
 
-    /* ===== Hero ===== */
-    #hero{position:relative}
-    #hero .wrap{padding:54px 20px 36px}
-    .hero-inner{
-      display:grid;
-      grid-template-columns:200px 1fr; /* bigger logo */
-      gap:22px;
-      align-items:center;
-    }
+   /* ==== Hero ==== */
+#hero{ position:relative; isolation:isolate; }  /* keep section above page crest */
+
+#hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background: rgba(11,15,20,.96);   /* 1 = fully opaque; .92 shows a little through */
+  backdrop-filter: saturate(140%) blur(var(--glass-blur));
+  z-index:-1;                        /* sits between hero content & page crest */
+}
     .hero-logo{
       width:200px; max-width:200px; height:auto; object-fit:contain;
       filter:drop-shadow(0 2px 18px rgba(255,255,255,.05));
