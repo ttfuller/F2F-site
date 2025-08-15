@@ -152,6 +152,43 @@ a, a:link, a:visited, a:hover, a:active{
     /* Footer */
     footer{border-top:1px solid var(--stroke);color:var(--muted);padding:26px 18px;text-align:center;background:rgba(10,14,19,.66)}
     .tiny{font-size:12px;color:var(--muted)}
+
+    /* === GLASS TRANSPARENCY TUNING (paste at end of <style>) === */
+:root{
+  /* Lower number = more see-through. Raise if text gets hard to read. */
+  --glass-header: 0.45;   /* header bar */
+  --glass-section: 0.40;  /* page sections */
+  --glass-panel: 0.30;    /* cards + photo tiles */
+  --glass-footer: 0.38;   /* footer */
+  --glass-blur: 4px;      /* optional blur of the crest behind the panels */
+}
+
+/* make the scrolling UI translucent so the fixed crest shows through */
+header{
+  background: rgba(11,15,20,var(--glass-header)) !important;
+  backdrop-filter: saturate(140%) blur(var(--glass-blur));
+}
+
+section{
+  background: rgba(11,15,20,var(--glass-section)) !important;
+}
+
+.card,
+.ph{
+  background-color: rgba(18,24,33,var(--glass-panel)) !important;
+  backdrop-filter: blur(calc(var(--glass-blur) - 2px));
+}
+
+footer{
+  background: rgba(10,14,19,var(--glass-footer)) !important;
+}
+
+/* keep links neutral (no blue/underline) even on translucent panels */
+a, a:link, a:visited, a:hover, a:active{
+  color: inherit !important;
+  text-decoration: none !important;
+}
+  
   </style>
 </head>
 <body>
