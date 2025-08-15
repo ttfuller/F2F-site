@@ -44,7 +44,7 @@
       content:"";
       position:fixed; inset:0;
       background: var(--brand-logo) center 35% / min(900px,82vw) no-repeat;
-      opacity:.30;                      /* tweak if you want more/less visible */
+      opacity:.60;                      /* ⬅️ made stronger so it shows more */
       filter:grayscale(1) contrast(1.1);
       pointer-events:none;
       z-index:0;
@@ -111,7 +111,10 @@
 
     /* Gallery: masonry, no cropping */
     #gallery .wrap{padding-top:10px}
+    .filters{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 14px}
+    .filters .pill[aria-pressed="true"]{outline:2px solid rgba(255,255,255,.18)}
     .gallery{column-width:340px; column-gap:12px}
+    .hidden{display:none !important}
     .ph{
       display:block; break-inside:avoid; position:relative; overflow:hidden;
       background:rgba(18,24,33,.82); border:1px solid var(--stroke); border-radius:16px;
@@ -230,17 +233,26 @@
   <div class="wrap">
     <h3>Sample work</h3>
 
+    <!-- 🔹 FILTER TABS -->
+    <div class="filters" role="tablist" aria-label="Filter photos">
+      <button class="pill" data-filter="all" aria-pressed="true">All</button>
+      <button class="pill" data-filter="family">Family</button>
+      <button class="pill" data-filter="portraits">Portraits</button>
+      <button class="pill" data-filter="events">Events</button>
+      <button class="pill" data-filter="minis">Minis</button>
+    </div>
+
     <div class="gallery">
-      <!-- Use the filenames already in your repo root; add/remove freely -->
-      <a class="ph"><img src="IMG_0446.jpeg" alt="Stage performance with fog and warm light" loading="lazy" decoding="async"></a>
-      <a class="ph"><img src="IMG_0695.jpeg" alt="Aerial artist in blue/green light" loading="lazy" decoding="async"></a>
-      <a class="ph"><img src="IMG_0796.jpeg" alt="Carousel candid" loading="lazy" decoding="async"></a>
-      <a class="ph"><img src="IMG_1117.jpeg" alt="Candid portrait outdoors" loading="lazy" decoding="async"></a>
-      <a class="ph"><img src="IMG_1169.jpeg" alt="Portrait close-up" loading="lazy" decoding="async"></a>
-      <a class="ph"><img src="IMG_1240.jpeg" alt="Kids playing, driveway" loading="lazy" decoding="async"></a>
-      <a class="ph"><img src="IMG_1967.jpeg" alt="Event candid" loading="lazy" decoding="async"></a>
-      <a class="ph"><img src="IMG_1968.jpeg" alt="Candid fireworks prep" loading="lazy" decoding="async"></a>
-      <a class="ph"><img src="IMG_1985.jpeg" alt="Driveway game action" loading="lazy" decoding="async"></a>
+      <!-- Tag each tile with data-cat (edit freely) -->
+      <a class="ph" data-cat="events"><img src="IMG_0446.jpeg" alt="Stage performance with fog and warm light" loading="lazy" decoding="async"></a>
+      <a class="ph" data-cat="events"><img src="IMG_0695.jpeg" alt="Aerial artist in blue/green light" loading="lazy" decoding="async"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0796.jpeg" alt="Carousel candid" loading="lazy" decoding="async"></a>
+      <a class="ph" data-cat="portraits"><img src="IMG_1117.jpeg" alt="Candid portrait outdoors" loading="lazy" decoding="async"></a>
+      <a class="ph" data-cat="portraits"><img src="IMG_1169.jpeg" alt="Portrait close-up" loading="lazy" decoding="async"></a>
+      <a class="ph" data-cat="family"><img src="IMG_1240.jpeg" alt="Kids playing, driveway" loading="lazy" decoding="async"></a>
+      <a class="ph" data-cat="events"><img src="IMG_1967.jpeg" alt="Event candid" loading="lazy" decoding="async"></a>
+      <a class="ph" data-cat="events"><img src="IMG_1968.jpeg" alt="Candid fireworks prep" loading="lazy" decoding="async"></a>
+      <a class="ph" data-cat="family"><img src="IMG_1985.jpeg" alt="Driveway game action" loading="lazy" decoding="async"></a>
     </div>
 
     <p class="tiny" style="margin-top:10px">
@@ -267,7 +279,25 @@
 </footer>
 
 <script>
+  // copyright year
   document.getElementById('y').textContent = new Date().getFullYear();
+
+  // simple gallery filtering
+  const buttons = document.querySelectorAll('.filters [data-filter]');
+  const items = document.querySelectorAll('.gallery .ph');
+
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      buttons.forEach(b=>b.setAttribute('aria-pressed','false'));
+      btn.setAttribute('aria-pressed','true');
+
+      const f = btn.dataset.filter;
+      items.forEach(el=>{
+        const cat = el.dataset.cat || 'all';
+        el.classList.toggle('hidden', !(f==='all' || cat===f));
+      });
+    });
+  });
 </script>
 </body>
 </html>
