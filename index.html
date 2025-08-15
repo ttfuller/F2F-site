@@ -254,6 +254,30 @@ a:focus {
   object-fit: contain;     /* safe even if a height sneaks in elsewhere */
   background: #0a0e13;     /* subtle letterbox fill on tall/wide images */
 }
+/* Watermark on each gallery photo */
+.gallery { display:grid; gap:12px; grid-template-columns:repeat(12,1fr) } /* already in your file */
+
+.ph{
+  position: relative;          /* needed for ::after */
+  overflow: hidden;
+  isolation: isolate;          /* keeps overlay crisp above image */
+}
+
+.ph::after{
+  content:"";
+  position: absolute;
+  right: var(--wm-inset);
+  bottom: var(--wm-inset);
+  width: var(--wm-size);
+  height: var(--wm-size);
+  background-image: var(--brand-logo);
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: var(--wm-opacity);
+  pointer-events: none;
+  filter: grayscale(1) contrast(1.1);
+}
+  
     
   </style>
 </head>
