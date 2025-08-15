@@ -186,6 +186,11 @@ a:focus {
 /* Buttons: ensure readable text; keep white button dark text */
 .btn { color: var(--ink) !important; }
 .btn.primary { color: #0c1117 !important; }
+
+    /* Category filter pills (above gallery) */
+.gallery-filter{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 12px}
+.gallery-filter .pill{cursor:pointer}
+.gallery-filter .pill.active{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
     
   </style>
 </head>
@@ -282,16 +287,39 @@ a:focus {
 <section id="gallery">
   <div class="wrap">
     <h3>Recent Shots</h3>
+    <div class="gallery-filter" aria-label="Filter gallery">
+  <button class="pill js-filter active" data-filter="all">All</button>
+  <button class="pill js-filter" data-filter="family">Family</button>
+  <button class="pill js-filter" data-filter="portraits">Portraits</button>
+  <button class="pill js-filter" data-filter="minis">Minis</button>
+  <button class="pill js-filter" data-filter="events">Events</button>
+</div>
     <div class="gallery">
-      <div class="ph"><img src="IMG_0446.jpeg" alt="Stage performance with fog and warm light" loading="lazy" decoding="async"></div>
-      <div class="ph"><img src="IMG_0695.jpeg" alt="Aerial artist in blue/green light" loading="lazy" decoding="async"></div>
-      <div class="ph"><img src="IMG_0796.jpeg" alt="Carousel candid" loading="lazy" decoding="async"></div>
-      <div class="ph"><img src="IMG_1117.jpeg" alt="Candid portrait outdoors" loading="lazy" decoding="async"></div>
-      <div class="ph"><img src="IMG_1169.jpeg" alt="Portrait close-up" loading="lazy" decoding="async"></div>
-      <div class="ph"><img src="IMG_1240.jpeg" alt="Kids playing, driveway" loading="lazy" decoding="async"></div>
-      <div class="ph"><img src="IMG_1967.jpeg" alt="Event candid" loading="lazy" decoding="async"></div>
-      <div class="ph"><img src="IMG_1968.jpeg" alt="Candid fireworks prep" loading="lazy" decoding="async"></div>
-      <div class="ph"><img src="IMG_1985.jpeg" alt="Driveway game action" loading="lazy" decoding="async"></div>
+      <div class="ph" data-cat="boudoir"><img src="IMG_0337.jpeg" alt="Family candid"></div>
+      <div class="ph" data-cat="landscape"><img src="IMG_0463.jpeg" alt="Portrait"></div>
+      <div class="ph" data-cat="wild-life"><img src="IMG_0472.jpeg" alt="Portrait close-up"></div>
+      <div class="ph" data-cat="wild-life"><img src="IMG_0484.jpeg" alt="Event detail"></div>
+      <div class="ph" data-cat="fur-bbys"><img src="IMG_0490.jpeg" alt="Event moment"></div>
+      <div class="ph" data-cat="family"><img src="IMG_0557.jpeg" alt="Family moment"></div>
+      <div class="ph" data-cat="family"><img src="IMG_0610.jpeg" alt="Portrait"></div>
+      <div class="ph" data-cat="events"><img src="IMG_0707.jpeg" alt="Mini session"></div>
+      <div class="ph" data-cat="family"><img src="IMG_0766.jpeg" alt="Playground slide"></div>
+      <div class="ph" data-cat="portraits"><img src="IMG_0791.jpeg" alt="Portrait"></div>
+      <div class="ph" data-cat="portraits"><img src="IMG_0794.jpeg" alt="Event light"></div>
+      <div class="ph" data-cat="portraits"><img src="IMG_0852.jpeg" alt="Portrait"></div>
+      <div class="ph" data-cat="family"><img src="IMG_0857.jpeg" alt="Family candid"></div>
+      <div class="ph" data-cat="family"><img src="IMG_0862.jpeg" alt="Family candid"></div>
+      <div class="ph" data-cat="portraits"><img src="IMG_1136.jpeg" alt="Portrait"></div>
+      <div class="ph" data-cat="family"><img src="IMG_1972.jpeg" alt="Family"></div>
+      <div class="ph" data-cat="events"><img src="IMG_0446.jpeg" alt="Stage performance with fog and warm light"></div>
+      <div class="ph" data-cat="events"><img src="IMG_0695.jpeg" alt="Aerial artist in blue/green light"></div>
+      <div class="ph" data-cat="family"><img src="IMG_0796.jpeg" alt="Carousel candid"></div>
+      <div class="ph" data-cat="portraits"><img src="IMG_1117.jpeg" alt="Candid portrait outdoors"></div>
+      <div class="ph" data-cat="landscape"><img src="IMG_1169.jpeg" alt="Portrait close-up"></div>
+      <div class="ph" data-cat="boudoir"><img src="IMG_1240.jpeg" alt="Kids playing, driveway"></div>
+      <div class="ph" data-cat="portraits"><img src="IMG_1967.jpeg" alt="Event candid"></div>
+      <div class="ph" data-cat="portraits"><img src="IMG_1968.jpeg" alt="Candid fireworks prep"></div>
+      <div class="ph" data-cat="family"><img src="IMG_1985.jpeg" alt="Driveway game action"></div>
     </div>
     <p class="tiny" style="margin-top:10px;color:var(--muted)">
       On-site watermark is for previews only; delivered images are clean unless requested.
@@ -318,7 +346,24 @@ a:focus {
 </footer>
 
 <script>
+  // footer year
   document.getElementById('y').textContent = new Date().getFullYear();
+
+  // gallery filter (show/hide by data-cat)
+  const buttons = document.querySelectorAll('.js-filter');
+  const tiles   = document.querySelectorAll('.gallery .ph');
+
+  buttons.forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const f = btn.dataset.filter;
+      buttons.forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      tiles.forEach(t=>{
+        const cat = (t.dataset.cat || '').split(/\s+/);
+        t.style.display = (f==='all' || cat.includes(f)) ? '' : 'none';
+      });
+    });
+  });
 </script>
 </body>
 </html>
