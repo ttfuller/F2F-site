@@ -40,21 +40,18 @@
       --glass-blur: 6px;
     }
 
-    /* ===== Fixed crest behind all scrolling content =====
-       Put the solid dark background on <html>, keep <body> transparent,
-       and paint the crest on body::before so it shows through panels. */
+    /* ===== Fixed crest behind all scrolling content ===== */
     html{ background: var(--bg); }
     body{ position:relative; background: transparent; }
-
     body::before{
       content:"";
       position: fixed;
       inset: 0;
       background: var(--brand-logo) center 46% / min(1200px,82vw) no-repeat;
-      opacity: .75;                         /* adjust to taste (.60–.85) */
+      opacity: .75;
       filter: grayscale(1) contrast(1.1);
       pointer-events: none;
-      z-index: -1;                          /* sits under all page content */
+      z-index: -1;
     }
 
     /* ===== Base ===== */
@@ -79,16 +76,15 @@
     .pill:link,.pill:visited,.pill:hover,.pill:active{color:var(--ink)}
     .pill.cta{background:#ffffff;color:#0c1117 !important;border-color:transparent;font-weight:700}
 
-   /* ==== Hero ==== */
-#hero{ position:relative; isolation:isolate; }  /* keep section above page crest */
-
-#hero::before{
-  content:"";
-  position:absolute; inset:0;
-  background: rgba(11,15,20,.96);   /* 1 = fully opaque; .92 shows a little through */
-  backdrop-filter: saturate(140%) blur(var(--glass-blur));
-  z-index:-1;                        /* sits between hero content & page crest */
-}
+    /* ==== Hero ==== */
+    #hero{ position:relative; isolation:isolate; }  /* keep section above page crest */
+    #hero::before{
+      content:"";
+      position:absolute; inset:0;
+      background: rgba(11,15,20,.96);   /* 1 = fully opaque; .92 shows a little through */
+      backdrop-filter: saturate(140%) blur(var(--glass-blur));
+      z-index:-1;                        /* sits between hero content & page crest */
+    }
     .hero-logo{
       width:200px; max-width:200px; height:auto; object-fit:contain;
       filter:drop-shadow(0 2px 18px rgba(255,255,255,.05));
@@ -115,6 +111,13 @@
     .price{font-weight:800;font-size:22px;margin:2px 0 8px}
     ul.tiny{margin:0 0 4px 18px;padding:0;color:var(--muted);font-size:18px;line-height:1.6}
     ul.tiny li{margin:4px 0}
+
+    /* --- ONLY CHANGE YOU ASKED: make Packages section less see-through --- */
+    #packages{ background: rgba(11,15,20,0.40); }              /* darker than the default .20 */
+    #packages .card{
+      background: rgba(18,24,33,0.32);                         /* darker panels in this section */
+      backdrop-filter: blur(calc(var(--glass-blur) + 2px));    /* slightly stronger blur here */
+    }
 
     /* ===== Filters (tabs) ===== */
     .filters{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 14px}
@@ -265,7 +268,6 @@
 
     <!-- Masonry gallery -->
     <div class="gallery" id="gallery">
-      
       <!-- Family / Minis -->
       <a class="ph" data-cat="family"><img src="IMG_0446.jpeg" alt="Family/Minis"></a>
       <a class="ph" data-cat="family"><img src="IMG_0610.jpeg" alt="Family/Minis"></a>
@@ -295,7 +297,7 @@
       <!-- Wildlife -->
       <a class="ph" data-cat="wildlife"><img src="IMG_0472.jpeg" alt="Wildlife"></a>
 
-      <!-- Fur-baby’s (IMG_0484 only here, per your instruction) -->
+      <!-- Fur-baby’s (IMG_0484 only here) -->
       <a class="ph" data-cat="furbabys"><img src="IMG_0490.jpeg" alt="Fur-baby’s"></a>
       <a class="ph" data-cat="furbabys"><img src="IMG_0484.jpeg" alt="Fur-baby’s"></a>
 
