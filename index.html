@@ -6,18 +6,19 @@
   <title>Fade to Focus Photography — Omaha</title>
   <meta name="description" content="Candid, moody, real-life images. Real moments > stiff poses." />
 
-<!-- Fonts: Gloock (gothic-style headings) + Cormorant Garamond (body) -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
-  
+  <!-- Fonts: Gloock (headings) + Cormorant Garamond (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+
   <!-- Open Graph preview -->
   <meta property="og:title" content="Fade to Focus Photography" />
   <meta property="og:description" content="Candid, moody, real-life images. Real moments > stiff poses." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" />
-  
+
   <style>
+    /* ===== Theme variables ===== */
     :root{
       --bg:#0b0f14;         /* site background */
       --bg-soft:#121821;    /* cards/panels */
@@ -25,79 +26,61 @@
       --muted:#9aa6b2;      /* secondary text */
       --stroke:#1b2533;     /* borders */
 
-      /* ✅ use your new transparent PNG everywhere (logo + watermark) */
+      /* Branding */
       --brand-logo:url('assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png');
 
-      /* Watermark controls */
+      /* Per-photo watermark controls */
       --wm-opacity:.18;     /* 0–1; raise to darken */
       --wm-size:130px;      /* watermark size on gallery tiles */
       --wm-inset:10px;      /* padding from bottom-right */
+
+      /* Typography */
+      --font-body: "Cormorant Garamond", Garamond, Georgia, serif;
+      --font-head: "Gloock", "Cormorant Garamond", serif;
+
+      /* Full-page fixed watermark */
+      --page-wm-size: 80vmin;   /* 60–90vmin to taste */
+      --page-wm-y: 44vh;        /* vertical placement */
+      --page-wm-opacity: .10;   /* darker = higher */
     }
 
-.title{ font-size:34px; }   /* hero title (was ~28px) */
-h3{ font-size:24px; }       /* section headers */
+    /* One, site-wide watermark pinned behind everything (doesn't scroll) */
+    html::before{
+      content:"";
+      position: fixed; inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background-image: var(--brand-logo);
+      background-repeat: no-repeat;
+      background-position: center var(--page-wm-y);
+      background-size: var(--page-wm-size);
+      opacity: var(--page-wm-opacity);
+      filter: grayscale(1) contrast(1.05);
+    }
+    /* ensure content paints above it */
+    body{ position: relative; z-index: 1; }
 
-@media (min-width:820px){
-  body{ font-size:19px; }   /* one more step up on iPad */
-  .title{ font-size:36px; }
-  h3{ font-size:26px; }
-}
-
-body{
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-}
-    
     *{box-sizing:border-box}
-   html,body{ margin:0; background:var(--bg); color:var(--ink); font:18px/1.7 var(--font-body); }
+    html,body{ margin:0; background:var(--bg); color:var(--ink); font:18px/1.7 var(--font-body); }
     .wrap{max-width:1100px;margin:auto;padding:20px}
 
-/* === Typography overrides === */
-:root{
-  --font-body: "Cormorant Garamond", Garamond, Georgia, serif;
-  --font-head: "Gloock", "Cormorant Garamond", serif;
-}
-/* === Full-page fixed watermark === */
-:root{
-  --page-wm-size: 72vmin;      /* overall size; try 60–90vmin */
-  --page-wm-y: 42vh;           /* vertical position; 50vh = dead center */
-  --page-wm-opacity: .12;      /* darkness; raise for stronger */
-}
+    body{
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      font-family: var(--font-body);
+    }
+    h1,h2,h3,h4,.title,.brand{ font-family: var(--font-head); letter-spacing:.02em; }
 
-/* one, site-wide watermark pinned behind everything */
-html::before{
-  content:"";
-  position: fixed;             /* stays put on scroll */
-  inset: 0;
-  z-index: 0;                  /* behind content */
-  pointer-events: none;
-
-  background-image: var(--brand-logo);
-  background-repeat: no-repeat;
-  background-position: center var(--page-wm-y);
-  background-size: var(--page-wm-size);
-  opacity: var(--page-wm-opacity);
-  filter: grayscale(1) contrast(1.05);
-}
-
-/* ensure all content paints above it */
-body{ position: relative; z-index: 1; }
-    
-/* apply */
-body{ font-family: var(--font-body); }
-h1,h2,h3,h4,.title,.brand{ font-family: var(--font-head); letter-spacing:.02em; }
-    
     /* Header */
     header{
       position:sticky;top:0;z-index:50;
-      background:rgba(11,15,20,.72);
+      background:rgba(11,15,20,.60); /* slightly more transparent so crest shows through */
       backdrop-filter:saturate(140%) blur(8px);
       border-bottom:1px solid var(--stroke);
     }
-    
     .bar{
       display:flex;align-items:center;gap:14px;padding:12px 18px;
-      position:relative; z-index:1; /* keep content above header watermark */
+      position:relative; z-index:1;
     }
     .brand-logo{height:40px;width:auto;display:block}
     nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
@@ -109,18 +92,12 @@ h1,h2,h3,h4,.title,.brand{ font-family: var(--font-head); letter-spacing:.02em; 
     #hero .wrap{padding:54px 20px 36px}
     .hero-inner{display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center}
     .hero-logo{max-width:140px;aspect-ratio:1/1;object-fit:contain;filter:drop-shadow(0 2px 18px rgba(255,255,255,.05))}
-    .title{font-size:28px;font-weight:800;letter-spacing:.5px;margin:0}
+    .title{font-size:34px;font-weight:800;margin:0}
     .tag{color:var(--muted);margin:6px 0 0}
-   {
-      content:""; position:absolute; inset:auto 0 6%; height:240px;
-      background-image:var(--brand-logo);
-      background-repeat:no-repeat; background-position:center; background-size:420px auto;
-      opacity:var(--wm-opacity); pointer-events:none; filter:grayscale(1) contrast(1.1);
-    }
 
     /* Sections */
     section{padding:28px 0;border-top:1px solid var(--stroke);background:var(--bg)}
-    h3{margin:0 0 14px;font-size:20px;letter-spacing:.4px}
+    h3{margin:0 0 14px;font-size:24px;letter-spacing:.4px}
     p.muted{color:var(--muted);margin:8px 0}
 
     /* Cards (Packages/Policies/Contact) */
@@ -128,41 +105,53 @@ h1,h2,h3,h4,.title,.brand{ font-family: var(--font-head); letter-spacing:.02em; 
     @media(min-width:780px){ .cards{grid-template-columns:repeat(3,1fr)} }
     .card{background:var(--bg-soft);border:1px solid var(--stroke);border-radius:16px;padding:16px}
     .price{font-weight:800;font-size:22px;margin:2px 0 8px}
-    ul.tiny{margin:0 0 4px 18px;padding:0;color:var(--muted)}
-    ul.tiny li{margin:2px 0}
+    ul.tiny{margin:0 0 6px 18px;padding:0;color:var(--muted);font-size:18px;line-height:1.6}
+    ul.tiny li{margin:4px 0}
 
-    /* Gallery — Masonry (no gaps, no cropping) */
-.gallery{
-  display:block;           /* turn off CSS grid */
-  column-width:320px;      /* column target width; adjust 300–360 to taste */
-  column-gap:12px;
-}
-
-.ph{
-  display:inline-block;    /* let items flow into columns */
-  width:100%;
-  margin:0 0 12px;
-  background:var(--bg-soft);
-  border:1px solid var(--stroke);
-  border-radius:16px;
-  overflow:hidden;
-  position:relative;       /* keeps your watermark ::after positioned */
-  isolation:isolate;
-  break-inside:avoid;
-  -webkit-column-break-inside:avoid;  /* iOS/Safari */
-}
-
-.ph img{
-  display:block;
-  width:100%;
-  height:auto;             /* keeps true image aspect */
-  object-fit:contain;      /* no cropping */
-  background:#0a0e13;     /* subtle letterbox fill if needed */
-}
-
-/* optional: tweak columns per screen width */
-@media (max-width:480px){ .gallery{ column-width:260px; } }
-@media (min-width:1024px){ .gallery{ column-width:360px; } }
+    /* ===== Gallery — Masonry (no cropping, bigger natural tiles) ===== */
+    .gallery{
+      display:block;              /* not grid */
+      column-width: 380px;        /* ↑ bigger tiles */
+      column-gap:14px;
+    }
+    .ph{
+      display:inline-block;
+      width:100%;
+      margin:0 0 14px;
+      background:var(--bg-soft);
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      overflow:hidden;
+      position:relative;
+      isolation:isolate;
+      break-inside:avoid;
+      -webkit-column-break-inside:avoid;
+    }
+    .ph img{
+      display:block;
+      width:100%;
+      height:auto;                /* natural aspect */
+      object-fit:contain;
+      background:#0a0e13;        /* subtle letterbox */
+    }
+    /* Watermark on each gallery photo (keep subtle) */
+    .ph::after{
+      content:"";
+      position:absolute;
+      right: var(--wm-inset);
+      bottom: var(--wm-inset);
+      width: var(--wm-size);
+      height: var(--wm-size);
+      background-image: var(--brand-logo);
+      background-repeat:no-repeat;
+      background-size:contain;
+      opacity: var(--wm-opacity);
+      pointer-events:none;
+      filter:grayscale(1) contrast(1.1);
+    }
+    /* responsive column sizing */
+    @media (max-width:600px){ .gallery{ column-width:300px; } }
+    @media (min-width:1200px){ .gallery{ column-width:420px; } }
 
     /* Contact */
     .contact{display:flex;flex-wrap:wrap;gap:10px}
@@ -171,121 +160,47 @@ h1,h2,h3,h4,.title,.brand{ font-family: var(--font-head); letter-spacing:.02em; 
 
     footer{border-top:1px solid var(--stroke);color:var(--muted);padding:26px 18px;text-align:center;background:#0a0e13}
     .tiny{font-size:12px;color:var(--muted)}
-    /* === Package bullets (bigger) ======================= */
-ul.tiny{
-  margin:0 0 6px 18px;
-  padding:0;
-  color:var(--muted);
-  font-size:18px;        /* bump size (try 17–18 if you want even bigger) */
-  line-height:1.6;
-}
-ul.tiny li{ margin:4px 0; }
 
-@media (min-width:820px){
-  ul.tiny{ font-size:17px; }
-}
-/* keep nav pills from turning blue */
-.pill,
-.pill:link,
-.pill:visited { color: var(--ink) !important; }
+    /* === Link/pill cleanup (no blue, no underline) === */
+    a,
+    a:link,
+    a:visited,
+    a:hover,
+    a:active,
+    a:focus { color: inherit !important; text-decoration: none !important; outline: none; }
 
-/* keep the white “Book now” pill readable */
-.pill.cta { color: #0c1117 !important; }
-    /* also lock color on hover/focus/active */
-.pill:hover,
-.pill:focus,
-.pill:active { color: var(--ink) !important; text-decoration: none; }
+    .pill,
+    .pill:link,
+    .pill:visited,
+    .pill:hover,
+    .pill:focus,
+    .pill:active { text-decoration:none !important; color:inherit !important; }
 
-/* keep Book now consistent on hover/focus/active */
-.pill.cta:hover,
-.pill.cta:focus,
-.pill.cta:active { color: #0c1117 !important; }
-
-/* --- Link cleanup: no blue, no underline anywhere --- */
-a,
-a:link,
-a:visited,
-a:hover,
-a:active,
-a:focus {
-  color: inherit !important;          /* inherit the surrounding text color */
-  text-decoration: none !important;   /* remove underline in all states */
-  outline: none;
-}
-
-/* Pills: keep clean text (no underline on any state) */
-.pill,
-.pill:link,
-.pill:visited,
-.pill:hover,
-.pill:focus,
-.pill:active {
-  text-decoration: none !important;
-  color: inherit !important;
-}
-
-/* Book-now pill: force black text in every state */
-.pill.cta,
-.pill.cta:link,
-.pill.cta:visited,
-.pill.cta:hover,
-.pill.cta:focus,
-.pill.cta:active {
-  color: #0c1117 !important;   /* near-black */
-  background: #ffffff;         /* keep it white */
-  border-color: transparent;
-  text-decoration: none !important;
-}
-    
-/* Buttons: ensure readable text; keep white button dark text */
-.btn { color: var(--ink) !important; }
-.btn.primary { color: #0c1117 !important; }
+    /* Book-now pill: force black text in every state */
+    .pill.cta,
+    .pill.cta:link,
+    .pill.cta:visited,
+    .pill.cta:hover,
+    .pill.cta:focus,
+    .pill.cta:active { color:#0c1117 !important; background:#ffffff; border-color:transparent; }
 
     /* Category filter pills (above gallery) */
-.gallery-filter{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 12px}
-.gallery-filter .pill{cursor:pointer}
-.gallery-filter .pill.active{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
+    .gallery-filter{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 12px}
+    .gallery-filter .pill{cursor:pointer}
+    .gallery-filter .pill.active{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
 
-/* Gallery: show full image, no cropping */
-.gallery .ph img{
-  display: block;
-  width: 100%;
-  height: auto;            /* let height flow with aspect ratio */
-  object-fit: contain;     /* safe even if a height sneaks in elsewhere */
-  background: #0a0e13;     /* subtle letterbox fill on tall/wide images */
-}
-/* Watermark on each gallery photo */
-.gallery { display:grid; gap:12px; grid-template-columns:repeat(12,1fr) } /* already in your file */
-
-.ph{
-  position: relative;          /* needed for ::after */
-  overflow: hidden;
-  isolation: isolate;          /* keeps overlay crisp above image */
-}
-
-.ph::after{
-  content:"";
-  position: absolute;
-  right: var(--wm-inset);
-  bottom: var(--wm-inset);
-  width: var(--wm-size);
-  height: var(--wm-size);
-  background-image: var(--brand-logo);
-  background-repeat: no-repeat;
-  background-size: contain;
-  opacity: var(--wm-opacity);
-  pointer-events: none;
-  filter: grayscale(1) contrast(1.1);
-}
-  
-    
+    /* Type scale on larger screens */
+    @media (min-width:820px){
+      body{ font-size:19px; }
+      .title{ font-size:36px; }
+      h3{ font-size:26px; }
+    }
   </style>
 </head>
 <body>
 
 <header>
   <div class="bar">
-    <!-- uses the new PNG -->
     <img class="brand-logo" src="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" alt="Fade to Focus Photography logo">
     <nav>
       <a class="pill" href="#packages">Packages</a>
@@ -374,15 +289,18 @@ a:focus {
 <section id="gallery">
   <div class="wrap">
     <h3>Recent Shots</h3>
+
     <div class="gallery-filter" aria-label="Filter gallery">
-  <button class="pill js-filter active" data-filter="all">All</button>
-  <button class="pill js-filter" data-filter="family">Family</button>
-  <button class="pill js-filter" data-filter="portraits">Portraits</button>
-  <button class="pill js-filter" data-filter="minis">Minis</button>
-  <button class="pill js-filter" data-filter="events">Events</button>
-  <button class="pill js-filter" data-filter="boudoir">boudoir</button>
-</div>
+      <button class="pill js-filter active" data-filter="all">All</button>
+      <button class="pill js-filter" data-filter="family">Family</button>
+      <button class="pill js-filter" data-filter="portraits">Portraits</button>
+      <button class="pill js-filter" data-filter="minis">Minis</button>
+      <button class="pill js-filter" data-filter="events">Events</button>
+      <button class="pill js-filter" data-filter="boudoir">Boudoir</button>
+    </div>
+
     <div class="gallery">
+      <!-- your tiles unchanged -->
       <div class="ph" data-cat="boudoir"><img src="IMG_0337.jpeg" alt="Family candid"></div>
       <div class="ph" data-cat="landscape"><img src="IMG_0463.jpeg" alt="Portrait"></div>
       <div class="ph" data-cat="wild-life"><img src="IMG_0472.jpeg" alt="Portrait close-up"></div>
@@ -409,6 +327,7 @@ a:focus {
       <div class="ph" data-cat="portraits"><img src="IMG_1968.jpeg" alt="Candid fireworks prep"></div>
       <div class="ph" data-cat="family"><img src="IMG_1985.jpeg" alt="Driveway game action"></div>
     </div>
+
     <p class="tiny" style="margin-top:10px;color:var(--muted)">
       On-site watermark is for previews only; delivered images are clean unless requested.
     </p>
