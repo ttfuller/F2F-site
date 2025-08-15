@@ -6,16 +6,10 @@
   <title>Fade to Focus Photography — Omaha</title>
   <meta name="description" content="Candid, moody, real-life images. Real moments > stiff poses." />
 
-  <!-- Fonts: Gloock (headings) + Cormorant Garamond (body) -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
-
-  <!-- Open Graph preview -->
-  <meta property="og:title" content="Fade to Focus Photography" />
-  <meta property="og:description" content="Candid, moody, real-life images. Real moments > stiff poses." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" />
 
   <style>
     /* ===== Theme variables ===== */
@@ -30,51 +24,62 @@
       --brand-logo:url('assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png');
 
       /* Per-photo watermark controls */
-      --wm-opacity:.18;     /* 0–1; raise to darken */
-      --wm-size:130px;      /* watermark size on gallery tiles */
-      --wm-inset:10px;      /* padding from bottom-right */
+      --wm-opacity:.18;
+      --wm-size:130px;
+      --wm-inset:10px;
 
       /* Typography */
       --font-body:"Cormorant Garamond", Garamond, Georgia, serif;
       --font-head:"Gloock","Cormorant Garamond", serif;
+
+      /* Glass translucency (lower = more see-through) */
+      --glass-header: 0.30;
+      --glass-section: 0.20;
+      --glass-panel: 0.16;
+      --glass-footer: 0.26;
+      --glass-blur: 6px;
     }
 
-    /* Fixed crest behind all content (peeks through panels) */
-    html::before{
-  content:"";
-  position:fixed; inset:0;
-  background: var(--brand-logo) center 35% / min(1200px,82vw) no-repeat; /* was 900px */
-  opacity:.75;  /* was .60 — stronger so it shows through */
-  filter:grayscale(1) contrast(1.1);
-  pointer-events:none;
-  z-index:0;
-}
-    body{ position:relative; z-index:1; }
+    /* ===== Fixed crest behind all scrolling content =====
+       Put the solid dark background on <html>, keep <body> transparent,
+       and paint the crest on body::before so it shows through panels. */
+    html{ background: var(--bg); }
+    body{ position:relative; background: transparent; }
 
-    /* Base */
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background: var(--brand-logo) center 46% / min(1200px,82vw) no-repeat;
+      opacity: .75;                         /* adjust to taste (.60–.85) */
+      filter: grayscale(1) contrast(1.1);
+      pointer-events: none;
+      z-index: -1;                          /* sits under all page content */
+    }
+
+    /* ===== Base ===== */
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.7 var(--font-body)}
+    html,body{margin:0;color:var(--ink);font:18px/1.7 var(--font-body)}
     .wrap{max-width:1100px;margin:auto;padding:20px}
 
-    /* Links: keep neutral (no blue or underline) */
-    a{color:inherit;text-decoration:none}
-    a:hover,a:active,a:focus{color:inherit;text-decoration:none;outline:none}
+    /* Links neutral (no blue, no underline) */
+    a, a:link, a:visited, a:hover, a:active{ color:inherit; text-decoration:none; }
 
-    /* Header */
+    /* ===== Header ===== */
     header{
       position:sticky; top:0; z-index:50;
-      background:rgba(11,15,20,.55); /* translucent so crest shows a bit */
-      backdrop-filter:saturate(140%) blur(8px);
+      background: rgba(11,15,20,var(--glass-header));
       border-bottom:1px solid var(--stroke);
+      backdrop-filter: saturate(140%) blur(var(--glass-blur));
     }
     .bar{display:flex;align-items:center;gap:14px;padding:12px 18px}
     .brand-logo{height:40px;width:auto;display:block}
     nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
     .pill{padding:8px 14px;border:1px solid #243244;border-radius:999px;background:#0f1520}
-    .pill:link,.pill:visited,.pill:hover,.pill:active{color:var(--ink) !important}
+    .pill:link,.pill:visited,.pill:hover,.pill:active{color:var(--ink)}
     .pill.cta{background:#ffffff;color:#0c1117 !important;border-color:transparent;font-weight:700}
 
-    /* Hero */
+    /* ===== Hero ===== */
     #hero{position:relative}
     #hero .wrap{padding:54px 20px 36px}
     .hero-inner{
@@ -94,33 +99,40 @@
     .title{font-family:var(--font-head); font-size:34px; font-weight:800; letter-spacing:.02em; margin:0}
     .tag{color:var(--muted); margin:6px 0 0}
 
-    /* Sections / cards */
-    section{padding:28px 0;border-top:1px solid var(--stroke);background:rgba(11,15,20,.58)}
+    /* ===== Sections / cards ===== */
+    section{padding:28px 0;border-top:1px solid var(--stroke);background: rgba(11,15,20,var(--glass-section))}
     h3{margin:0 0 14px;font:24px/1.2 var(--font-head);letter-spacing:.4px}
     .cards{display:grid;gap:12px}
     @media(min-width:780px){ .cards{grid-template-columns:repeat(3,1fr)} }
     .card{
-      background:rgba(18,24,33,.82);
+      background: rgba(18,24,33,var(--glass-panel));
       border:1px solid var(--stroke);
       border-radius:16px;
       padding:16px;
+      backdrop-filter: blur(calc(var(--glass-blur) - 2px));
     }
     .price{font-weight:800;font-size:22px;margin:2px 0 8px}
     ul.tiny{margin:0 0 4px 18px;padding:0;color:var(--muted);font-size:18px;line-height:1.6}
     ul.tiny li{margin:4px 0}
 
-    /* Gallery: masonry, no cropping */
-    #gallery .wrap{padding-top:10px}
+    /* ===== Filters (tabs) ===== */
     .filters{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 14px}
-    .filters .pill[aria-pressed="true"]{outline:2px solid rgba(255,255,255,.18)}
+    .filters .pill{color:var(--ink)}
+    .filters .pill.active{outline:2px solid rgba(255,255,255,.18)}
+
+    /* ===== Masonry gallery: no cropping ===== */
     .gallery{column-width:340px; column-gap:12px}
     .hidden{display:none !important}
     .ph{
       display:block; break-inside:avoid; position:relative; overflow:hidden;
-      background:rgba(18,24,33,.82); border:1px solid var(--stroke); border-radius:16px;
+      background: rgba(18,24,33,var(--glass-panel));
+      border:1px solid var(--stroke); border-radius:16px;
       margin:0 0 12px;
+      backdrop-filter: blur(calc(var(--glass-blur) - 2px));
     }
     .ph img{display:block;width:100%;height:auto;object-fit:contain}
+
+    /* Watermark on each photo */
     .ph::after{
       content:""; position:absolute; right:var(--wm-inset); bottom:var(--wm-inset);
       width:var(--wm-size); height:var(--wm-size);
@@ -128,77 +140,30 @@
       opacity:var(--wm-opacity); pointer-events:none; filter:grayscale(1) contrast(1.1);
     }
 
-    /* Buttons (contact) */
+    /* ===== Contact buttons ===== */
     .contact{display:flex;flex-wrap:wrap;gap:10px}
     .btn{padding:10px 14px;border-radius:10px;border:1px solid var(--stroke);background:#0f1520}
     .btn.primary{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
 
-/* Neutralize link colors site-wide (no blue, no underlines) */
-a, a:link, a:visited, a:hover, a:active{
-  color: inherit !important;
-  text-decoration: none !important;
-}
-
-/* Filter tabs: keep text the site color, never blue */
-.filters .pill,
-.filters .pill:hover,
-.filters .pill:active,
-.filters .pill:focus{
-  color: var(--ink) !important;
-  text-decoration: none !important;
-  outline: none;
-}
-    
-    /* Footer */
-    footer{border-top:1px solid var(--stroke);color:var(--muted);padding:26px 18px;text-align:center;background:rgba(10,14,19,.66)}
+    /* ===== Footer ===== */
+    footer{
+      border-top:1px solid var(--stroke);
+      color:var(--muted);
+      padding:26px 18px;
+      text-align:center;
+      background: rgba(10,14,19,var(--glass-footer));
+    }
     .tiny{font-size:12px;color:var(--muted)}
-
-    /* === GLASS TRANSPARENCY TUNING (paste at end of <style>) === */
-:root{
-  /* Lower number = more see-through. Raise if text gets hard to read. */
-  --glass-header: 0.26;   /* header bar */
-  --glass-section: 0.18;  /* page sections */
-  --glass-panel: 0.14;    /* cards + photo tiles */
-  --glass-footer: 0.22;   /* footer */
-  --glass-blur: 8px;      /* optional blur of the crest behind the panels */
-}
-
-/* make the scrolling UI translucent so the fixed crest shows through */
-header{
-  background: rgba(11,15,20,var(--glass-header)) !important;
-  backdrop-filter: saturate(140%) blur(var(--glass-blur));
-}
-
-section{
-  background: rgba(11,15,20,var(--glass-section)) !important;
-}
-
-.card,
-.ph{
-  background-color: rgba(18,24,33,var(--glass-panel)) !important;
-  backdrop-filter: blur(calc(var(--glass-blur) - 2px));
-}
-
-footer{
-  background: rgba(10,14,19,var(--glass-footer)) !important;
-}
-
-/* keep links neutral (no blue/underline) even on translucent panels */
-a, a:link, a:visited, a:hover, a:active{
-  color: inherit !important;
-  text-decoration: none !important;
-}
-  
   </style>
 </head>
 <body>
 
 <header>
-  <div class="bar">
+  <div class="bar wrap">
     <img class="brand-logo" src="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" alt="Fade to Focus Photography logo">
     <nav>
       <a class="pill" href="#packages">Packages</a>
-      <a class="pill" href="#gallery">Recent shots</a>
+      <a class="pill" href="#shots">Recent shots</a>
       <a class="pill" href="#contact">Contact</a>
       <a class="pill cta" href="mailto:book@fadetofocusphoto.com?subject=Book%20a%20session">Book now</a>
     </nav>
@@ -257,7 +222,7 @@ a, a:link, a:visited, a:hover, a:active{
         <ul class="tiny">
           <li>Private, body-positive, consent-forward</li>
           <li>Studio, on-location, or in-home</li>
-          <li>Email for details/portfolio, styling, and rates</li>
+          <li>Email for details, styling, and rates</li>
         </ul>
         <a class="btn" href="mailto:book@fadetofocusphoto.com?subject=Boudoir%20Inquiry%20(18%2B)">Request details</a>
       </div>
@@ -282,66 +247,71 @@ a, a:link, a:visited, a:hover, a:active{
   </div>
 </section>
 
-<section id="gallery">
+<section id="shots">
   <div class="wrap">
-    <h3>Sample work</h3>
+    <h3>Recent shots</h3>
 
-    <!-- 🔹 FILTER TABS -->
-    <div class="filters">
-  <button class="pill active" data-filter="all">All</button>
-  <button class="pill" data-filter="family">Family / Minis</button>
-  <button class="pill" data-filter="portraits">Portraits</button>
-  <button class="pill" data-filter="events">Events</button>
-  <button class="pill" data-filter="landscape">Landscape</button>
-  <button class="pill" data-filter="wildlife">Wildlife</button>
-  <button class="pill" data-filter="furbabys">Fur-baby’s</button>
-</div>
+    <!-- Filter tabs -->
+    <div class="filters" role="tablist" aria-label="Filter gallery">
+      <button class="pill active" data-filter="all">All</button>
+      <button class="pill" data-filter="boudoir">Boudoir</button>
+      <button class="pill" data-filter="family">Family / Minis</button>
+      <button class="pill" data-filter="portraits">Portraits</button>
+      <button class="pill" data-filter="events">Events</button>
+      <button class="pill" data-filter="landscape">Landscape</button>
+      <button class="pill" data-filter="wildlife">Wildlife</button>
+      <button class="pill" data-filter="furbabys">Fur-baby’s</button>
+    </div>
 
-    <div class="gallery">
-  
-  <!-- Family / Minis -->
-  <div class="ph" data-cat="family"><img src="IMG_0446.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0610.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0766.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0794.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0796.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0852.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0857.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0862.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_1972.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0801.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_1985.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0795.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0805.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0825.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_0821.jpeg" alt="Family/Minis"></div>
-  <div class="ph" data-cat="family"><img src="IMG_1631.jpeg" alt="Family/Minis"></div>
+    <!-- Masonry gallery -->
+    <div class="gallery" id="gallery">
+      <!-- Boudoir -->
+      <a class="ph" data-cat="boudoir"><img src="IMG_0337.jpeg" alt="Boudoir"></a>
+      <a class="ph" data-cat="boudoir"><img src="IMG_1240.jpeg" alt="Boudoir"></a>
 
-  <!-- Events -->
-  <div class="ph" data-cat="events"><img src="IMG_0695.jpeg" alt="Event"></div>
-  <div class="ph" data-cat="events"><img src="IMG_0707.jpeg" alt="Event"></div>
+      <!-- Family / Minis -->
+      <a class="ph" data-cat="family"><img src="IMG_0446.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0610.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0766.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0794.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0796.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0852.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0857.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0862.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_1972.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0801.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_1985.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0795.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0805.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0825.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_0821.jpeg" alt="Family/Minis"></a>
+      <a class="ph" data-cat="family"><img src="IMG_1631.jpeg" alt="Family/Minis"></a>
 
-  <!-- Landscape -->
-  <div class="ph" data-cat="landscape"><img src="IMG_0463.jpeg" alt="Landscape"></div>
-  <div class="ph" data-cat="landscape"><img src="IMG_1169.jpeg" alt="Landscape"></div>
+      <!-- Events -->
+      <a class="ph" data-cat="events"><img src="IMG_0695.jpeg" alt="Event"></a>
+      <a class="ph" data-cat="events"><img src="IMG_0707.jpeg" alt="Event"></a>
 
-  <!-- Wildlife -->
-  <div class="ph" data-cat="wildlife"><img src="IMG_0472.jpeg" alt="Wildlife"></div>
+      <!-- Landscape -->
+      <a class="ph" data-cat="landscape"><img src="IMG_0463.jpeg" alt="Landscape"></a>
+      <a class="ph" data-cat="landscape"><img src="IMG_1169.jpeg" alt="Landscape"></a>
 
-  <!-- Fur-baby’s -->
-  <div class="ph" data-cat="furbabys"><img src="IMG_0490.jpeg" alt="Fur-baby’s"></div>
-  <div class="ph" data-cat="furbabys"><img src="IMG_0484.jpeg" alt="Fur-baby’s"></div>
+      <!-- Wildlife -->
+      <a class="ph" data-cat="wildlife"><img src="IMG_0472.jpeg" alt="Wildlife"></a>
 
-  <!-- Portraits -->
-  <div class="ph" data-cat="portraits"><img src="IMG_0557.jpeg" alt="Portrait"></div>
-  <div class="ph" data-cat="portraits"><img src="IMG_0791.jpeg" alt="Portrait"></div>
-  <div class="ph" data-cat="portraits"><img src="IMG_1117.jpeg" alt="Portrait"></div>
-  <div class="ph" data-cat="portraits"><img src="IMG_1136.jpeg" alt="Portrait"></div>
-  <div class="ph" data-cat="portraits"><img src="IMG_1967.jpeg" alt="Portrait"></div>
-  <div class="ph" data-cat="portraits"><img src="IMG_1968.jpeg" alt="Portrait"></div>
-</div>
+      <!-- Fur-baby’s (IMG_0484 only here, per your instruction) -->
+      <a class="ph" data-cat="furbabys"><img src="IMG_0490.jpeg" alt="Fur-baby’s"></a>
+      <a class="ph" data-cat="furbabys"><img src="IMG_0484.jpeg" alt="Fur-baby’s"></a>
 
-    <p class="tiny" style="margin-top:10px">
+      <!-- Portraits -->
+      <a class="ph" data-cat="portraits"><img src="IMG_0557.jpeg" alt="Portrait"></a>
+      <a class="ph" data-cat="portraits"><img src="IMG_0791.jpeg" alt="Portrait"></a>
+      <a class="ph" data-cat="portraits"><img src="IMG_1117.jpeg" alt="Portrait"></a>
+      <a class="ph" data-cat="portraits"><img src="IMG_1136.jpeg" alt="Portrait"></a>
+      <a class="ph" data-cat="portraits"><img src="IMG_1967.jpeg" alt="Portrait"></a>
+      <a class="ph" data-cat="portraits"><img src="IMG_1968.jpeg" alt="Portrait"></a>
+    </div>
+
+    <p class="tiny" style="margin-top:10px;color:var(--muted)">
       On-site watermark is for previews only; delivered images are clean unless requested.
     </p>
   </div>
@@ -365,22 +335,21 @@ a, a:link, a:visited, a:hover, a:active{
 </footer>
 
 <script>
-  // copyright year
+  // year
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // simple gallery filtering
-  const buttons = document.querySelectorAll('.filters [data-filter]');
-  const items = document.querySelectorAll('.gallery .ph');
+  // simple tab filter
+  const tabs = document.querySelectorAll('.filters .pill');
+  const items = document.querySelectorAll('#gallery .ph, .gallery .ph');
 
-  buttons.forEach(btn=>{
+  tabs.forEach(btn=>{
     btn.addEventListener('click', ()=>{
-      buttons.forEach(b=>b.setAttribute('aria-pressed','false'));
-      btn.setAttribute('aria-pressed','true');
-
+      document.querySelector('.filters .pill.active')?.classList.remove('active');
+      btn.classList.add('active');
       const f = btn.dataset.filter;
       items.forEach(el=>{
-        const cat = el.dataset.cat || 'all';
-        el.classList.toggle('hidden', !(f==='all' || cat===f));
+        const cats = (el.dataset.cat || '').split(/\s+/);
+        el.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
       });
     });
   });
