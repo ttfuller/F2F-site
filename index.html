@@ -41,14 +41,14 @@
 
     /* Fixed crest behind all content (peeks through panels) */
     html::before{
-      content:"";
-      position:fixed; inset:0;
-      background: var(--brand-logo) center 35% / min(900px,82vw) no-repeat;
-      opacity:.60;                      /* ⬅️ made stronger so it shows more */
-      filter:grayscale(1) contrast(1.1);
-      pointer-events:none;
-      z-index:0;
-    }
+  content:"";
+  position:fixed; inset:0;
+  background: var(--brand-logo) center 35% / min(1200px,82vw) no-repeat; /* was 900px */
+  opacity:.75;  /* was .60 — stronger so it shows through */
+  filter:grayscale(1) contrast(1.1);
+  pointer-events:none;
+  z-index:0;
+}
     body{ position:relative; z-index:1; }
 
     /* Base */
@@ -156,11 +156,11 @@ a, a:link, a:visited, a:hover, a:active{
     /* === GLASS TRANSPARENCY TUNING (paste at end of <style>) === */
 :root{
   /* Lower number = more see-through. Raise if text gets hard to read. */
-  --glass-header: 0.30;   /* header bar */
-  --glass-section: 0.20;  /* page sections */
-  --glass-panel: 0.16;    /* cards + photo tiles */
-  --glass-footer: 0.26;   /* footer */
-  --glass-blur: 6px;      /* optional blur of the crest behind the panels */
+  --glass-header: 0.26;   /* header bar */
+  --glass-section: 0.18;  /* page sections */
+  --glass-panel: 0.14;    /* cards + photo tiles */
+  --glass-footer: 0.22;   /* footer */
+  --glass-blur: 8px;      /* optional blur of the crest behind the panels */
 }
 
 /* make the scrolling UI translucent so the fixed crest shows through */
