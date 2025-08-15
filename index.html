@@ -57,7 +57,32 @@ body{
   --font-body: "Cormorant Garamond", Garamond, Georgia, serif;
   --font-head: "Gloock", "Cormorant Garamond", serif;
 }
+/* === Full-page fixed watermark === */
+:root{
+  --page-wm-size: 72vmin;      /* overall size; try 60–90vmin */
+  --page-wm-y: 42vh;           /* vertical position; 50vh = dead center */
+  --page-wm-opacity: .12;      /* darkness; raise for stronger */
+}
 
+/* one, site-wide watermark pinned behind everything */
+html::before{
+  content:"";
+  position: fixed;             /* stays put on scroll */
+  inset: 0;
+  z-index: 0;                  /* behind content */
+  pointer-events: none;
+
+  background-image: var(--brand-logo);
+  background-repeat: no-repeat;
+  background-position: center var(--page-wm-y);
+  background-size: var(--page-wm-size);
+  opacity: var(--page-wm-opacity);
+  filter: grayscale(1) contrast(1.05);
+}
+
+/* ensure all content paints above it */
+body{ position: relative; z-index: 1; }
+    
 /* apply */
 body{ font-family: var(--font-body); }
 h1,h2,h3,h4,.title,.brand{ font-family: var(--font-head); letter-spacing:.02em; }
@@ -86,8 +111,7 @@ h1,h2,h3,h4,.title,.brand{ font-family: var(--font-head); letter-spacing:.02em; 
     .hero-logo{max-width:140px;aspect-ratio:1/1;object-fit:contain;filter:drop-shadow(0 2px 18px rgba(255,255,255,.05))}
     .title{font-size:28px;font-weight:800;letter-spacing:.5px;margin:0}
     .tag{color:var(--muted);margin:6px 0 0}
-    /* subtle watermark behind hero */
-    #hero::after{
+   {
       content:""; position:absolute; inset:auto 0 6%; height:240px;
       background-image:var(--brand-logo);
       background-repeat:no-repeat; background-position:center; background-size:420px auto;
