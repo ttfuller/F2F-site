@@ -38,25 +38,10 @@
       --font-body: "Cormorant Garamond", Garamond, Georgia, serif;
       --font-head: "Gloock", "Cormorant Garamond", serif;
 
-      /* Full-page fixed watermark */
-      --page-wm-size: 80vmin;   /* 60–90vmin to taste */
-      --page-wm-y: 44vh;        /* vertical placement */
-      --page-wm-opacity: .10;   /* darker = higher */
+
     }
 
-    /* One, site-wide watermark pinned behind everything (doesn't scroll) */
-    html::before{
-      content:"";
-      position: fixed; inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      background-image: var(--brand-logo);
-      background-repeat: no-repeat;
-      background-position: center var(--page-wm-y);
-      background-size: var(--page-wm-size);
-      opacity: var(--page-wm-opacity);
-      filter: grayscale(1) contrast(1.05);
-    }
+    
     /* ensure content paints above it */
     body{ position: relative; z-index: 1; }
 
