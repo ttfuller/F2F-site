@@ -107,21 +107,38 @@ h1,h2,h3,h4,.title,.brand{ font-family: var(--font-head); letter-spacing:.02em; 
     ul.tiny{margin:0 0 4px 18px;padding:0;color:var(--muted)}
     ul.tiny li{margin:2px 0}
 
-    /* Gallery */
-    .gallery{display:grid;gap:12px;grid-template-columns:repeat(12,1fr)}
-    .ph{
-      grid-column:span 6; background:var(--bg-soft); border:1px solid var(--stroke);
-      border-radius:16px; overflow:hidden; position:relative; isolation:isolate;
-    }
-    .ph img{display:block;width:100%;height:100%;object-fit:cover}
-    /* watermark over each tile */
-    .ph::after{
-      content:""; position:absolute; right:var(--wm-inset); bottom:var(--wm-inset);
-      width:var(--wm-size); height:var(--wm-size);
-      background-image:var(--brand-logo); background-size:contain; background-repeat:no-repeat;
-      opacity:var(--wm-opacity); pointer-events:none; filter:grayscale(1) contrast(1.1);
-    }
-    @media(min-width:740px){ .ph{grid-column:span 4} }
+    /* Gallery — Masonry (no gaps, no cropping) */
+.gallery{
+  display:block;           /* turn off CSS grid */
+  column-width:320px;      /* column target width; adjust 300–360 to taste */
+  column-gap:12px;
+}
+
+.ph{
+  display:inline-block;    /* let items flow into columns */
+  width:100%;
+  margin:0 0 12px;
+  background:var(--bg-soft);
+  border:1px solid var(--stroke);
+  border-radius:16px;
+  overflow:hidden;
+  position:relative;       /* keeps your watermark ::after positioned */
+  isolation:isolate;
+  break-inside:avoid;
+  -webkit-column-break-inside:avoid;  /* iOS/Safari */
+}
+
+.ph img{
+  display:block;
+  width:100%;
+  height:auto;             /* keeps true image aspect */
+  object-fit:contain;      /* no cropping */
+  background:#0a0e13;     /* subtle letterbox fill if needed */
+}
+
+/* optional: tweak columns per screen width */
+@media (max-width:480px){ .gallery{ column-width:260px; } }
+@media (min-width:1024px){ .gallery{ column-width:360px; } }
 
     /* Contact */
     .contact{display:flex;flex-wrap:wrap;gap:10px}
@@ -315,6 +332,7 @@ a:focus {
   <button class="pill js-filter" data-filter="portraits">Portraits</button>
   <button class="pill js-filter" data-filter="minis">Minis</button>
   <button class="pill js-filter" data-filter="events">Events</button>
+  <button class="pill js-filter" data-filter="boudoir">boudoir</button>
 </div>
     <div class="gallery">
       <div class="ph" data-cat="boudoir"><img src="IMG_0337.jpeg" alt="Family candid"></div>
@@ -322,20 +340,20 @@ a:focus {
       <div class="ph" data-cat="wild-life"><img src="IMG_0472.jpeg" alt="Portrait close-up"></div>
       <div class="ph" data-cat="wild-life"><img src="IMG_0484.jpeg" alt="Event detail"></div>
       <div class="ph" data-cat="fur-bbys"><img src="IMG_0490.jpeg" alt="Event moment"></div>
-      <div class="ph" data-cat="family"><img src="IMG_0557.jpeg" alt="Family moment"></div>
-      <div class="ph" data-cat="family"><img src="IMG_0610.jpeg" alt="Portrait"></div>
+      <div class="ph" data-cat="portraits"><img src="IMG_0557.jpeg" alt="Family moment"></div>
+      <div class="ph" data-cat="minis"><img src="IMG_0610.jpeg" alt="Portrait"></div>
       <div class="ph" data-cat="events"><img src="IMG_0707.jpeg" alt="Mini session"></div>
       <div class="ph" data-cat="family"><img src="IMG_0766.jpeg" alt="Playground slide"></div>
       <div class="ph" data-cat="portraits"><img src="IMG_0791.jpeg" alt="Portrait"></div>
       <div class="ph" data-cat="portraits"><img src="IMG_0794.jpeg" alt="Event light"></div>
       <div class="ph" data-cat="portraits"><img src="IMG_0852.jpeg" alt="Portrait"></div>
-      <div class="ph" data-cat="family"><img src="IMG_0857.jpeg" alt="Family candid"></div>
-      <div class="ph" data-cat="family"><img src="IMG_0862.jpeg" alt="Family candid"></div>
+      <div class="ph" data-cat="minis"><img src="IMG_0857.jpeg" alt="Family candid"></div>
+      <div class="ph" data-cat="minis"><img src="IMG_0862.jpeg" alt="Family candid"></div>
       <div class="ph" data-cat="portraits"><img src="IMG_1136.jpeg" alt="Portrait"></div>
       <div class="ph" data-cat="family"><img src="IMG_1972.jpeg" alt="Family"></div>
       <div class="ph" data-cat="events"><img src="IMG_0446.jpeg" alt="Stage performance with fog and warm light"></div>
       <div class="ph" data-cat="events"><img src="IMG_0695.jpeg" alt="Aerial artist in blue/green light"></div>
-      <div class="ph" data-cat="family"><img src="IMG_0796.jpeg" alt="Carousel candid"></div>
+      <div class="ph" data-cat="minis"><img src="IMG_0796.jpeg" alt="Carousel candid"></div>
       <div class="ph" data-cat="portraits"><img src="IMG_1117.jpeg" alt="Candid portrait outdoors"></div>
       <div class="ph" data-cat="landscape"><img src="IMG_1169.jpeg" alt="Portrait close-up"></div>
       <div class="ph" data-cat="boudoir"><img src="IMG_1240.jpeg" alt="Kids playing, driveway"></div>
