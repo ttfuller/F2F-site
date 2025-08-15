@@ -26,6 +26,19 @@
       --muted:#9aa6b2;      /* secondary text */
       --stroke:#1b2533;     /* borders */
 
+      /* Site-wide fixed crest behind everything */
+html::before{
+  content:"";
+  position: fixed; inset: 0;
+  background: var(--brand-logo) center 35% / min(860px, 80vw) no-repeat;
+  opacity:.10;                          /* visibility of the crest */
+  filter: grayscale(1) contrast(1.08);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ensure all page content sits above it */
+body{ position:relative; z-index:1; }
       /* Branding */
       --brand-logo:url('assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png');
 
@@ -63,19 +76,6 @@
       backdrop-filter:saturate(140%) blur(8px);
       border-bottom:1px solid var(--stroke);
     }
-/* subtle crest behind the header bar only */
-header::before{
-  content:"";
-  position:absolute;
-  inset:0;                             /* fill the header */
-  background-image: var(--brand-logo);
-  background-repeat: no-repeat;
-  background-position: 18px center;    /* move left/right as needed */
-  background-size: 118px auto;         /* change size here */
-  opacity: .22;                        /* darker/lighter here */
-  pointer-events: none;
-  z-index: 0;
-}
 
 /* ensure nav content sits above it */
 .bar{ position:relative; z-index:1; }
@@ -191,6 +191,12 @@ header::before{
     .gallery-filter .pill{cursor:pointer}
     .gallery-filter .pill.active{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
 
+/* translucent surfaces so the background crest peeks through */
+header{ background: rgba(11,15,20,.60); }                 /* you already have similar */
+section{ background: rgba(11,15,20,.65); }                /* was var(--bg) solid */
+.card,.ph{ background-color: rgba(18,24,33,.86) !important; }
+footer{ background: rgba(10,14,19,.70); }
+    
     /* Type scale on larger screens */
     @media (min-width:820px){
       body{ font-size:19px; }
