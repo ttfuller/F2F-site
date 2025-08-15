@@ -130,6 +130,35 @@ h1,h2,h3,h4,.title,.brand{ font-family: var(--font-head); letter-spacing:.02em; 
 
     footer{border-top:1px solid var(--stroke);color:var(--muted);padding:26px 18px;text-align:center;background:#0a0e13}
     .tiny{font-size:12px;color:var(--muted)}
+    /* === Package bullets (bigger) ======================= */
+ul.tiny{
+  margin:0 0 6px 18px;
+  padding:0;
+  color:var(--muted);
+  font-size:18px;        /* bump size (try 17–18 if you want even bigger) */
+  line-height:1.6;
+}
+ul.tiny li{ margin:4px 0; }
+
+@media (min-width:820px){
+  ul.tiny{ font-size:17px; }
+}
+/* keep nav pills from turning blue */
+.pill,
+.pill:link,
+.pill:visited { color: var(--ink) !important; }
+
+/* keep the white “Book now” pill readable */
+.pill.cta { color: #0c1117 !important; }
+    /* also lock color on hover/focus/active */
+.pill:hover,
+.pill:focus,
+.pill:active { color: var(--ink) !important; text-decoration: none; }
+
+/* keep Book now consistent on hover/focus/active */
+.pill.cta:hover,
+.pill.cta:focus,
+.pill.cta:active { color: #0c1117 !important; }
   </style>
 </head>
 <body>
