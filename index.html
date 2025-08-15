@@ -20,32 +20,12 @@
   <style>
     /* ===== Theme variables ===== */
     :root{
-      --bg:#0b0f14;         /* site background */
-      --bg-soft:#121821;    /* cards/panels */
-      --ink:#e9edf2;        /* main text */
-      --muted:#9aa6b2;      /* secondary text */
-      --stroke:#1b2533;     /* borders */
+      --bg:#0b0f14;
+      --bg-soft:#121821;
+      --ink:#e9edf2;
+      --muted:#9aa6b2;
+      --stroke:#1b2533;
 
-      /* Site-wide fixed crest – more visible */
-html::before{
-  content:"";
-  position: fixed; inset: 0;
-  background: var(--brand-logo) center 35% / min(900px, 82vw) no-repeat;
-  opacity:.22;                           /* was .10 — raise to show more */
-  filter: grayscale(1) contrast(1.1);
-  pointer-events:none;
-  z-index:0;
-}
-body{ position:relative; z-index:1; }
-
-/* Let the crest peek through panels a bit more */
-header{ background: rgba(11,15,20,.55); }        /* was ~.60–.72 */
-section{ background: rgba(11,15,20,.58); }       /* make sections translucent */
-.card,.ph{ background-color: rgba(18,24,33,.82) !important; }
-footer{ background: rgba(10,14,19,.66); }
-
-/* ensure all page content sits above it */
-body{ position:relative; z-index:1; }
       /* Branding */
       --brand-logo:url('assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png');
 
@@ -55,192 +35,104 @@ body{ position:relative; z-index:1; }
       --wm-inset:10px;      /* padding from bottom-right */
 
       /* Typography */
-      --font-body: "Cormorant Garamond", Garamond, Georgia, serif;
-      --font-head: "Gloock", "Cormorant Garamond", serif;
-
-
+      --font-body:"Cormorant Garamond", Garamond, Georgia, serif;
+      --font-head:"Gloock","Cormorant Garamond", serif;
     }
 
-    
-    /* ensure content paints above it */
-    body{ position: relative; z-index: 1; }
+    /* Fixed crest behind all content (peeks through panels) */
+    html::before{
+      content:"";
+      position:fixed; inset:0;
+      background: var(--brand-logo) center 35% / min(900px,82vw) no-repeat;
+      opacity:.22;                      /* tweak if you want more/less visible */
+      filter:grayscale(1) contrast(1.1);
+      pointer-events:none;
+      z-index:0;
+    }
+    body{ position:relative; z-index:1; }
 
+    /* Base */
     *{box-sizing:border-box}
-    html,body{ margin:0; background:var(--bg); color:var(--ink); font:18px/1.7 var(--font-body); }
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:18px/1.7 var(--font-body)}
     .wrap{max-width:1100px;margin:auto;padding:20px}
 
-    body{
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      font-family: var(--font-body);
-    }
-    h1,h2,h3,h4,.title,.brand{ font-family: var(--font-head); letter-spacing:.02em; }
+    /* Links: keep neutral (no blue or underline) */
+    a{color:inherit;text-decoration:none}
+    a:hover,a:active,a:focus{color:inherit;text-decoration:none;outline:none}
 
     /* Header */
     header{
-      position:sticky;top:0;z-index:50;
-      background:rgba(11,15,20,.60); /* slightly more transparent so crest shows through */
+      position:sticky; top:0; z-index:50;
+      background:rgba(11,15,20,.55); /* translucent so crest shows a bit */
       backdrop-filter:saturate(140%) blur(8px);
       border-bottom:1px solid var(--stroke);
     }
-
-/* ensure nav content sits above it */
-.bar{ position:relative; z-index:1; }
-  
-    .bar{
-      display:flex;align-items:center;gap:14px;padding:12px 18px;
-      position:relative; z-index:1;
-    }
+    .bar{display:flex;align-items:center;gap:14px;padding:12px 18px}
     .brand-logo{height:40px;width:auto;display:block}
     nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
     .pill{padding:8px 14px;border:1px solid #243244;border-radius:999px;background:#0f1520}
-    .cta{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:600}
+    .pill:link,.pill:visited,.pill:hover,.pill:active{color:var(--ink) !important}
+    .pill.cta{background:#ffffff;color:#0c1117 !important;border-color:transparent;font-weight:700}
 
     /* Hero */
-    #hero{position:relative;background:linear-gradient(180deg,#0c1117,#0a0e13 55%,#090d11)}
+    #hero{position:relative}
     #hero .wrap{padding:54px 20px 36px}
-    
-    /* make the left hero logo bigger */
-.hero-inner{
-  display:grid;
-  grid-template-columns: 200px 1fr;   /* was 140px 1fr */
-  gap:22px;
-  align-items:center;
-}
-.hero-logo{
-  width:200px;                         /* was max-width:140px */
-  max-width:200px;
-  height:auto;
-  object-fit:contain;
-  filter:drop-shadow(0 2px 18px rgba(255,255,255,.05));
-}
-    @media (max-width: 480px){
-  .hero-inner{ grid-template-columns: 150px 1fr; }
-  .hero-logo{ width:150px; max-width:150px; }
+    .hero-inner{
+      display:grid;
+      grid-template-columns:200px 1fr; /* bigger logo */
+      gap:22px;
+      align-items:center;
+    }
+    .hero-logo{
+      width:200px; max-width:200px; height:auto; object-fit:contain;
+      filter:drop-shadow(0 2px 18px rgba(255,255,255,.05));
+    }
+    @media (max-width:480px){
+      .hero-inner{ grid-template-columns:150px 1fr; }
+      .hero-logo{ width:150px; max-width:150px; }
+    }
+    .title{font-family:var(--font-head); font-size:34px; font-weight:800; letter-spacing:.02em; margin:0}
+    .tag{color:var(--muted); margin:6px 0 0}
 
-    .title{font-size:34px;font-weight:800;margin:0}
-    .tag{color:var(--muted);margin:6px 0 0}
-
-    /* Sections */
-    section{padding:28px 0;border-top:1px solid var(--stroke);background:var(--bg)}
-    h3{margin:0 0 14px;font-size:24px;letter-spacing:.4px}
-    p.muted{color:var(--muted);margin:8px 0}
-
-    /* Cards (Packages/Policies/Contact) */
+    /* Sections / cards */
+    section{padding:28px 0;border-top:1px solid var(--stroke);background:rgba(11,15,20,.58)}
+    h3{margin:0 0 14px;font:24px/1.2 var(--font-head);letter-spacing:.4px}
     .cards{display:grid;gap:12px}
     @media(min-width:780px){ .cards{grid-template-columns:repeat(3,1fr)} }
-    .card{background:var(--bg-soft);border:1px solid var(--stroke);border-radius:16px;padding:16px}
-    .price{font-weight:800;font-size:22px;margin:2px 0 8px}
-    ul.tiny{margin:0 0 6px 18px;padding:0;color:var(--muted);font-size:18px;line-height:1.6}
-    ul.tiny li{margin:4px 0}
-
-    /* ===== Gallery — Masonry (no cropping, bigger natural tiles) ===== */
-    .gallery{
-      display:block;              /* not grid */
-      column-width: 380px;        /* ↑ bigger tiles */
-      column-gap:14px;
-    }
-    .ph{
-      display:inline-block;
-      width:100%;
-      margin:0 0 14px;
-      background:var(--bg-soft);
+    .card{
+      background:rgba(18,24,33,.82);
       border:1px solid var(--stroke);
       border-radius:16px;
-      overflow:hidden;
-      position:relative;
-      isolation:isolate;
-      break-inside:avoid;
-      -webkit-column-break-inside:avoid;
+      padding:16px;
     }
-    .ph img{
-      display:block;
-      width:100%;
-      height:auto;                /* natural aspect */
-      object-fit:contain;
-      background:#0a0e13;        /* subtle letterbox */
-    }
-    /* Watermark on each gallery photo (keep subtle) */
-    .ph::after{
-      content:"";
-      position:absolute;
-      right: var(--wm-inset);
-      bottom: var(--wm-inset);
-      width: var(--wm-size);
-      height: var(--wm-size);
-      background-image: var(--brand-logo);
-      background-repeat:no-repeat;
-      background-size:contain;
-      opacity: var(--wm-opacity);
-      pointer-events:none;
-      filter:grayscale(1) contrast(1.1);
-    }
-    /* responsive column sizing */
-    @media (max-width:600px){ .gallery{ column-width:300px; } }
-    @media (min-width:1200px){ .gallery{ column-width:420px; } }
+    .price{font-weight:800;font-size:22px;margin:2px 0 8px}
+    ul.tiny{margin:0 0 4px 18px;padding:0;color:var(--muted);font-size:18px;line-height:1.6}
+    ul.tiny li{margin:4px 0}
 
-    /* Contact */
+    /* Gallery: masonry, no cropping */
+    #gallery .wrap{padding-top:10px}
+    .gallery{column-width:340px; column-gap:12px}
+    .ph{
+      display:block; break-inside:avoid; position:relative; overflow:hidden;
+      background:rgba(18,24,33,.82); border:1px solid var(--stroke); border-radius:16px;
+      margin:0 0 12px;
+    }
+    .ph img{display:block;width:100%;height:auto;object-fit:contain}
+    .ph::after{
+      content:""; position:absolute; right:var(--wm-inset); bottom:var(--wm-inset);
+      width:var(--wm-size); height:var(--wm-size);
+      background-image:var(--brand-logo); background-size:contain; background-repeat:no-repeat;
+      opacity:var(--wm-opacity); pointer-events:none; filter:grayscale(1) contrast(1.1);
+    }
+
+    /* Buttons (contact) */
     .contact{display:flex;flex-wrap:wrap;gap:10px}
     .btn{padding:10px 14px;border-radius:10px;border:1px solid var(--stroke);background:#0f1520}
     .btn.primary{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
 
-    footer{border-top:1px solid var(--stroke);color:var(--muted);padding:26px 18px;text-align:center;background:#0a0e13}
+    /* Footer */
+    footer{border-top:1px solid var(--stroke);color:var(--muted);padding:26px 18px;text-align:center;background:rgba(10,14,19,.66)}
     .tiny{font-size:12px;color:var(--muted)}
-
-    /* === Link/pill cleanup (no blue, no underline) === */
-    a,
-    a:link,
-    a:visited,
-    a:hover,
-    a:active,
-    a:focus { color: inherit !important; text-decoration: none !important; outline: none; }
-
-    .pill,
-    .pill:link,
-    .pill:visited,
-    .pill:hover,
-    .pill:focus,
-    .pill:active { text-decoration:none !important; color:inherit !important; }
-
-    /* Book-now pill: force black text in every state */
-    .pill.cta,
-    .pill.cta:link,
-    .pill.cta:visited,
-    .pill.cta:hover,
-    .pill.cta:focus,
-    .pill.cta:active { color:#0c1117 !important; background:#ffffff; border-color:transparent; }
-
-    /* Category filter pills (above gallery) */
-    .gallery-filter{display:flex;gap:10px;flex-wrap:wrap;margin:6px 0 12px}
-    .gallery-filter .pill{cursor:pointer}
-    .gallery-filter .pill.active{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
-
-/* translucent surfaces so the background crest peeks through */
-header{ background: rgba(11,15,20,.60); }                 /* you already have similar */
-section{ background: rgba(11,15,20,.65); }                /* was var(--bg) solid */
-.card,.ph{ background-color: rgba(18,24,33,.86) !important; }
-footer{ background: rgba(10,14,19,.70); }
-
-/* Text color for white buttons */
-.pill.cta,
-.pill.cta:link,
-.pill.cta:visited,
-.btn.primary,
-.btn.primary:link,
-.btn.primary:visited{
-  color:#000 !important;                 /* true black text in white bubble */
-}
-
-/* optional: subtle hover without turning blue */
-.pill.cta:hover,
-.btn.primary:hover{ filter:brightness(.95); text-decoration:none; }
-    
-    /* Type scale on larger screens */
-    @media (min-width:820px){
-      body{ font-size:19px; }
-      .title{ font-size:36px; }
-      h3{ font-size:26px; }
-    }
   </style>
 </head>
 <body>
@@ -269,11 +161,11 @@ footer{ background: rgba(10,14,19,.70); }
   </div>
 </section>
 
-<!-- PACKAGES -->
 <section id="packages">
   <div class="wrap">
     <h3>Packages</h3>
     <div class="cards">
+
       <div class="card">
         <div class="price">$150 — Core</div>
         <ul class="tiny">
@@ -282,6 +174,7 @@ footer{ background: rgba(10,14,19,.70); }
           <li>Delivery in 7 days</li>
         </ul>
       </div>
+
       <div class="card">
         <div class="price">$250 — Story</div>
         <ul class="tiny">
@@ -290,6 +183,7 @@ footer{ background: rgba(10,14,19,.70); }
           <li>Delivery in 7 days (rush available)</li>
         </ul>
       </div>
+
       <div class="card">
         <div class="price">$75 — Minis — Seasonal</div>
         <ul class="tiny">
@@ -298,6 +192,7 @@ footer{ background: rgba(10,14,19,.70); }
           <li>Watch socials for dates &amp; pricing</li>
         </ul>
       </div>
+
     </div>
 
     <div class="cards" style="margin-top:12px">
@@ -331,63 +226,33 @@ footer{ background: rgba(10,14,19,.70); }
   </div>
 </section>
 
-<!-- GALLERY -->
 <section id="gallery">
   <div class="wrap">
-    <h3>Recent Shots</h3>
-
-    <div class="gallery-filter" aria-label="Filter gallery">
-      <button class="pill js-filter active" data-filter="all">All</button>
-      <button class="pill js-filter" data-filter="family">Family</button>
-      <button class="pill js-filter" data-filter="portraits">Portraits</button>
-      <button class="pill js-filter" data-filter="minis">Minis</button>
-      <button class="pill js-filter" data-filter="events">Events</button>
-      <button class="pill js-filter" data-filter="boudoir">Boudoir</button>
-    </div>
+    <h3>Sample work</h3>
 
     <div class="gallery">
-      <!-- your tiles unchanged -->
-
-      <div class="ph" data-cat="landscape"><img src="IMG_0463.jpeg" alt="Portrait"></div>
-      <div class="ph" data-cat="wild-life"><img src="IMG_0472.jpeg" alt="Portrait close-up"></div>
-      <div class="ph" data-cat="wild-life"><img src="IMG_0484.jpeg" alt="Event detail"></div>
-      <div class="ph" data-cat="fur-bbys"><img src="IMG_0490.jpeg" alt="Event moment"></div>
-      <div class="ph" data-cat="portraits"><img src="IMG_0557.jpeg" alt="Family moment"></div>
-      <div class="ph" data-cat="minis"><img src="IMG_0610.jpeg" alt="Portrait"></div>
-      <div class="ph" data-cat="events"><img src="IMG_0707.jpeg" alt="Mini session"></div>
-      <div class="ph" data-cat="family"><img src="IMG_0766.jpeg" alt="Playground slide"></div>
-      <div class="ph" data-cat="portraits"><img src="IMG_0791.jpeg" alt="Portrait"></div>
-      <div class="ph" data-cat="portraits"><img src="IMG_0794.jpeg" alt="Event light"></div>
-      <div class="ph" data-cat="portraits"><img src="IMG_0852.jpeg" alt="Portrait"></div>
-      <div class="ph" data-cat="minis"><img src="IMG_0857.jpeg" alt="Family candid"></div>
-      <div class="ph" data-cat="minis"><img src="IMG_0862.jpeg" alt="Family candid"></div>
-      <div class="ph" data-cat="portraits"><img src="IMG_1136.jpeg" alt="Portrait"></div>
-      <div class="ph" data-cat="family"><img src="IMG_1972.jpeg" alt="Family"></div>
-      <div class="ph" data-cat="events"><img src="IMG_0446.jpeg" alt="Stage performance with fog and warm light"></div>
-      <div class="ph" data-cat="events"><img src="IMG_0695.jpeg" alt="Aerial artist in blue/green light"></div>
-      <div class="ph" data-cat="minis"><img src="IMG_0796.jpeg" alt="Carousel candid"></div>
-      <div class="ph" data-cat="portraits"><img src="IMG_1117.jpeg" alt="Candid portrait outdoors"></div>
-      <div class="ph" data-cat="landscape"><img src="IMG_1169.jpeg" alt="Portrait close-up"></div>
-      <div class="ph" data-cat="portraits"><img src="IMG_1967.jpeg" alt="Event candid"></div>
-      <div class="ph" data-cat="portraits"><img src="IMG_1968.jpeg" alt="Candid fireworks prep"></div>
-      <div class="ph" data-cat="family"><img src="IMG_1985.jpeg" alt="Driveway game action"></div>
-      <div class="ph" data-cat="boudoir"><img src="IMG_0337.jpeg" alt="Family candid"></div>
-      <div class="ph" data-cat="boudoir"><img src="IMG_1240.jpeg" alt="Kids playing, driveway"></div>
+      <!-- Use the filenames already in your repo root; add/remove freely -->
+      <a class="ph"><img src="IMG_0446.jpeg" alt="Stage performance with fog and warm light" loading="lazy" decoding="async"></a>
+      <a class="ph"><img src="IMG_0695.jpeg" alt="Aerial artist in blue/green light" loading="lazy" decoding="async"></a>
+      <a class="ph"><img src="IMG_0796.jpeg" alt="Carousel candid" loading="lazy" decoding="async"></a>
+      <a class="ph"><img src="IMG_1117.jpeg" alt="Candid portrait outdoors" loading="lazy" decoding="async"></a>
+      <a class="ph"><img src="IMG_1169.jpeg" alt="Portrait close-up" loading="lazy" decoding="async"></a>
+      <a class="ph"><img src="IMG_1240.jpeg" alt="Kids playing, driveway" loading="lazy" decoding="async"></a>
+      <a class="ph"><img src="IMG_1967.jpeg" alt="Event candid" loading="lazy" decoding="async"></a>
+      <a class="ph"><img src="IMG_1968.jpeg" alt="Candid fireworks prep" loading="lazy" decoding="async"></a>
+      <a class="ph"><img src="IMG_1985.jpeg" alt="Driveway game action" loading="lazy" decoding="async"></a>
     </div>
-    
-    
 
-    <p class="tiny" style="margin-top:10px;color:var(--muted)">
+    <p class="tiny" style="margin-top:10px">
       On-site watermark is for previews only; delivered images are clean unless requested.
     </p>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="wrap">
     <h3>Contact</h3>
-    <p class="muted">Tell me what you’re dreaming up—family, portraits, lifestyle, events, creative/editorial, and boudoir (18+).</p>
+    <p class="tag">Tell me what you’re dreaming up—family, portraits, lifestyle, events, creative/editorial, and boudoir (18+).</p>
     <div class="contact">
       <a class="btn primary" href="mailto:book@fadetofocusphoto.com">book@fadetofocusphoto.com</a>
       <a class="btn" href="tel:+15315413891">(531) 541-3891</a>
@@ -402,24 +267,7 @@ footer{ background: rgba(10,14,19,.70); }
 </footer>
 
 <script>
-  // footer year
   document.getElementById('y').textContent = new Date().getFullYear();
-
-  // gallery filter (show/hide by data-cat)
-  const buttons = document.querySelectorAll('.js-filter');
-  const tiles   = document.querySelectorAll('.gallery .ph');
-
-  buttons.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const f = btn.dataset.filter;
-      buttons.forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      tiles.forEach(t=>{
-        const cat = (t.dataset.cat || '').split(/\s+/);
-        t.style.display = (f==='all' || cat.includes(f)) ? '' : 'none';
-      });
-    });
-  });
 </script>
 </body>
 </html>
