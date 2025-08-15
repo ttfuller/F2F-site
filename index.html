@@ -26,16 +26,23 @@
       --muted:#9aa6b2;      /* secondary text */
       --stroke:#1b2533;     /* borders */
 
-      /* Site-wide fixed crest behind everything */
+      /* Site-wide fixed crest – more visible */
 html::before{
   content:"";
   position: fixed; inset: 0;
-  background: var(--brand-logo) center 35% / min(860px, 80vw) no-repeat;
-  opacity:.10;                          /* visibility of the crest */
-  filter: grayscale(1) contrast(1.08);
+  background: var(--brand-logo) center 35% / min(900px, 82vw) no-repeat;
+  opacity:.22;                           /* was .10 — raise to show more */
+  filter: grayscale(1) contrast(1.1);
   pointer-events:none;
   z-index:0;
 }
+body{ position:relative; z-index:1; }
+
+/* Let the crest peek through panels a bit more */
+header{ background: rgba(11,15,20,.55); }        /* was ~.60–.72 */
+section{ background: rgba(11,15,20,.58); }       /* make sections translucent */
+.card,.ph{ background-color: rgba(18,24,33,.82) !important; }
+footer{ background: rgba(10,14,19,.66); }
 
 /* ensure all page content sits above it */
 body{ position:relative; z-index:1; }
@@ -92,8 +99,25 @@ body{ position:relative; z-index:1; }
     /* Hero */
     #hero{position:relative;background:linear-gradient(180deg,#0c1117,#0a0e13 55%,#090d11)}
     #hero .wrap{padding:54px 20px 36px}
-    .hero-inner{display:grid;grid-template-columns:140px 1fr;gap:18px;align-items:center}
-    .hero-logo{max-width:140px;aspect-ratio:1/1;object-fit:contain;filter:drop-shadow(0 2px 18px rgba(255,255,255,.05))}
+    
+    /* make the left hero logo bigger */
+.hero-inner{
+  display:grid;
+  grid-template-columns: 200px 1fr;   /* was 140px 1fr */
+  gap:22px;
+  align-items:center;
+}
+.hero-logo{
+  width:200px;                         /* was max-width:140px */
+  max-width:200px;
+  height:auto;
+  object-fit:contain;
+  filter:drop-shadow(0 2px 18px rgba(255,255,255,.05));
+}
+    @media (max-width: 480px){
+  .hero-inner{ grid-template-columns: 150px 1fr; }
+  .hero-logo{ width:150px; max-width:150px; }
+
     .title{font-size:34px;font-weight:800;margin:0}
     .tag{color:var(--muted);margin:6px 0 0}
 
@@ -196,6 +220,20 @@ header{ background: rgba(11,15,20,.60); }                 /* you already have si
 section{ background: rgba(11,15,20,.65); }                /* was var(--bg) solid */
 .card,.ph{ background-color: rgba(18,24,33,.86) !important; }
 footer{ background: rgba(10,14,19,.70); }
+
+/* Text color for white buttons */
+.pill.cta,
+.pill.cta:link,
+.pill.cta:visited,
+.btn.primary,
+.btn.primary:link,
+.btn.primary:visited{
+  color:#000 !important;                 /* true black text in white bubble */
+}
+
+/* optional: subtle hover without turning blue */
+.pill.cta:hover,
+.btn.primary:hover{ filter:brightness(.95); text-decoration:none; }
     
     /* Type scale on larger screens */
     @media (min-width:820px){
