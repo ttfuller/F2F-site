@@ -133,6 +133,22 @@
     .btn{padding:10px 14px;border-radius:10px;border:1px solid var(--stroke);background:#0f1520}
     .btn.primary{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
 
+/* Neutralize link colors site-wide (no blue, no underlines) */
+a, a:link, a:visited, a:hover, a:active{
+  color: inherit !important;
+  text-decoration: none !important;
+}
+
+/* Filter tabs: keep text the site color, never blue */
+.filters .pill,
+.filters .pill:hover,
+.filters .pill:active,
+.filters .pill:focus{
+  color: var(--ink) !important;
+  text-decoration: none !important;
+  outline: none;
+}
+    
     /* Footer */
     footer{border-top:1px solid var(--stroke);color:var(--muted);padding:26px 18px;text-align:center;background:rgba(10,14,19,.66)}
     .tiny{font-size:12px;color:var(--muted)}
@@ -243,17 +259,38 @@
     </div>
 
     <div class="gallery">
-      <!-- Tag each tile with data-cat (edit freely) -->
-      <a class="ph" data-cat="events"><img src="IMG_0446.jpeg" alt="Stage performance with fog and warm light" loading="lazy" decoding="async"></a>
-      <a class="ph" data-cat="events"><img src="IMG_0695.jpeg" alt="Aerial artist in blue/green light" loading="lazy" decoding="async"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0796.jpeg" alt="Carousel candid" loading="lazy" decoding="async"></a>
-      <a class="ph" data-cat="portraits"><img src="IMG_1117.jpeg" alt="Candid portrait outdoors" loading="lazy" decoding="async"></a>
-      <a class="ph" data-cat="portraits"><img src="IMG_1169.jpeg" alt="Portrait close-up" loading="lazy" decoding="async"></a>
-      <a class="ph" data-cat="family"><img src="IMG_1240.jpeg" alt="Kids playing, driveway" loading="lazy" decoding="async"></a>
-      <a class="ph" data-cat="events"><img src="IMG_1967.jpeg" alt="Event candid" loading="lazy" decoding="async"></a>
-      <a class="ph" data-cat="events"><img src="IMG_1968.jpeg" alt="Candid fireworks prep" loading="lazy" decoding="async"></a>
-      <a class="ph" data-cat="family"><img src="IMG_1985.jpeg" alt="Driveway game action" loading="lazy" decoding="async"></a>
-    </div>
+  <!-- Events -->
+  <a class="ph" data-cat="events"><img src="IMG_0446.jpeg" alt="Show—warm fog" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="events"><img src="IMG_0695.jpeg" alt="Aerial artist" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="events"><img src="IMG_0463.jpeg" alt="Event detail" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="events"><img src="IMG_0484.jpeg" alt="Stage moment" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="events"><img src="IMG_0490.jpeg" alt="Lights & motion" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="events"><img src="IMG_0557.jpeg" alt="Candid crowd" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="events"><img src="IMG_0707.jpeg" alt="Event night" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="events"><img src="IMG_1967.jpeg" alt="Event candid" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="events"><img src="IMG_1968.jpeg" alt="Fireworks prep" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="events"><img src="IMG_1972.jpeg" alt="Wide event scene" loading="lazy" decoding="async"></a>
+
+  <!-- Family -->
+  <a class="ph" data-cat="family"><img src="IMG_0796.jpeg" alt="Carousel candid" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="family"><img src="IMG_1240.jpeg" alt="Kids playing driveway" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="family"><img src="IMG_0766.jpeg" alt="Neighborhood play" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="family"><img src="IMG_0791.jpeg" alt="Family walk" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="family"><img src="IMG_0852.jpeg" alt="Family moment" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="family"><img src="IMG_0857.jpeg" alt="Playing outside" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="family"><img src="IMG_0862.jpeg" alt="Kids on slide" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="family"><img src="IMG_1985.jpeg" alt="Driveway game action" loading="lazy" decoding="async"></a>
+
+  <!-- Portraits -->
+  <a class="ph" data-cat="portraits"><img src="IMG_1117.jpeg" alt="Portrait outdoors" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="portraits"><img src="IMG_1169.jpeg" alt="Portrait close-up" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="portraits"><img src="IMG_1136.jpeg" alt="Portrait detail" loading="lazy" decoding="async"></a>
+
+  <!-- Minis (you can re-label any of these) -->
+
+  <a class="ph" data-cat="minis"><img src="IMG_0472.jpeg" alt="Mini—ride detail" loading="lazy" decoding="async"></a>
+  <a class="ph" data-cat="minis"><img src="IMG_0610.jpeg" alt="Mini portrait" loading="lazy" decoding="async"></a>
+</div>
 
     <p class="tiny" style="margin-top:10px">
       On-site watermark is for previews only; delivered images are clean unless requested.
