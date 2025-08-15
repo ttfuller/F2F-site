@@ -159,6 +159,34 @@ ul.tiny li{ margin:4px 0; }
 .pill.cta:hover,
 .pill.cta:focus,
 .pill.cta:active { color: #0c1117 !important; }
+
+/* --- Link cleanup: no blue, no underline anywhere --- */
+a,
+a:link,
+a:visited,
+a:hover,
+a:active,
+a:focus {
+  color: inherit !important;          /* inherit the surrounding text color */
+  text-decoration: none !important;   /* remove underline in all states */
+  outline: none;
+}
+
+/* Pills: keep clean text (no underline on any state) */
+.pill,
+.pill:link,
+.pill:visited,
+.pill:hover,
+.pill:focus,
+.pill:active {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+/* Buttons: ensure readable text; keep white button dark text */
+.btn { color: var(--ink) !important; }
+.btn.primary { color: #0c1117 !important; }
+    
   </style>
 </head>
 <body>
