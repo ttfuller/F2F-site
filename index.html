@@ -1,388 +1,181 @@
-o<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fade to Focus Photography — Omaha</title>
-  <meta name="description" content="Candid, moody, real-life images. Real moments > stiff poses." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
-
+  <title>Fade to Focus Photography | Omaha NE</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Omaha photographer for families, couples, portraits, and headshots. Real moments, clean edits, fast delivery." />
   <style>
-    /* ===== Theme variables ===== */
     :root{
-      --bg:#0b0f14;
-      --bg-soft:#121821;
-      --ink:#e9edf2;
-      --muted:#9aa6b2;
-      --stroke:#1b2533;
-
-      /* Branding */
-      --brand-logo:url('assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png');
-
-      /* Per-photo watermark controls */
-      --wm-opacity:.18;
-      --wm-size:130px;
-      --wm-inset:10px;
-
-      /* Typography */
-      --font-body:"Cormorant Garamond", Garamond, Georgia, serif;
-      --font-head:"Gloock","Cormorant Garamond", serif;
-
-      /* Glass translucency (lower = more see-through) */
-      --glass-header: 0.30;
-      --glass-section: 0.20;
-      --glass-panel: 0.16;
-      --glass-footer: 0.26;
-      --glass-blur: 6px;
+      --bg:#0e0f12; --panel:#15171c; --ink:#e9eef4; --muted:#a9b0bb;
+      --brand:#b6ff00; --accent:#6cf; --card:#101318; --radius:18px;
+      --shadow:0 10px 30px rgba(0,0,0,.35)
     }
-
-    /* ===== Fixed crest behind all scrolling content ===== */
-    html{ background: var(--bg); }
-    body{ position:relative; background: transparent; }
-    body::before{
-      content:"";
-      position: fixed;
-      inset: 0;
-      background: var(--brand-logo) center 46% / min(1200px,82vw) no-repeat;
-      opacity: .75;
-      filter: grayscale(1) contrast(1.1);
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    /* ===== Base ===== */
     *{box-sizing:border-box}
-    html,body{margin:0;color:var(--ink);font:18px/1.7 var(--font-body)}
-    .wrap{max-width:1100px;margin:auto;padding:20px}
+    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    .wrap{max-width:1120px;margin:auto;padding:28px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
+    .logo{display:flex;align-items:center;gap:12px}
+    .logo .mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#222,#111);display:grid;place-items:center;box-shadow:var(--shadow)}
+    .logo .mark:before{content:"📷";font-size:20px}
+    .logo h1{font-size:18px;margin:0;letter-spacing:.4px}
+    nav a{margin-left:18px;color:var(--ink);opacity:.9} nav a:hover{opacity:1}
 
-    /* Links neutral (no blue, no underline) */
-    a, a:link, a:visited, a:hover, a:active{ color:inherit; text-decoration:none; }
+    .hero{border-radius:var(--radius);background:radial-gradient(1000px 380px at 0% 0%,rgba(182,255,0,.08),transparent),linear-gradient(180deg,#13161b,#0e0f12);padding:48px 28px;box-shadow:var(--shadow)}
+    .hero h2{font-size:34px;line-height:1.15;margin:0 0 10px}
+    .hero p{margin:0 0 18px;color:var(--muted)}
+    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
+    .btn{background:var(--brand);color:#0b0c0f;font-weight:700;border:0;border-radius:12px;padding:12px 18px}
+    .btn:hover{filter:brightness(.95);cursor:pointer}
+    .btn.secondary{background:#1d2026;color:var(--ink);border:1px solid #262a33}
+    .notice{margin-top:14px;background:#0c0f13;border:1px solid #1f2530;padding:10px 12px;border-radius:12px;color:var(--muted)}
+    .notice b{color:var(--ink)}
 
-    /* ===== Header ===== */
-    header{
-      position:sticky; top:0; z-index:50;
-      background: rgba(11,15,20,var(--glass-header));
-      border-bottom:1px solid var(--stroke);
-      backdrop-filter: saturate(140%) blur(var(--glass-blur));
-    }
-    .bar{display:flex;align-items:center;gap:14px;padding:12px 18px}
-    .brand-logo{height:40px;width:auto;display:block}
-    nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
-    .pill{padding:8px 14px;border:1px solid #243244;border-radius:999px;background:#0f1520}
-    .pill:link,.pill:visited,.pill:hover,.pill:active{color:var(--ink)}
-    .pill.cta{background:#ffffff;color:#0c1117 !important;border-color:transparent;font-weight:700}
+    section{margin:48px 0}
+    h3{font-size:22px;margin:0 0 14px}
+    .panels{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+    .card{grid-column:span 12;background:var(--panel);border:1px solid #222732;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    @media (min-width:720px){.card.third{grid-column:span 4}.card.half{grid-column:span 6}}
 
-    /* ==== Hero ==== */
-    #hero{ position:relative; isolation:isolate; }  /* keep section above page crest */
-    #hero::before{
-      content:"";
-      position:absolute; inset:0;
-      background: rgba(11,15,20,.96);   /* 1 = fully opaque; .92 shows a little through */
-      backdrop-filter: saturate(140%) blur(var(--glass-blur));
-      z-index:-1;                        /* sits between hero content & page crest */
-    }
-    .hero-logo{
-      width:200px; max-width:200px; height:auto; object-fit:contain;
-      filter:drop-shadow(0 2px 18px rgba(255,255,255,.05));
-    }
-    @media (max-width:480px){
-      .hero-inner{ grid-template-columns:150px 1fr; }
-      .hero-logo{ width:150px; max-width:150px; }
-    }
-    .title{font-family:var(--font-head); font-size:34px; font-weight:800; letter-spacing:.02em; margin:0}
-    .tag{color:var(--muted); margin:6px 0 0}
+    .price{font-size:28px;font-weight:800}
+    .muted{color:var(--muted)}
+    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+    .badge{font-size:12px;border:1px solid #273042;color:var(--muted);padding:4px 8px;border-radius:999px}
 
-    /* ===== Sections / cards ===== */
-    section{padding:28px 0;border-top:1px solid var(--stroke);background: rgba(11,15,20,var(--glass-section))}
-    h3{margin:0 0 14px;font:24px/1.2 var(--font-head);letter-spacing:.4px}
-    .cards{display:grid;gap:12px}
-    @media(min-width:780px){ .cards{grid-template-columns:repeat(3,1fr)} }
-    .card{
-      background: rgba(18,24,33,var(--glass-panel));
-      border:1px solid var(--stroke);
-      border-radius:16px;
-      padding:16px;
-      backdrop-filter: blur(calc(var(--glass-blur) - 2px));
-    }
-    .price{font-weight:800;font-size:22px;margin:2px 0 8px}
-    ul.tiny{margin:0 0 4px 18px;padding:0;color:var(--muted);font-size:18px;line-height:1.6}
-    ul.tiny li{margin:4px 0}
+    /* Portfolio grid, no cropping */
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+    .shot{background:var(--card);border:1px solid #1b1f28;border-radius:14px;padding:10px;box-shadow:var(--shadow)}
+    .shot img{width:100%;height:auto;display:block;border-radius:10px;object-fit:contain;background:#0b0d11}
 
-    /* --- ONLY CHANGE YOU ASKED: make Packages section less see-through --- */
-    #packages{ background: rgba(11,15,20,0.40); }              /* darker than the default .20 */
-    #packages .card{
-      background: rgba(18,24,33,0.32);                         /* darker panels in this section */
-      backdrop-filter: blur(calc(var(--glass-blur) + 2px));    /* slightly stronger blur here */
-    }
-
-    /* ===== Filters (tabs) ===== */
-    .filters{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 14px}
-    .filters .pill{color:var(--ink)}
-    .filters .pill.active{outline:2px solid rgba(255,255,255,.18)}
-
-    /* ===== Masonry gallery: no cropping ===== */
-    .gallery{column-width:340px; column-gap:12px}
-    .hidden{display:none !important}
-    .ph{
-      display:block; break-inside:avoid; position:relative; overflow:hidden;
-      background: rgba(18,24,33,var(--glass-panel));
-      border:1px solid var(--stroke); border-radius:16px;
-      margin:0 0 12px;
-      backdrop-filter: blur(calc(var(--glass-blur) - 2px));
-    }
-    .ph img{display:block;width:100%;height:auto;object-fit:contain}
-
-    /* Watermark on each photo */
-    .ph::after{
-      content:""; position:absolute; right:var(--wm-inset); bottom:var(--wm-inset);
-      width:var(--wm-size); height:var(--wm-size);
-      background-image:var(--brand-logo); background-size:contain; background-repeat:no-repeat;
-      opacity:var(--wm-opacity); pointer-events:none; filter:grayscale(1) contrast(1.1);
-    }
-
-    /* ===== Contact buttons ===== */
-    .contact{display:flex;flex-wrap:wrap;gap:10px}
-    .btn{padding:10px 14px;border-radius:10px;border:1px solid var(--stroke);background:#0f1520}
-    .btn.primary{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
-
-    /* ===== Footer ===== */
-    footer{
-      border-top:1px solid var(--stroke);
-      color:var(--muted);
-      padding:26px 18px;
-      text-align:center;
-      background: rgba(10,14,19,var(--glass-footer));
-    }
-    .tiny{font-size:12px;color:var(--muted)}
+    footer{margin-top:56px;padding:26px 0;color:var(--muted);border-top:1px solid #1b212a}
+    .small{font-size:13px;color:var(--muted)}
   </style>
 </head>
 <body>
-
-<header>
-  <div class="bar wrap">
-    <img class="brand-logo" src="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" alt="Fade to Focus Photography logo">
-    <nav>
-      <a class="pill" href="#packages">Packages</a>
-      <a class="pill" href="#shots">Recent shots</a>
-      <a class="pill" href="#contact">Contact</a>
-      <a class="pill" href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener">Facebook</a>
-      <a class="pill cta" href="mailto:book@fadetofocusphoto.com?subject=Book%20a%20session">Book now</a>
-    </nav>
-  </div>
-</header>
-
-<section id="hero">
   <div class="wrap">
-    <div class="hero-inner">
-      <img class="hero-logo" src="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" alt="Brand crest">
-      <div>
-        <h1 class="title">Fade to Focus • Omaha</h1>
-        <p class="tag">Candid, moody, real-life images. <strong>Real moments &gt; stiff poses.</strong></p>
+    <header>
+      <div class="logo">
+        <div class="mark"></div><h1>Fade to Focus Photography</h1>
       </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#work">Portfolio</a>
+        <a href="#contact">Contact</a>
+        <a href="https://fadetofocusphotography.pixieset.com/" rel="noopener">Client galleries</a>
+      </nav>
+    </header>
+
+    <div class="hero">
+      <h2>Real moments. Clean edits. Fast delivery.</h2>
+      <p>Portraits, couples, families, and headshots across Omaha and Council Bluffs.</p>
+      <div class="cta">
+        <a class="btn" href="#contact">Book a session</a>
+        <a class="btn secondary" href="#work">See recent work</a>
+      </div>
+      <div class="notice"><b>Referral bonus:</b> send a friend who books, your friend saves $10 and you get $20 off your next shoot.</div>
     </div>
+
+    <section id="services">
+      <h3>Sessions and pricing</h3>
+      <div class="panels">
+        <div class="card third">
+          <h4>Mini Session</h4>
+          <div class="price">$115</div>
+          <p class="muted">30 minutes, one location, 12 edited images.</p>
+          <div class="badges"><span class="badge">Online gallery</span><span class="badge">Print files</span><span class="badge">Sneak peek in 8 hours</span></div>
+        </div>
+        <div class="card third">
+          <h4>Core Session</h4>
+          <div class="price">$150</div>
+          <p class="muted">60 minutes, one to two looks, 25 edited images.</p>
+          <div class="badges"><span class="badge">Online gallery</span><span class="badge">Print files</span><span class="badge">Delivery in 2 days</span></div>
+        </div>
+        <div class="card third">
+          <h4>Add-ons</h4>
+          <div class="price">Flexible</div>
+          <p class="muted">Extra edits, large groups, and special locations on request.</p>
+          <div class="badges"><span class="badge">Fast turnaround</span><span class="badge">Transparent rates</span><span class="badge">Travel nearby</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <h3>Portfolio</h3>
+      <div id="gallery" class="grid" aria-live="polite"></div>
+    </section>
+
+    <section id="contact">
+      <h3>Book and contact</h3>
+      <div class="panels">
+        <div class="card half">
+          <p><b>Email</b> <a href="mailto:book@fadetofocusphoto.com">book@fadetofocusphoto.com</a></p>
+          <p><b>Phone</b> <a href="tel:+15315413891">531-541-3891</a></p>
+          <p><b>Facebook</b> <a href="https://facebook.com/FadeToFocusPhotographyOmaha" rel="noopener">Fade to Focus Photography</a></p>
+          <p><b>Instagram</b> <a href="https://instagram.com/fadetofocusphoto" rel="noopener">@fadetofocusphoto</a></p>
+          <p class="small muted">Omaha and Council Bluffs, traveling nearby parks and downtown locations.</p>
+        </div>
+        <div class="card half">
+          <p><b>How booking works</b></p>
+          <ol class="small">
+            <li>Send your preferred date, location vibe, and session type.</li>
+            <li>Get a confirmation with outfit tips and location pins.</li>
+            <li>Sneak peek in 8 hours, full gallery in 2 days via Pixieset.</li>
+          </ol>
+          <p class="small muted">Ask about corporate headshots and events.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="wrap" style="padding:0">
+        <div>© <span id="y"></span> Fade to Focus Photography • Omaha, Nebraska</div>
+        <div class="small">Real moments. Clean edits. Fast delivery.</div>
+      </div>
+    </footer>
   </div>
-</section>
 
-<section id="packages">
-  <div class="wrap">
-    <h3>Packages</h3>
-    <div class="cards">
+  <script>
+    // Current year
+    document.getElementById('y').textContent = new Date().getFullYear();
 
-      <div class="card">
-        <div class="price">$150 — Core</div>
-        <ul class="tiny">
-          <li>60 minutes • 1–2 looks / 1–2 spots</li>
-          <li>20 edited images (my selects)</li>
-          <li>Delivery in 7 days</li>
-        </ul>
-      </div>
+    // Fallback list so you never touch HTML again
+    const fallbackImages = [
+      "Ally #1(google).jpg",
+      "Arches(google).jpg",
+      "Couple (google).jpg",
+      "Head Shot #1(google).jpg",
+      "Ivy wall (darker).jpg",
+      "Momma&D(google).jpg",
+      "Road 3(google).jpg",
+      "Stairs 5(google).jpg",
+      "Street (darker).jpg",
+      "Street #2(google).jpg",
+      "Street 3(google).jpg",
+      "IMG_0337.jpeg"
+    ];
 
-      <div class="card">
-        <div class="price">$250 — Story</div>
-        <ul class="tiny">
-          <li>90 minutes • up to 2 locations</li>
-          <li>35 edited images • custom vibe</li>
-          <li>Delivery in 7 days (rush available)</li>
-        </ul>
-      </div>
+    async function loadGallery(){
+      const target = document.getElementById('gallery');
+      let files = [];
+      try {
+        const res = await fetch('images.json', {cache:'no-store'});
+        if(res.ok){ files = await res.json(); }
+      } catch(e){ /* ignore, will use fallback */ }
+      if(!Array.isArray(files) || !files.length) files = fallbackImages;
 
-      <div class="card">
-        <div class="price">$75 — Minis — Seasonal</div>
-        <ul class="tiny">
-          <li>Short &amp; sweet sessions (30 Mins) announced on Facebook/Instagram</li>
-          <li>Limited time slots • location/theme posted with each drop</li>
-          <li>Watch socials for dates &amp; pricing</li>
-        </ul>
-      </div>
-
-    </div>
-
-<div class="card">
-  <h4>Boudoir (18+)</h4>
-
-  <div class="price">$125 — Intro</div>
-  <ul class="tiny">
-    <li>35–45 minutes • 1 outfit • in-home or private outdoor spot</li>
-    <li>10 edited images (my selects)</li>
-    <li>Delivery in 5 days</li>
-  </ul>
-
-  <hr class="sep">
-
-  <div class="price">$200 — Classic</div>
-  <ul class="tiny">
-    <li>60–75 minutes • up to 2 outfits • in-home or Airbnb/hotel
-      <span class="muted"></span></li>
-    <li>18 edited images</li>
-    <li>Delivery in 7 days</li>
-  </ul>
-
-  <hr class="sep">
-
-  <div class="price">$300 — Signature</div>
-  <ul class="tiny">
-    <li>90 minutes • 2–3 looks/sets (window light, chair, sheets)</li>
-    <li>28 edited images</li>
-    <li>Delivery in 7 days</li>
-  </ul>
-
-  <p class="tiny" style="margin-top:8px">
-    Add-ons: Rush 48h +$25 • Extra edits +$5 each. 18+ only; ID required.
-  </p>
-
-  <a class="btn"
-     href="mailto:book@fadetofocusphoto.com?subject=Boudoir%20Booking%20(18%2B)&body=Hi%20—%20I%27d%20like%20to%20book%20the%20Intro%20/%20Classic%20/%20Signature%20package.%20My%20dates%20are%3A">
-     Request to book
-  </a>
-</div>
-    
-      <div class="card">
-        <div class="price">Custom</div>
-        <ul class="tiny">
-          <li>Events • creative • editorial • brand</li>
-          <li>We’ll shape the right coverage</li>
-          <li><a href="#contact">Get a quote →</a></li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="price">Policies</div>
-        <ul class="tiny">
-          <li>$25 booking deposit holds your time (credited to session)</li>
-          <li>24h reschedule window</li>
-          <li>Weather: photographer’s call; free reschedule if we cancel</li>
-          <li>Personal use rights included; commercial use by permission</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="shots">
-  <div class="wrap">
-    <h3>Recent shots</h3>
-
-    <!-- Filter tabs -->
-    <div class="filters" role="tablist" aria-label="Filter gallery">
-      <button class="pill active" data-filter="all">All</button>
-      <button class="pill" data-filter="family">Family / Minis</button>
-      <button class="pill" data-filter="portraits">Portraits</button>
-      <button class="pill" data-filter="events">Events</button>
-      <button class="pill" data-filter="landscape">Landscape</button>
-      <button class="pill" data-filter="wildlife">Wildlife</button>
-      <button class="pill" data-filter="furbabys">Fur-baby’s</button>
-    </div>
-
-    <!-- Masonry gallery -->
-    <div class="gallery" id="gallery">
-      <!-- Family / Minis -->
-      <a class="ph" data-cat="family"><img src="IMG_0446.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0610.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0766.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0794.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0796.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0852.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0857.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0862.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_1972.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0801.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_1985.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0795.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0805.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0825.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_0821.jpeg" alt="Family/Minis"></a>
-      <a class="ph" data-cat="family"><img src="IMG_1631.jpeg" alt="Family/Minis"></a>
-
-      <!-- Events -->
-      <a class="ph" data-cat="events"><img src="IMG_0695.jpeg" alt="Event"></a>
-      <a class="ph" data-cat="events"><img src="IMG_0707.jpeg" alt="Event"></a>
-
-      <!-- Landscape -->
-      <a class="ph" data-cat="landscape"><img src="IMG_0463.jpeg" alt="Landscape"></a>
-      <a class="ph" data-cat="landscape"><img src="IMG_1169.jpeg" alt="Landscape"></a>
-
-      <!-- Wildlife -->
-      <a class="ph" data-cat="wildlife"><img src="IMG_0472.jpeg" alt="Wildlife"></a>
-
-      <!-- Fur-baby’s (IMG_0484 only here) -->
-      <a class="ph" data-cat="furbabys"><img src="IMG_0490.jpeg" alt="Fur-baby’s"></a>
-      <a class="ph" data-cat="furbabys"><img src="IMG_0484.jpeg" alt="Fur-baby’s"></a>
-
-      <!-- Portraits -->
-      <a class="ph" data-cat="portraits"><img src="IMG_0557.jpeg" alt="Portrait"></a>
-      <a class="ph" data-cat="portraits"><img src="IMG_0791.jpeg" alt="Portrait"></a>
-      <a class="ph" data-cat="portraits"><img src="IMG_1117.jpeg" alt="Portrait"></a>
-      <a class="ph" data-cat="portraits"><img src="IMG_1136.jpeg" alt="Portrait"></a>
-      <a class="ph" data-cat="portraits"><img src="IMG_1967.jpeg" alt="Portrait"></a>
-      <a class="ph" data-cat="portraits"><img src="IMG_1968.jpeg" alt="Portrait"></a>
-    </div>
-
-    <p class="tiny" style="margin-top:10px;color:var(--muted)">
-      On-site watermark is for previews only; delivered images are clean unless requested.
-    </p>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <h3>Contact</h3>
-    <p class="tag">Tell me what you’re dreaming up—family, portraits, lifestyle, events, creative/editorial, and boudoir (18+).</p>
-    <div class="contact">
-      <a class="btn primary" href="mailto:book@fadetofocusphoto.com">book@fadetofocusphoto.com</a>
-      <a class="btn" href="tel:+15315413891">(531) 541-3891</a>
-      <a class="btn" href="https://www.fadetofocusphoto.com" target="_blank" rel="noopener">fadetofocusphoto.com</a>
-      <a class="btn" href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener">Facebook</a>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div>© <span id="y"></span> Fade to Focus Photography • Omaha</div>
-  <div class="tiny">Real moments &gt; stiff poses</div>
-</footer>
-
-<script>
-  // year
-  document.getElementById('y').textContent = new Date().getFullYear();
-
-  // simple tab filter
-  const tabs = document.querySelectorAll('.filters .pill');
-  const items = document.querySelectorAll('#gallery .ph, .gallery .ph');
-
-  tabs.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      document.querySelector('.filters .pill.active')?.classList.remove('active');
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
-      items.forEach(el=>{
-        const cats = (el.dataset.cat || '').split(/\s+/);
-        el.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
-      });
-    });
-  });
-</script>
+      for(const file of files){
+        const div = document.createElement('div');
+        div.className = 'shot';
+        const img = document.createElement('img');
+        img.alt = file.replace(/\.[^.]+$/,'').replace(/[_-]/g,' ').replace(/\s+/g,' ').trim();
+        img.loading = 'lazy';
+        img.src = encodeURI(file); // handles spaces, #, &, ()
+        div.appendChild(img);
+        target.appendChild(div);
+      }
+    }
+    loadGallery();
+  </script>
 </body>
 </html>
