@@ -285,31 +285,21 @@
   <div class="wrap">
     <h3>Recent shots</h3>
 
-    <!-- Filter tabs -->
-    <div class="filters" role="tablist" aria-label="Filter gallery">
-      <button class="pill active" data-filter="all">All</button>
-      <button class="pill" data-filter="family">Family / Minis</button>
-      <button class="pill" data-filter="portraits">Portraits</button>
-      <button class="pill" data-filter="events">Events</button>
-      <button class="pill" data-filter="landscape">Landscape</button>
-      <button class="pill" data-filter="wildlife">Wildlife</button>
-      <button class="pill" data-filter="furbabys">Fur-baby’s</button>
-    </div>
 
     <!-- Masonry gallery: updated to your 12 JPGs -->
     <div class="gallery" id="gallery">
-      <a class="ph" data-cat="portraits"><img src="Ally%20%231(google).jpg" alt="Portrait"></a>
-      <a class="ph" data-cat="portraits"><img src="Head%20Shot%20%231(google).jpg" alt="Headshot"></a>
-      <a class="ph" data-cat="family"><img src="Couple%20(google).jpg" alt="Couple"></a>
-      <a class="ph" data-cat="family"><img src="Family%20(google).jpg" alt="Family"></a>
-      <a class="ph" data-cat="portraits"><img src="Arches(google).jpg" alt="Portrait at arches"></a>
-      <a class="ph" data-cat="portraits"><img src="Ivy%20wall%20(darker).jpg" alt="Ivy wall portrait"></a>
-      <a class="ph" data-cat="portraits"><img src="Street%20%232(google).jpg" alt="Street portrait 2"></a>
-      <a class="ph" data-cat="portraits"><img src="Street%203(google).jpg" alt="Street portrait 3"></a>
-      <a class="ph" data-cat="family"><img src="Momma%26D(google).jpg" alt="Parent and child"></a>
-      <a class="ph" data-cat="portraits"><img src="Road%203(google).jpg" alt="Road portrait"></a>
-      <a class="ph" data-cat="portraits"><img src="Stairs%205(google).jpg" alt="Stairs portrait"></a>
-      <a class="ph" data-cat="portraits"><img src="Street%20(darker).jpg" alt="Low light street portrait"></a>
+            <a class="ph"><img src="Ally%20%231(google).jpg" alt="Portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+      <a class="ph"><img src="Head%20Shot%20%231(google).jpg" alt="Headshot" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+      <a class="ph"><img src="Couple%20(google).jpg" alt="Couple" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+      <a class="ph"><img src="Family%20(google).jpg" alt="Family" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+      <a class="ph"><img src="Arches(google).jpg" alt="Portrait at arches" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+      <a class="ph"><img src="Ivy%20wall%20(darker).jpg" alt="Ivy wall portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+      <a class="ph"><img src="Street%20%232(google).jpg" alt="Street portrait 2" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+      <a class="ph"><img src="Street%203(google).jpg" alt="Street portrait 3" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+      <a class="ph"><img src="Momma%26D(google).jpg" alt="Parent and child" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+      <a class="ph"><img src="Road%203(google).jpg" alt="Road portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+      <a class="ph"><img src="Stairs%205(google).jpg" alt="Stairs portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+      <a class="ph"><img src="Street%20(darker).jpg" alt="Low light street portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
     </div>
 
     <p class="tiny" style="margin-top:10px;color:var(--muted)">
@@ -340,21 +330,5 @@
   // year
   document.getElementById('y').textContent = new Date().getFullYear();
 
-  // simple tab filter
-  const tabs = document.querySelectorAll('.filters .pill');
-  const items = document.querySelectorAll('#gallery .ph, .gallery .ph');
-
-  tabs.forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      document.querySelector('.filters .pill.active')?.classList.remove('active');
-      btn.classList.add('active');
-      const f = btn.dataset.filter;
-      items.forEach(el=>{
-        const cats = (el.dataset.cat || '').split(/\s+/);
-        el.style.display = (f === 'all' || cats.includes(f)) ? '' : 'none';
-      });
-    });
-  });
-</script>
 </body>
 </html>
