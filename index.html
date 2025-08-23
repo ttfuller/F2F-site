@@ -13,14 +13,17 @@
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-    a{color:var(--accent);text-decoration:none} a:hover{text-decoration:underline}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
     .wrap{max-width:1120px;margin:auto;padding:28px}
+
     header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
     .logo{display:flex;align-items:center;gap:12px}
     .logo .mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#222,#111);display:grid;place-items:center;box-shadow:var(--shadow)}
     .logo .mark:before{content:"📷";font-size:20px}
     .logo h1{font-size:18px;margin:0;letter-spacing:.4px}
-    nav a{margin-left:18px;color:var(--ink);opacity:.9} nav a:hover{opacity:1}
+    nav a{margin-left:18px;color:var(--ink);opacity:.9}
+    nav a:hover{opacity:1}
 
     .hero{border-radius:var(--radius);background:radial-gradient(1000px 380px at 0% 0%,rgba(182,255,0,.08),transparent),linear-gradient(180deg,#13161b,#0e0f12);padding:48px 28px;box-shadow:var(--shadow)}
     .hero h2{font-size:34px;line-height:1.15;margin:0 0 10px}
@@ -29,6 +32,7 @@
     .btn{background:var(--brand);color:#0b0c0f;font-weight:700;border:0;border-radius:12px;padding:12px 18px}
     .btn:hover{filter:brightness(.95);cursor:pointer}
     .btn.secondary{background:#1d2026;color:var(--ink);border:1px solid #262a33}
+
     .notice{margin-top:14px;background:#0c0f13;border:1px solid #1f2530;padding:10px 12px;border-radius:12px;color:var(--muted)}
     .notice b{color:var(--ink)}
 
@@ -111,8 +115,8 @@
         <div class="card half">
           <p><b>Email</b> <a href="mailto:book@fadetofocusphoto.com">book@fadetofocusphoto.com</a></p>
           <p><b>Phone</b> <a href="tel:+15315413891">531-541-3891</a></p>
-          <p><b>Facebook</b> <a href="https://facebook.com/FadeToFocusPhotographyOmaha" rel="noopener">Fade to Focus Photography</a></p>
-          <p><b>Instagram</b> <a href="https://instagram.com/fadetofocusphoto" rel="noopener">@fadetofocusphoto</a></p>
+          <p><b>Facebook</b> <a href="https://facebook.com/fadetofocusphoto" rel="noopener">facebook.com/fadetofocusphoto</a></p>
+          <p><b>Instagram</b> <a href="https://instagram.com/fadetofocusphoto" rel="noopener">instagram.com/fadetofocusphoto</a></p>
           <p class="small muted">Omaha and Council Bluffs, traveling nearby parks and downtown locations.</p>
         </div>
         <div class="card half">
@@ -139,7 +143,7 @@
     // Current year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Fallback list so you never touch HTML again
+    // Fallback list so the page still works without images.json
     const fallbackImages = [
       "Ally #1(google).jpg",
       "Arches(google).jpg",
@@ -161,7 +165,7 @@
       try {
         const res = await fetch('images.json', {cache:'no-store'});
         if(res.ok){ files = await res.json(); }
-      } catch(e){ /* ignore, will use fallback */ }
+      } catch(e){ /* use fallback below */ }
       if(!Array.isArray(files) || !files.length) files = fallbackImages;
 
       for(const file of files){
@@ -170,7 +174,8 @@
         const img = document.createElement('img');
         img.alt = file.replace(/\.[^.]+$/,'').replace(/[_-]/g,' ').replace(/\s+/g,' ').trim();
         img.loading = 'lazy';
-        img.src = encodeURI(file); // handles spaces, #, &, ()
+        // SAFER: encode each path segment to handle spaces, #, &, (), etc.
+        img.src = file.split('/').map(encodeURIComponent).join('/');
         div.appendChild(img);
         target.appendChild(div);
       }
