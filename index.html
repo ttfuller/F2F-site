@@ -82,7 +82,51 @@
     /* utilities */
     .block{display:block}
     .mt{margin-top:18px}
-    /* ==== GALLERY OVERRIDES (paste above </style>
+
+    /* ==== GALLERY OVERRIDES (no-crop, no borders) ==== */
+
+/* Grid */
+.gallery{
+  display:grid;
+  gap:14px;
+  grid-template-columns:1fr;
+}
+@media(min-width:600px){ .gallery{ grid-template-columns:repeat(2,1fr); } }
+@media(min-width:1024px){ .gallery{ grid-template-columns:repeat(3,1fr); } }
+
+/* Each image wraps to its natural height. No frame, no dark slab. */
+.shot{
+  position:relative;
+  border:0;                       /* remove 1px border */
+  border-radius:12px;
+  overflow:hidden;
+  background:transparent !important; /* kill dark background */
+}
+
+/* Full image, no crop, no letterbox */
+.shot img{
+  width:100%;
+  height:auto;                    /* let height grow with image */
+  display:block;
+  object-fit:unset;               /* no contain/cover tricks */
+  background:transparent !important;
+}
+
+/* Watermark kept */
+.shot::after{
+  content:"";
+  position:absolute;
+  right:8px;
+  bottom:8px;
+  width:110px;
+  height:110px;
+  background:url("assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png") center/contain no-repeat;
+  opacity:.14;
+  pointer-events:none;
+  filter:drop-shadow(0 0 1px rgba(0,0,0,.6));
+}
+
+/* ==== END OVERRIDES ==== */
      
   </style>
 </head>
