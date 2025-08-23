@@ -82,6 +82,44 @@
     /* utilities */
     .block{display:block}
     .mt{margin-top:18px}
+    /* ==== GALLERY OVERRIDES (paste above </style>) ==== */
+
+/* Grid */
+.gallery{display:grid;grid-template-columns:1fr;gap:12px;}
+@media(min-width:760px){.gallery{grid-template-columns:repeat(2,1fr);}}
+@media(min-width:1100px){.gallery{grid-template-columns:repeat(3,1fr);}}
+
+/* Tile */
+.shot{
+  position:relative;
+  border-radius:12px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.06);
+  background:transparent;   /* removes the black bars */
+}
+
+/* Images – no crop */
+.shot img{
+  width:100%;
+  height:auto;
+  display:block;
+  object-fit:unset;         /* shows full photo ratio */
+}
+
+/* Watermark */
+.shot::after{
+  content:"";
+  position:absolute;
+  right:8px;
+  bottom:8px;
+  width:110px;
+  height:110px;
+  background:url("assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png") center/contain no-repeat;
+  opacity:.14;
+  pointer-events:none;
+  filter:drop-shadow(0 0 1px rgba(0,0,0,.6));
+}
+/* ==== END OVERRIDES ==== */
   </style>
 </head>
 <body>
