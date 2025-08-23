@@ -84,42 +84,52 @@
     .mt{margin-top:18px}
     /* ==== GALLERY OVERRIDES (paste above </style>) ==== */
 
-/* Grid */
-.gallery{display:grid;grid-template-columns:1fr;gap:12px;}
-@media(min-width:760px){.gallery{grid-template-columns:repeat(2,1fr);}}
-@media(min-width:1100px){.gallery{grid-template-columns:repeat(3,1fr);}}
+    /* Grid: clean, even tiles */
+    .gallery{
+      display:grid;
+      gap:14px;
+      grid-template-columns:1fr;
+    }
+    @media(min-width:600px){ .gallery{ grid-template-columns:repeat(2,1fr); } }
+    @media(min-width:1024px){ .gallery{ grid-template-columns:repeat(3,1fr); } }
 
-/* Tile */
-.shot{
-  position:relative;
-  border-radius:12px;
-  overflow:hidden;
-  border:1px solid rgba(255,255,255,.06);
-  background:transparent;   /* removes the black bars */
-}
+    /* Cards: uniform 4:5 tiles */
+    .shot{
+      position:relative;
+      border-radius:14px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.08);
+      aspect-ratio:4/5;           /* consistent look */
+      background:#0b0d11;
+    }
 
-/* Images – no crop */
-.shot img{
-  width:100%;
-  height:auto;
-  display:block;
-  object-fit:unset;         /* shows full photo ratio */
-}
+    /* Image fill */
+    .shot img{
+      width:100%;
+      height:100%;
+      display:block;
+      object-fit:cover;           /* neat crop without black bars */
+      object-position:center;
+    }
 
-/* Watermark */
-.shot::after{
-  content:"";
-  position:absolute;
-  right:8px;
-  bottom:8px;
-  width:110px;
-  height:110px;
-  background:url("assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png") center/contain no-repeat;
-  opacity:.14;
-  pointer-events:none;
-  filter:drop-shadow(0 0 1px rgba(0,0,0,.6));
-}
-/* ==== END OVERRIDES ==== */
+    /* Watermark (kept) */
+    .shot::after{
+      content:"";
+      position:absolute;
+      right:8px;
+      bottom:8px;
+      width:110px;
+      height:110px;
+      background:url("assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png") center/contain no-repeat;
+      opacity:.14;
+      pointer-events:none;
+      filter:drop-shadow(0 0 1px rgba(0,0,0,.6));
+    }
+
+    /* Subtle hover */
+    .shot:hover img{ transform:scale(1.02); transition:.25s ease; }
+
+    /* ==== END OVERRIDES ==== */
   </style>
 </head>
 <body>
