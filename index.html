@@ -2,104 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>Fade to Focus Photography | Omaha NE</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Omaha photographer for families, couples, portraits, and headshots. Real moments, clean edits, fast delivery." />
+  <title>Fade to Focus Photography | Omaha NE</title>
+  <meta name="description" content="Real, moody, true-to-you photos in Omaha and Council Bluffs. Family, couples, portraits, boudoir 18+. Fast turnarounds and clear pricing." />
+  <link rel="icon" href="./assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" />
   <style>
     :root{
-      --bg:#0e0f12; --panel:#15171c; --ink:#e9eef4; --muted:#a9b0bb;
-      --brand:#b6ff00; --accent:#6cf; --card:#101318; --radius:18px;
-      --shadow:0 10px 30px rgba(0,0,0,.35)
+      --bg:#0f1115; --card:#171a20; --soft:#aab2c0; --hard:#e9eef5; --ink:#e8eaee;
+      --brand:#6ab3ff; --accent:#ffd166;
     }
     *{box-sizing:border-box}
-    html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
-    a{color:var(--accent);text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{max-width:1120px;margin:auto;padding:28px}
-
-    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 0}
-    .logo{display:flex;align-items:center;gap:12px}
-    .logo .mark{width:40px;height:40px;border-radius:12px;background:linear-gradient(135deg,#222,#111);display:grid;place-items:center;box-shadow:var(--shadow)}
-    .logo .mark:before{content:"📷";font-size:20px}
-    .logo h1{font-size:18px;margin:0;letter-spacing:.4px}
-    nav a{margin-left:18px;color:var(--ink);opacity:.9}
-    nav a:hover{opacity:1}
-
-    .hero{border-radius:var(--radius);background:radial-gradient(1000px 380px at 0% 0%,rgba(182,255,0,.08),transparent),linear-gradient(180deg,#13161b,#0e0f12);padding:48px 28px;box-shadow:var(--shadow)}
-    .hero h2{font-size:34px;line-height:1.15;margin:0 0 10px}
-    .hero p{margin:0 0 18px;color:var(--muted)}
-    .cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:8px}
-    .btn{background:var(--brand);color:#0b0c0f;font-weight:700;border:0;border-radius:12px;padding:12px 18px}
-    .btn:hover{filter:brightness(.95);cursor:pointer}
-    .btn.secondary{background:#1d2026;color:var(--ink);border:1px solid #262a33}
-
-    .notice{margin-top:14px;background:#0c0f13;border:1px solid #1f2530;padding:10px 12px;border-radius:12px;color:var(--muted)}
-    .notice b{color:var(--ink)}
-
-    section{margin:48px 0}
-    h3{font-size:22px;margin:0 0 14px}
-    .panels{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
-    .card{grid-column:span 12;background:var(--panel);border:1px solid #222732;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
-    @media (min-width:720px){.card.third{grid-column:span 4}.card.half{grid-column:span 6}}
-
-    .price{font-size:28px;font-weight:800}
-    .muted{color:var(--muted)}
-    .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
-    .badge{font-size:12px;border:1px solid #273042;color:var(--muted);padding:4px 8px;border-radius:999px}
-
-    /* Portfolio grid, no cropping */
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
-    .shot{background:var(--card);border:1px solid #1b1f28;border-radius:14px;padding:10px;box-shadow:var(--shadow)}
-    .shot img{width:100%;height:auto;display:block;border-radius:10px;object-fit:contain;background:#0b0d11}
-
-    footer{margin-top:56px;padding:26px 0;color:var(--muted);border-top:1px solid #1b212a}
-    .small{font-size:13px;color:var(--muted)}
+    body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial}
+    a{color:var(--brand);text-decoration:none}
+    a:hover{opacity:.9}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    header{position:sticky;top:0;z-index:5;backdrop-filter:blur(8px)}
+    .nav{display:flex;align-items:center;gap:18px;padding:12px 0}
+    .nav img.logo{height:40px;width:auto}
+    .nav .spacer{flex:1}
+    .nav a.btn{padding:8px 12px;background:var(--brand);color:#041424;border-radius:10px;font-weight:600}
+    .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;padding:28px 0}
+    .hero h1{margin:0 0 8px;font-size:42px;line-height:1.15}
+    .hero p{margin:0 0 18px;color:var(--soft)}
+    .card{background:var(--card);border:1px solid #262a33;border-radius:14px;padding:18px}
+    .badges{display:flex;flex-wrap:wrap;gap:8px}
+    .badge{background:#232833;border:1px solid #2f3642;color:var(--soft);padding:4px 8px;border-radius:999px;font-size:13px}
+    h2,h3{margin:0 0 12px}
+    h3{font-size:28px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+    .grid .shot{position:relative;background:#0b0d11;border-radius:10px;overflow:hidden;border:1px solid #232833}
+    .grid img{display:block;width:100%;height:auto;object-fit:contain;background:#0b0d11}
+    /* subtle corner watermark */
+    .grid .shot::after{
+      content:"";position:absolute;right:10px;bottom:10px;width:110px;height:110px;pointer-events:none;
+      background:url("./assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png") center/contain no-repeat;
+      opacity:.16;filter:grayscale(100%);
+    }
+    .panels{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    .third{min-height:100%}
+    .price{font-weight:800;font-size:26px;margin:6px 0 10px}
+    .muted{color:var(--soft)}
+    .cta{display:flex;gap:10px;flex-wrap:wrap}
+    .btn{display:inline-block;padding:10px 14px;border-radius:10px;font-weight:700}
+    .btn.primary{background:var(--accent);color:#1b1300}
+    .btn.ghost{border:1px solid #2b3240;color:var(--ink)}
+    section{margin:40px 0}
+    footer{margin:50px 0 20px;color:#96a0b2}
+    .socials{display:flex;gap:14px;align-items:center}
+    .socials a{display:inline-flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #2b3240;border-radius:10px;color:var(--ink)}
+    .fine{font-size:13px;color:#8d97a8}
+    /* Boudoir modal */
+    .modal{position:fixed;inset:0;background:#0008;display:none;align-items:center;justify-content:center;padding:20px;z-index:20}
+    .modal .sheet{max-width:640px;width:100%;background:var(--card);border:1px solid #2b3240;border-radius:14px;padding:18px}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,1fr)}
+      .panels{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">
-        <div class="mark"></div><h1>Fade to Focus Photography</h1>
-      </div>
-      <nav>
-        <a href="#services">Services</a>
-        <a href="#work">Portfolio</a>
-        <a href="#contact">Contact</a>
-        <a href="https://fadetofocusphotography.pixieset.com/" rel="noopener">Client galleries</a>
-      </nav>
-    </header>
+  <header class="wrap">
+    <nav class="nav">
+      <img class="logo" alt="Fade to Focus Photography logo" src="./assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" />
+      <strong>Fade to Focus Photography</strong>
+      <div class="spacer"></div>
+      <a href="#contact" class="btn">Book</a>
+    </nav>
+  </header>
 
-    <div class="hero">
-      <h2>Real moments. Clean edits. Fast delivery.</h2>
-      <p>Portraits, couples, families, and headshots across Omaha and Council Bluffs.</p>
-      <div class="cta">
-        <a class="btn" href="#contact">Book a session</a>
-        <a class="btn secondary" href="#work">See recent work</a>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <h1>Real moments. Clean edits. Omaha based.</h1>
+        <p>Family, couples, portraits, and 18+ boudoir by request. Fast previews and galleries you can download in full resolution.</p>
+        <div class="badges">
+          <span class="badge">Sneak peek in 8 hours</span>
+          <span class="badge">Galleries in 2 days</span>
+          <span class="badge">Print-ready downloads</span>
+          <span class="badge">Referral savings</span>
+        </div>
+        <div class="cta" style="margin-top:14px">
+          <a class="btn primary" href="#contact">See times</a>
+          <a class="btn ghost" href="#work">View work</a>
+          <a class="btn ghost" href="#boudoir" id="openBoudoir">Boudoir 18+</a>
+        </div>
+        <p class="fine" style="margin-top:10px">Serving Omaha, Council Bluffs, and nearby.</p>
       </div>
-      <div class="notice"><b>Referral bonus:</b> send a friend who books, your friend saves $10 and you get $20 off your next shoot.</div>
-    </div>
-
-    <section id="services">
-      <h3>Sessions and pricing</h3>
-      <div class="panels">
-        <div class="card third">
-          <h4>Mini Session</h4>
-          <div class="price">$115</div>
-          <p class="muted">30 minutes, one location, 12 edited images.</p>
-          <div class="badges"><span class="badge">Online gallery</span><span class="badge">Print files</span><span class="badge">Sneak peek in 8 hours</span></div>
-        </div>
-        <div class="card third">
-          <h4>Core Session</h4>
-          <div class="price">$150</div>
-          <p class="muted">60 minutes, one to two looks, 25 edited images.</p>
-          <div class="badges"><span class="badge">Online gallery</span><span class="badge">Print files</span><span class="badge">Delivery in 2 days</span></div>
-        </div>
-        <div class="card third">
-          <h4>Add-ons</h4>
-          <div class="price">Flexible</div>
-          <p class="muted">Extra edits, large groups, and special locations on request.</p>
-          <div class="badges"><span class="badge">Fast turnaround</span><span class="badge">Transparent rates</span><span class="badge">Travel nearby</span></div>
+      <div class="card">
+        <h3>Sessions and pricing</h3>
+        <div class="panels">
+          <div class="card third">
+            <h4>Mini Session</h4>
+            <div class="price">$115</div>
+            <p class="muted">30 minutes, one location, 12 edited images.</p>
+            <div class="badges"><span class="badge">Online gallery</span><span class="badge">Sneak peek in 8 hours</span></div>
+          </div>
+          <div class="card third">
+            <h4>Core Session</h4>
+            <div class="price">$150</div>
+            <p class="muted">60 minutes, one to two looks, 25 edited images.</p>
+            <div class="badges"><span class="badge">Online gallery</span><span class="badge">Delivery in 2 days</span></div>
+          </div>
+          <div class="card third">
+            <h4>Referral Bonus</h4>
+            <div class="price">Save together</div>
+            <p class="muted">They get $10 off their first shoot. You get $20 off your next shoot when they book.</p>
+            <div class="badges"><span class="badge">Stack with promos when allowed</span></div>
+          </div>
         </div>
       </div>
     </section>
@@ -107,80 +118,146 @@
     <section id="work">
       <h3>Portfolio</h3>
       <div id="gallery" class="grid" aria-live="polite"></div>
+      <p class="fine">No cropping on this page, images display at their natural ratio.</p>
+    </section>
+
+    <section id="boudoir">
+      <h3>Boudoir 18+ by request</h3>
+      <div class="card">
+        <p class="muted">Private studio or on-location, professional lighting, guided posing, and secure galleries. Tap below to view packages. For client comfort, access is gated.</p>
+        <div class="cta">
+          <button class="btn primary" id="boudoirGate">View boudoir packages</button>
+          <a class="btn ghost" href="#contact">Ask a question</a>
+        </div>
+      </div>
     </section>
 
     <section id="contact">
       <h3>Book and contact</h3>
       <div class="panels">
-        <div class="card half">
-          <p><b>Email</b> <a href="mailto:book@fadetofocusphoto.com">book@fadetofocusphoto.com</a></p>
-          <p><b>Phone</b> <a href="tel:+15315413891">531-541-3891</a></p>
-          <p><b>Facebook</b> <a href="https://facebook.com/fadetofocusphoto" rel="noopener">facebook.com/fadetofocusphoto</a></p>
-          <p><b>Instagram</b> <a href="https://instagram.com/fadetofocusphoto" rel="noopener">instagram.com/fadetofocusphoto</a></p>
-          <p class="small muted">Omaha and Council Bluffs, traveling nearby parks and downtown locations.</p>
+        <div class="card">
+          <p><strong>Website</strong><br><a href="https://www.fadetofocusphoto.com" target="_blank" rel="noopener">fadetofocusphoto.com</a></p>
+          <p><strong>Email</strong><br><a href="mailto:book@fadetofocusphoto.com">book@fadetofocusphoto.com</a></p>
+          <p><strong>Phone</strong><br><a href="tel:+15315413891">531-541-3891</a></p>
         </div>
-        <div class="card half">
-          <p><b>How booking works</b></p>
-          <ol class="small">
-            <li>Send your preferred date, location vibe, and session type.</li>
-            <li>Get a confirmation with outfit tips and location pins.</li>
-            <li>Sneak peek in 8 hours, full gallery in 2 days via Pixieset.</li>
-          </ol>
-          <p class="small muted">Ask about corporate headshots and events.</p>
+        <div class="card">
+          <p><strong>Social</strong></p>
+          <div class="socials">
+            <a href="https://www.facebook.com/FadeToFocusPhoto" target="_blank" rel="noopener">Facebook</a>
+            <a href="https://www.instagram.com/fadetofocusphoto" target="_blank" rel="noopener">Instagram</a>
+          </div>
+          <p class="fine" style="margin-top:12px">Open daily 8:00 AM to 10:00 PM, by appointment.</p>
+        </div>
+        <div class="card">
+          <p><strong>Turnaround</strong></p>
+          <ul class="muted">
+            <li>Sneak peek in 8 hours</li>
+            <li>Full web and print downloads within 2 days</li>
+            <li>Pixieset galleries, original resolution</li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <footer>
-      <div class="wrap" style="padding:0">
-        <div>© <span id="y"></span> Fade to Focus Photography • Omaha, Nebraska</div>
-        <div class="small">Real moments. Clean edits. Fast delivery.</div>
-      </div>
+    <footer class="wrap">
+      <div class="fine">© <span id="yr"></span> Fade to Focus Photography • Omaha NE</div>
     </footer>
+  </main>
+
+  <!-- Boudoir 18+ modal -->
+  <div class="modal" id="modal">
+    <div class="sheet">
+      <h3 style="margin:0 0 6px">Boudoir 18+</h3>
+      <p class="muted" style="margin-top:0">Confirm you are 18 or older to view. Pricing keeps the same structure you used previously. Edit the numbers in the HTML comments if you need to change them later.</p>
+      <div class="row" style="margin:12px 0">
+        <button class="btn primary" id="iAm18">I am 18 or older</button>
+        <button class="btn ghost" id="closeModal">Cancel</button>
+      </div>
+      <div id="boudoirPackages" style="display:none">
+        <div class="panels">
+          <!-- If you had exact tiers before, replace the names and prices below to match them. -->
+          <div class="card third">
+            <h4>Intimate</h4>
+            <div class="price">$___</div>
+            <p class="muted">45 minutes, one set, 12 edits. Private online gallery.</p>
+          </div>
+          <div class="card third">
+            <h4>Signature</h4>
+            <div class="price">$___</div>
+            <p class="muted">90 minutes, two sets, 25 edits. Wardrobe guidance.</p>
+          </div>
+          <div class="card third">
+            <h4>Luxe</h4>
+            <div class="price">$___</div>
+            <p class="muted">2 hours, three sets, 40 edits. Album upgrade available.</p>
+          </div>
+        </div>
+        <p class="fine" style="margin-top:10px">Privacy first. No social posting without written consent. Ask about hair and makeup partners.</p>
+      </div>
+    </div>
   </div>
 
   <script>
-    // Current year
-    document.getElementById('y').textContent = new Date().getFullYear();
+    // current year
+    document.getElementById('yr').textContent = new Date().getFullYear();
 
-    // Fallback list so the page still works without images.json
-    const fallbackImages = [
-      "Ally #1(google).jpg",
-      "Arches(google).jpg",
-      "Couple (google).jpg",
-      "Head Shot #1(google).jpg",
-      "Ivy wall (darker).jpg",
-      "Momma&D(google).jpg",
-      "Road 3(google).jpg",
-      "Stairs 5(google).jpg",
-      "Street (darker).jpg",
-      "Street #2(google).jpg",
-      "Street 3(google).jpg",
-      "IMG_0337.jpeg"
+    // Portfolio images (filenames exactly as in your repo root)
+    const files = [
+      "Ally #1(google).jpg","Arches(google).jpg","Couple (google).jpg","Family (google) .jpg",
+      "Head Shot #1(google).jpg","Ivy wall (darker).jpg","Momma&D(google).jpg","Road 3(google).jpg",
+      "Stairs 5(google).jpg","Street (darker).jpg","Street #2(google).jpg","Street 3(google).jpg",
+      "IMG_0337.jpeg","IMG_0446.jpeg","IMG_0463.jpeg"
     ];
+    const gal = document.getElementById('gallery');
+    files.forEach(name=>{
+      const src = encodeURI(name); // encodes spaces, #, parentheses
+      const cell = document.createElement('div');
+      cell.className = 'shot';
+      const img = document.createElement('img');
+      img.loading = 'lazy';
+      img.alt = 'Portfolio image, Fade to Focus Photography';
+      img.src = src;
+      cell.appendChild(img);
+      gal.appendChild(cell);
+    });
 
-    async function loadGallery(){
-      const target = document.getElementById('gallery');
-      let files = [];
-      try {
-        const res = await fetch('images.json', {cache:'no-store'});
-        if(res.ok){ files = await res.json(); }
-      } catch(e){ /* use fallback below */ }
-      if(!Array.isArray(files) || !files.length) files = fallbackImages;
+    // Boudoir gate
+    const modal = document.getElementById('modal');
+    const gateBtn = document.getElementById('boudoirGate');
+    const openLink = document.getElementById('openBoudoir');
+    const closeBtn = document.getElementById('closeModal');
+    const okBtn = document.getElementById('iAm18');
+    const pkg = document.getElementById('boudoirPackages');
+    [gateBtn, openLink].forEach(el=>{
+      if(el){ el.addEventListener('click', e=>{ e.preventDefault(); modal.style.display='flex'; }); }
+    });
+    closeBtn.addEventListener('click', ()=> modal.style.display='none');
+    okBtn.addEventListener('click', ()=>{
+      pkg.style.display='block';
+      okBtn.parentElement.style.display='none';
+    });
+    modal.addEventListener('click', e=>{ if(e.target===modal) modal.style.display='none'; });
 
-      for(const file of files){
-        const div = document.createElement('div');
-        div.className = 'shot';
-        const img = document.createElement('img');
-        img.alt = file.replace(/\.[^.]+$/,'').replace(/[_-]/g,' ').replace(/\s+/g,' ').trim();
-        img.loading = 'lazy';
-        // SAFER: encode each path segment to handle spaces, #, &, (), etc.
-        img.src = file.split('/').map(encodeURIComponent).join('/');
-        div.appendChild(img);
-        target.appendChild(div);
-      }
-    }
-    loadGallery();
+    // JSON-LD
+    const ld = {
+      "@context":"https://schema.org",
+      "@type":"LocalBusiness",
+      "name":"Fade to Focus Photography",
+      "image":"https://www.fadetofocusphoto.com/assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png",
+      "url":"https://www.fadetofocusphoto.com",
+      "telephone":"+1-531-541-3891",
+      "address":{"@type":"PostalAddress","addressLocality":"Omaha","addressRegion":"NE","postalCode":"68104","addressCountry":"US"},
+      "sameAs":[
+        "https://www.facebook.com/FadeToFocusPhoto",
+        "https://www.instagram.com/fadetofocusphoto"
+      ],
+      "areaServed":"Omaha NE and Council Bluffs IA",
+      "priceRange":"$$"
+    };
+    const s = document.createElement('script');
+    s.type = 'application/ld+json';
+    s.textContent = JSON.stringify(ld);
+    document.head.appendChild(s);
   </script>
 </body>
 </html>
