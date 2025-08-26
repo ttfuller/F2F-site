@@ -3,46 +3,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Fade to Focus Photography — Omaha</title>
-  <meta name="description" content="Candid, moody, real-life images. Real moments > stiff poses." />
-
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
-
+  <title>Fade to Focus Photography — Omaha | Portrait & Lifestyle Photographer</title>
+  <meta name="description" content="Omaha‑based photographer capturing candid, moody images for families, portraits, couples, boudoir and events. Real moments > stiff poses." />
+  <meta property="og:title" content="Fade to Focus Photography – Omaha photographer capturing authentic, moody portraits" />
+  <meta property="og:description" content="Omaha‑based photographer capturing candid and authentic portraits, families, couples, and boudoir sessions. Real moments > stiff poses." />
+  <meta property="og:image" content="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" />
+  <meta property="og:url" content="https://www.fadetofocusphoto.com" />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
-    /* ===== Theme variables ===== */
+    /* Theme variables */
     :root{
       --bg:#0b0f14;
       --bg-soft:#121821;
       --ink:#e9edf2;
       --muted:#9aa6b2;
       --stroke:#1b2533;
-
-      /* Branding */
       --brand-logo:url('assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png');
-
-      /* Per-photo watermark controls */
       --wm-opacity:.18;
       --wm-size:130px;
       --wm-inset:10px;
-
-      /* Typography */
       --font-body:"Cormorant Garamond", Garamond, Georgia, serif;
       --font-head:"Gloock","Cormorant Garamond", serif;
-
-      /* Glass translucency (lower = more see-through) */
       --glass-header: 0.30;
       --glass-section: 0.20;
       --glass-panel: 0.16;
       --glass-footer: 0.26;
       --glass-blur: 6px;
     }
-
-    /* ===== Fixed crest behind all scrolling content ===== */
     html{ background: var(--bg); }
-    body{ position:relative; background: transparent; }
+    body{ position:relative; background: transparent; margin:0; color:var(--ink); font:18px/1.7 var(--font-body);}
     body::before{
       content:"";
       position: fixed;
@@ -53,16 +45,9 @@
       pointer-events: none;
       z-index: -1;
     }
-
-    /* ===== Base ===== */
     *{box-sizing:border-box}
-    html,body{margin:0;color:var(--ink);font:18px/1.7 var(--font-body)}
     .wrap{max-width:1100px;margin:auto;padding:20px}
-
-    /* Links neutral (no blue, no underline) */
-    a, a:link, a:visited, a:hover, a:active{ color:inherit; text-decoration:none; }
-
-    /* ===== Header ===== */
+    a{ color:inherit; text-decoration:none; }
     header{
       position:sticky; top:0; z-index:50;
       background: rgba(11,15,20,var(--glass-header));
@@ -73,30 +58,22 @@
     .brand-logo{height:40px;width:auto;display:block}
     nav{margin-left:auto;display:flex;gap:10px;flex-wrap:wrap}
     .pill{padding:8px 14px;border:1px solid #243244;border-radius:999px;background:#0f1520}
-    .pill:link,.pill:visited,.pill:hover,.pill:active{color:var(--ink)}
     .pill.cta{background:#ffffff;color:#0c1117 !important;border-color:transparent;font-weight:700}
-
-    /* ==== Hero ==== */
-    #hero{ position:relative; isolation:isolate; }  /* keep section above page crest */
+    #hero{ position:relative; isolation:isolate; }
     #hero::before{
       content:"";
       position:absolute; inset:0;
-      background: rgba(11,15,20,.96);   /* 1 = fully opaque; .92 shows a little through */
+      background: rgba(11,15,20,.96);
       backdrop-filter: saturate(140%) blur(var(--glass-blur));
-      z-index:-1;                        /* sits between hero content & page crest */
+      z-index:-1;
     }
-    .hero-logo{
-      width:200px; max-width:200px; height:auto; object-fit:contain;
-      filter:drop-shadow(0 2px 18px rgba(255,255,255,.05));
-    }
+    .hero-logo{width:200px;height:auto;object-fit:contain;filter:drop-shadow(0 2px 18px rgba(255,255,255,.05));}
     @media (max-width:480px){
       .hero-inner{ grid-template-columns:150px 1fr; }
-      .hero-logo{ width:150px; max-width:150px; }
+      .hero-logo{ width:150px; }
     }
     .title{font-family:var(--font-head); font-size:34px; font-weight:800; letter-spacing:.02em; margin:0}
     .tag{color:var(--muted); margin:6px 0 0}
-
-    /* ===== Sections / cards ===== */
     section{padding:28px 0;border-top:1px solid var(--stroke);background: rgba(11,15,20,var(--glass-section))}
     h3{margin:0 0 14px;font:24px/1.2 var(--font-head);letter-spacing:.4px}
     .cards{display:grid;gap:12px}
@@ -111,22 +88,9 @@
     .price{font-weight:800;font-size:22px;margin:2px 0 8px}
     ul.tiny{margin:0 0 4px 18px;padding:0;color:var(--muted);font-size:18px;line-height:1.6}
     ul.tiny li{margin:4px 0}
-
-    /* --- ONLY CHANGE YOU ASKED: make Packages section less see-through --- */
-    #packages{ background: rgba(11,15,20,0.40); }              /* darker than the default .20 */
-    #packages .card{
-      background: rgba(18,24,33,0.32);                         /* darker panels in this section */
-      backdrop-filter: blur(calc(var(--glass-blur) + 2px));    /* slightly stronger blur here */
-    }
-
-    /* ===== Filters (tabs) ===== */
-    .filters{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 14px}
-    .filters .pill{color:var(--ink)}
-    .filters .pill.active{outline:2px solid rgba(255,255,255,.18)}
-
-    /* ===== Masonry gallery: no cropping ===== */
+    #packages{ background: rgba(11,15,20,0.40); }
+    #packages .card{background: rgba(18,24,33,0.32);backdrop-filter: blur(calc(var(--glass-blur) + 2px));}
     .gallery{column-width:340px; column-gap:12px}
-    .hidden{display:none !important}
     .ph{
       display:block; break-inside:avoid; position:relative; overflow:hidden;
       background: rgba(18,24,33,var(--glass-panel));
@@ -135,200 +99,223 @@
       backdrop-filter: blur(calc(var(--glass-blur) - 2px));
     }
     .ph img{display:block;width:100%;height:auto;object-fit:contain}
-
-    /* Watermark on each photo */
     .ph::after{
-      content:""; position:absolute; right:var(--wm-inset); bottom:var(--wm-inset);
-      width:var(--wm-size); height:var(--wm-size);
-      background-image:var(--brand-logo); background-size:contain; background-repeat:no-repeat;
-      opacity:var(--wm-opacity); pointer-events:none; filter:grayscale(1) contrast(1.1);
+      content: "Fade to Focus";
+      position: absolute;
+      bottom: var(--wm-inset);
+      right: var(--wm-inset);
+      opacity: var(--wm-opacity);
+      font-size: var(--wm-size);
+      color: var(--ink);
     }
-
-    /* ===== Contact buttons ===== */
-    .contact{display:flex;flex-wrap:wrap;gap:10px}
-    .btn{padding:10px 14px;border-radius:10px;border:1px solid var(--stroke);background:#0f1520}
-    .btn.primary{background:#ffffff;color:#0c1117;border-color:transparent;font-weight:700}
-
-    /* ===== Footer ===== */
-    footer{
-      border-top:1px solid var(--stroke);
-      color:var(--muted);
-      padding:26px 18px;
-      text-align:center;
-      background: rgba(10,14,19,var(--glass-footer));
+    form.contact-form input,
+    form.contact-form textarea{
+      width:100%;
+      padding:10px;
+      border:1px solid var(--stroke);
+      border-radius:8px;
+      background: rgba(18,24,33,var(--glass-panel));
+      color:var(--ink);
+      font-family:var(--font-body);
     }
-    .tiny{font-size:12px;color:var(--muted)}
+    form.contact-form button{
+      padding:12px 20px;
+      background:#ffffff;
+      color:#0c1117;
+      border:none;
+      border-radius:8px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    form.contact-form button:hover{background:#e6e6e6}
+    .about-content{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
+    .about-content img{max-width:200px;border-radius:100%;flex-shrink:0}
+    .testimonial-card{padding:16px;background:rgba(18,24,33,var(--glass-panel));border:1px solid var(--stroke);border-radius:16px;margin-bottom:12px}
   </style>
 </head>
 <body>
+  <header>
+    <div class="bar wrap">
+      <img class="brand-logo" src="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" alt="Fade to Focus Photography logo" />
+      <nav>
+        <a class="pill" href="#packages">Packages</a>
+        <a class="pill" href="#shots">Portfolio</a>
+        <a class="pill" href="#about">About</a>
+        <a class="pill" href="#contact">Contact</a>
+        <a class="pill" href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener">Facebook</a>
+        <a class="pill cta" href="mailto:book@fadetofocusphoto.com?subject=Book%20a%20session">Book now</a>
+      </nav>
+    </div>
+  </header>
 
-<header>
-  <div class="bar wrap">
-    <img class="brand-logo" src="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" alt="Fade to Focus Photography logo">
-    <nav>
-      <a class="pill" href="#packages">Packages</a>
-      <a class="pill" href="#shots">Recent shots</a>
-      <a class="pill" href="#contact">Contact</a>
-      <a class="pill" href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener">Facebook</a>
-      <a class="pill cta" href="mailto:book@fadetofocusphoto.com?subject=Book%20a%20session">Book now</a>
-    </nav>
-  </div>
-</header>
-
-<section id="hero">
-  <div class="wrap">
-    <div class="hero-inner">
-      <img class="hero-logo" src="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" alt="Brand crest">
-      <div>
-        <h1 class="title">Fade to Focus • Omaha</h1>
-        <p class="tag">Candid, moody, real-life images. <strong>Real moments &gt; stiff poses.</strong></p>
+  <section id="hero">
+    <div class="wrap">
+      <div class="hero-inner" style="display:grid; grid-template-columns:auto 1fr; gap:20px; align-items:center;">
+        <img class="hero-logo" src="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" alt="Brand crest" />
+        <div>
+          <h1 class="title">Fade to Focus • Omaha</h1>
+          <p class="tag">Candid, moody, real‑life images. <strong>Real moments > stiff poses.</strong></p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="packages">
-  <div class="wrap">
-    <h3>Packages</h3>
-    <div class="cards">
-
-      <div class="card">
-        <div class="price">$150 — Core</div>
-        <ul class="tiny">
-          <li>60 minutes • 1–2 looks / 1–2 spots</li>
-          <li>20 edited images (my selects)</li>
-          <li>Delivery in 7 days</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="price">$250 — Story</div>
-        <ul class="tiny">
-          <li>90 minutes • up to 2 locations</li>
-          <li>35 edited images • custom vibe</li>
-          <li>Delivery in 7 days (rush available)</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <div class="price">$115 — Minis • $75 — Seasonal</div>
-        <ul class="tiny">
-          <li>Short &amp; sweet sessions (30 Mins) announced on Facebook/Instagram</li>
-          <li>Limited time slots • location/theme posted with each drop</li>
-          <li>Watch socials for dates &amp; pricing</li>
-        </ul>
-      </div>
-
-    </div>
-
-<div class="card">
-  <h4>Boudoir (18+)</h4>
-
-  <div class="price">$125 — Intro</div>
-  <ul class="tiny">
-    <li>35–45 minutes • 1 outfit • in-home or private outdoor spot</li>
-    <li>10 edited images (my selects)</li>
-    <li>Delivery in 5 days</li>
-  </ul>
-
-  <hr class="sep">
-
-  <div class="price">$200 — Classic</div>
-  <ul class="tiny">
-    <li>60–75 minutes • up to 2 outfits • in-home or Airbnb/hotel
-      <span class="muted"></span></li>
-    <li>18 edited images</li>
-    <li>Delivery in 7 days</li>
-  </ul>
-
-  <hr class="sep">
-
-  <div class="price">$300 — Signature</div>
-  <ul class="tiny">
-    <li>90 minutes • 2–3 looks/sets (window light, chair, sheets)</li>
-    <li>28 edited images</li>
-    <li>Delivery in 7 days</li>
-  </ul>
-
-  <p class="tiny" style="margin-top:8px">
-    Add-ons: Rush 48h +$25 • Extra edits +$5 each. 18+ only; ID required.
-  </p>
-
-  <a class="btn"
-     href="mailto:book@fadetofocusphoto.com?subject=Boudoir%20Booking%20(18%2B)&body=Hi%20—%20I%27d%20like%20to%20book%20the%20Intro%20/%20Classic%20/%20Signature%20package.%20My%20dates%20are%3A">
-     Request to book
-  </a>
-</div>
-    
-      <div class="card">
-        <div class="price">Custom</div>
-        <ul class="tiny">
-          <li>Events • creative • editorial • brand</li>
-          <li>We’ll shape the right coverage</li>
-          <li><a href="#contact">Get a quote →</a></li>
-        </ul>
-      </div>
-      <div class="card">
-        <div class="price">Policies</div>
-        <ul class="tiny">
-          <li>$25 booking deposit holds your time (credited to session)</li>
-          <li>24h reschedule window</li>
-          <li>Weather: photographer’s call; free reschedule if we cancel</li>
-          <li>Personal use rights included; commercial use by permission</li>
-        </ul>
+  <section id="about">
+    <div class="wrap">
+      <h3>About Me</h3>
+      <div class="about-content">
+        <img src="Head%20Shot%20%231(google).jpg" alt="Terry Fuller headshot" />
+        <div>
+          <p class="tag">I’m Terry Fuller, the eye behind Fade to Focus. I capture candid, moody and authentic moments for portraits, families, couples and creatives here in Omaha. My sessions are relaxed and collaborative so that your true personality shines.</p>
+          <p class="tag">Photography is more than just pictures – it’s about telling your story. If you’re looking for images that feel like you, let’s work together.</p>
+        </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section id="shots">
-  <div class="wrap">
-    <h3>Recent shots</h3>
-
-
-    <!-- Masonry gallery: updated to your 12 JPGs -->
-    <div class="gallery" id="gallery">
-            <a class="ph"><img src="Ally%20%231(google).jpg" alt="Portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
-      <a class="ph"><img src="Head%20Shot%20%231(google).jpg" alt="Headshot" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
-      <a class="ph"><img src="Couple%20(google).jpg" alt="Couple" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
-      <a class="ph"><img src="IMG_0337.jpeg" alt="Kid portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
-      <a class="ph"><img src="Arches(google).jpg" alt="Portrait at arches" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
-      <a class="ph"><img src="Ivy%20wall%20(darker).jpg" alt="Ivy wall portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
-      <a class="ph"><img src="Street%20%232(google).jpg" alt="Street portrait 2" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
-      <a class="ph"><img src="Street%203(google).jpg" alt="Street portrait 3" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
-      <a class="ph"><img src="Momma%26D(google).jpg" alt="Parent and child" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
-      <a class="ph"><img src="Road%203(google).jpg" alt="Road portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
-      <a class="ph"><img src="Stairs%205(google).jpg" alt="Stairs portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
-      <a class="ph"><img src="Street%20(darker).jpg" alt="Low light street portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'"></a>
+  <section id="packages">
+    <div class="wrap">
+      <h3>Packages</h3>
+      <div class="cards">
+        <div class="card">
+          <div class="price">$150 — Core</div>
+          <ul class="tiny">
+            <li>60 minutes • 1–2 looks / 1–2 spots</li>
+            <li>20 edited images (my selects)</li>
+            <li>Delivery in 7 days</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="price">$250 — Story</div>
+          <ul class="tiny">
+            <li>90 minutes • up to 2 locations</li>
+            <li>35 edited images • custom vibe</li>
+            <li>Delivery in 7 days (rush available)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="price">$115 — Minis • $75 — Seasonal</div>
+          <ul class="tiny">
+            <li>Short & sweet sessions (30 mins) announced on Facebook/Instagram</li>
+            <li>Limited time slots • location/theme posted with each drop</li>
+            <li>Watch socials for dates & pricing</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Boudoir (18+)</h4>
+          <div class="price">$125 — Intro</div>
+          <ul class="tiny">
+            <li>35–45 minutes • 1 outfit • in‑home or private outdoor spot</li>
+            <li>10 edited images (my selects)</li>
+            <li>Delivery in 5 days</li>
+          </ul>
+          <hr class="sep" />
+          <div class="price">$200 — Classic</div>
+          <ul class="tiny">
+            <li>60–75 minutes • up to 2 outfits • in‑home or Airbnb/hotel</li>
+            <li>18 edited images</li>
+            <li>Delivery in 7 days</li>
+          </ul>
+          <hr class="sep" />
+          <div class="price">$300 — Signature</div>
+          <ul class="tiny">
+            <li>90 minutes • 2–3 looks/sets (window light, chair, sheets)</li>
+            <li>28 edited images</li>
+            <li>Delivery in 7 days</li>
+          </ul>
+          <p class="tiny" style="margin-top:8px">Add‑ons: Rush 48h +$25 • Extra edits +$5 each. 18+ only; ID required.</p>
+          <a class="btn" href="mailto:book@fadetofocusphoto.com?subject=Boudoir%20Booking%20(18%2B)&body=Hi%20—%20I’d%20like%20to%20book%20the%20Intro%20/%20Classic%20/%20Signature%20package.%20My%20dates%20are%3A">Request to book</a>
+        </div>
+        <div class="card">
+          <div class="price">Custom</div>
+          <ul class="tiny">
+            <li>Events • creative • editorial • brand</li>
+            <li>We’ll shape the right coverage</li>
+            <li><a href="#contact">Get a quote →</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="price">Policies</div>
+          <ul class="tiny">
+            <li>$25 booking deposit holds your time (credited to session)</li>
+            <li>24h reschedule window</li>
+            <li>Weather: photographer’s call; free reschedule if we cancel</li>
+            <li>Personal use rights included; commercial use by permission</li>
+          </ul>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <p class="tiny" style="margin-top:10px;color:var(--muted)">
-      On-site watermark is for previews only; delivered images are clean unless requested.
-    </p>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap">
-    <h3>Contact</h3>
-    <p class="tag">Tell me what you’re dreaming up—family, portraits, lifestyle, events, creative/editorial, and boudoir (18+).</p>
-    <div class="contact">
-      <a class="btn primary" href="mailto:book@fadetofocusphoto.com">book@fadetofocusphoto.com</a>
-      <a class="btn" href="tel:+15315413891">(531) 541-3891</a>
-      <a class="btn" href="https://www.fadetofocusphoto.com" target="_blank" rel="noopener">fadetofocusphoto.com</a>
-      <a class="btn" href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener">Facebook</a>
+  <section id="shots">
+    <div class="wrap">
+      <h3>Portfolio</h3>
+      <h4 class="tag" style="margin-top:0">Portraits</h4>
+      <div class="gallery">
+        <a class="ph"><img src="Ally%20%231(google).jpg" alt="Outdoor portrait of a woman" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+        <a class="ph"><img src="Head%20Shot%20%231(google).jpg" alt="Professional headshot" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+        <a class="ph"><img src="Arches(google).jpg" alt="Portrait at arches" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+      </div>
+      <h4 class="tag" style="margin-top:20px">Couples & Families</h4>
+      <div class="gallery">
+        <a class="ph"><img src="Couple%20(google).jpg" alt="Couple smiling together" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+        <a class="ph"><img src="Momma%26D(google).jpg" alt="Parent and child" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+        <a class="ph"><img src="Family%20(google)%20.jpg" alt="Family portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+      </div>
+      <h4 class="tag" style="margin-top:20px">Lifestyle & Street</h4>
+      <div class="gallery">
+        <a class="ph"><img src="Ivy%20wall%20(darker).jpg" alt="Portrait by an ivy‑covered wall" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+        <a class="ph"><img src="Street%20%232(google).jpg" alt="Moody street portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+        <a class="ph"><img src="Street%203(google).jpg" alt="Street portrait with bokeh lights" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+        <a class="ph"><img src="IMG_0337.jpeg" alt="Child portrait with shallow depth of field" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+        <a class="ph"><img src="Road%203(google).jpg" alt="Portrait on a road" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+        <a class="ph"><img src="Stairs%205(google).jpg" alt="Portrait on stairs" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+        <a class="ph"><img src="Street%20(darker).jpg" alt="Low light street portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
+      </div>
+      <p class="tiny" style="margin-top:10px;color:var(--muted)">On‑site watermark is for previews only; delivered images are clean unless requested.</p>
     </div>
-  </div>
-</section>
+  </section>
 
-<footer>
-  <div>© <span id="y"></span> Fade to Focus Photography • Omaha</div>
-  <div class="tiny">Real moments &gt; stiff poses</div>
-</footer>
+  <section id="testimonials">
+    <div class="wrap">
+      <h3>Testimonials</h3>
+      <div class="testimonial-card">
+        <p class="tag">“Terry made us feel comfortable and captured our genuine smiles. We love our photos!” — <em>Client Name</em></p>
+      </div>
+      <div class="testimonial-card">
+        <p class="tag">“I couldn’t be happier with the quality and mood of our session. Highly recommend!” — <em>Client Name</em></p>
+      </div>
+    </div>
+  </section>
 
-<script>
-  // year
-  document.getElementById('y').textContent = new Date().getFullYear();
+  <section id="contact">
+    <div class="wrap">
+      <h3>Contact</h3>
+      <p class="tag">Tell me what you’re dreaming up—family, portraits, lifestyle, events, creative/editorial, and boudoir (18+).</p>
+      <div class="contact" style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:20px">
+        <a class="btn primary" href="mailto:book@fadetofocusphoto.com">book@fadetofocusphoto.com</a>
+        <a class="btn" href="tel:+15315413891">(531) 541‑3891</a>
+        <a class="btn" href="https://www.fadetofocusphoto.com" target="_blank" rel="noopener">fadetofocusphoto.com</a>
+        <a class="btn" href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener">Facebook</a>
+      </div>
+      <form class="contact-form" action="https://formspree.io/f/xandyddg" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="_replyto" placeholder="Your Email" required />
+        <input type="text" name="subject" placeholder="Session type (portraits, family, boudoir, etc.)" />
+        <input type="date" name="date" />
+        <textarea name="message" placeholder="Tell me about your vision" rows="4"></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+      <p class="tiny" style="margin-top:8px">This form uses Formspree. Replace the form action with your actual form ID if it changes.</p>
+    </div>
+  </section>
 
+  <footer>
+    <div>© <span id="y"></span> Fade to Focus Photography • Omaha</div>
+    <div class="tiny">Real moments > stiff poses</div>
+  </footer>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
