@@ -192,6 +192,12 @@
       font-weight: 500;
     }
     .testimonial-card{padding:16px;background:rgba(18,24,33,var(--glass-panel));border:1px solid var(--stroke);border-radius:16px;margin-bottom:12px}
+    .small-label{
+      display:block;
+      margin:4px 0 4px 0;
+      font-size:14px;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
@@ -228,10 +234,8 @@
     <div class="wrap">
       <h3>About Me</h3>
       <div class="about-content">
-        <!-- Use existing headshot from your repository -->
         <!-- Updated headshot image -->
         <img src="IMG_0554.jpeg" alt="Terry Fuller headshot" />
-        <!-- Wrap the text in a card for better readability -->
         <div class="about-box">
           <p class="tag">I’m Terry Fuller, the eye behind Fade to Focus. I capture candid, moody and authentic moments for portraits, families, couples and creatives here in Omaha. My sessions are relaxed and collaborative so that your true personality shines.</p>
           <p class="tag">Photography is more than just pictures – it’s about telling your story. If you’re looking for images that feel like you, let’s work together.</p>
@@ -269,7 +273,6 @@
             <li>Watch socials for dates &amp; pricing</li>
           </ul>
         </div>
-        <!-- Boudoir package -->
         <div class="card">
           <h4>Boudoir (18+)</h4>
           <div class="price">$125 — Intro</div>
@@ -295,7 +298,6 @@
           <p class="tiny" style="margin-top:8px">Add‑ons: Rush 48h +$25 • Extra edits +$5 each. 18+ only; ID required.</p>
           <a class="btn" href="mailto:book@fadetofocusphoto.com?subject=Boudoir%20Booking%20(18%2B)&body=Hi%20—%20I’d%20like%20to%20book%20the%20Intro%20/%20Classic%20/%20Signature%20package.%20My%20dates%20are%3A">Request to book</a>
         </div>
-        <!-- Custom and policies -->
         <div class="card">
           <div class="price">Custom</div>
           <ul class="tiny">
@@ -321,20 +323,19 @@
   <section id="shots">
     <div class="wrap">
       <h3>Portfolio</h3>
-      <!-- Grouped by subject matter for easier browsing -->
       <h4 class="tag" style="margin-top:0">Portraits</h4>
       <div class="gallery">
         <a class="ph"><img src="Ally%20%231(google).jpg" alt="Outdoor portrait of a woman" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
         <a class="ph"><img src="Head%20Shot%20%231(google).jpg" alt="Professional headshot" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
         <a class="ph"><img src="Arches(google).jpg" alt="Portrait at arches" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
       </div>
-      <h4 class="tag" style="margin-top:20px">Couples &amp; Families</h4>
+      <h4 class="tag" style="margin-top:20px">Couples & Families</h4>
       <div class="gallery">
         <a class="ph"><img src="Couple%20(google).jpg" alt="Couple smiling together" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
         <a class="ph"><img src="Momma%26D(google).jpg" alt="Parent and child" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
         <a class="ph"><img src="Family%20(google)%20.jpg" alt="Family portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
       </div>
-      <h4 class="tag" style="margin-top:20px">Lifestyle &amp; Street</h4>
+      <h4 class="tag" style="margin-top:20px">Lifestyle & Street</h4>
       <div class="gallery">
         <a class="ph"><img src="Ivy%20wall%20(darker).jpg" alt="Portrait by an ivy‑covered wall" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
         <a class="ph"><img src="Street%20%232(google).jpg" alt="Moody street portrait" loading="lazy" onerror="this.closest('.ph').style.display='none'" /></a>
@@ -375,16 +376,17 @@
         <a class="btn" href="https://www.fadetofocusphoto.com" target="_blank" rel="noopener">fadetofocusphoto.com</a>
         <a class="btn" href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener">Facebook</a>
       </div>
-      <!-- Simple contact form using Formspree; replace the action URL with your actual Formspree endpoint -->
+      <!-- Simple contact form using Formspree; replaced with actual endpoint -->
       <form class="contact-form" action="https://formspree.io/f/xandyddg" method="POST">
         <input type="text" name="name" placeholder="Your Name" required />
         <input type="email" name="_replyto" placeholder="Your Email" required />
         <input type="text" name="subject" placeholder="Session type (portraits, family, boudoir, etc.)" />
-        <input type="date" name="date" />
+        <!-- Add a label for the date field so users know to select a date -->
+        <label for="session-date" class="small-label">Preferred date (optional)</label>
+        <input type="date" id="session-date" name="date" />
         <textarea name="message" placeholder="Tell me about your vision" rows="4"></textarea>
         <button type="submit">Send Message</button>
       </form>
-      <p class="tiny" style="margin-top:8px">This form uses Formspree. Replace the form action with your actual form ID if it changes.</p>
     </div>
   </section>
 
