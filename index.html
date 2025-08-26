@@ -130,6 +130,17 @@
     form.contact-form button:hover{background:#e6e6e6}
     .about-content{display:flex;flex-wrap:wrap;gap:20px;align-items:center}
     .about-content img{max-width:200px;border-radius:100%;flex-shrink:0}
+    .about-content .about-box{
+      background: rgba(18,24,33,var(--glass-panel));
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      padding: 16px;
+      backdrop-filter: blur(calc(var(--glass-blur) - 2px));
+    }
+    .about-content .about-box .tag{
+      color: var(--ink);
+      font-weight: 500;
+    }
     .testimonial-card{padding:16px;background:rgba(18,24,33,var(--glass-panel));border:1px solid var(--stroke);border-radius:16px;margin-bottom:12px}
   </style>
 </head>
@@ -164,9 +175,8 @@
     <div class="wrap">
       <h3>About Me</h3>
       <div class="about-content">
-        <!-- Updated headshot image -->
         <img src="IMG_0554.jpeg" alt="Terry Fuller headshot" />
-        <div>
+        <div class="about-box">
           <p class="tag">I’m Terry Fuller, the eye behind Fade to Focus. I capture candid, moody and authentic moments for portraits, families, couples and creatives here in Omaha. My sessions are relaxed and collaborative so that your true personality shines.</p>
           <p class="tag">Photography is more than just pictures – it’s about telling your story. If you’re looking for images that feel like you, let’s work together.</p>
         </div>
@@ -281,10 +291,13 @@
     <div class="wrap">
       <h3>Testimonials</h3>
       <div class="testimonial-card">
-        <p class="tag">“Terry made us feel comfortable and captured our genuine smiles. We love our photos!” — <em>Client Name</em></p>
+        <p class="tag">“We felt welcome and completely at ease, and our photos truly captured our family’s shine. I’d recommend Fade to Focus to anyone.” — <em>Alexandria Bivens</em></p>
       </div>
       <div class="testimonial-card">
-        <p class="tag">“I couldn’t be happier with the quality and mood of our session. Highly recommend!” — <em>Client Name</em></p>
+        <p class="tag">“Our first family session was relaxed and fun. The backgrounds were beautiful, the images feel alive and the pricing and quality are excellent. I’m so glad we trusted Terry with our family photos.” — <em>Aaron Ray</em></p>
+      </div>
+      <div class="testimonial-card">
+        <p class="tag">“Terry’s style caught my eye. He put me at ease despite my usual awkwardness and captured my smile perfectly. The edits are gorgeous and the entire process was a breeze.” — <em>Claire Nosal</em></p>
       </div>
     </div>
   </section>
