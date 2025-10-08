@@ -9,13 +9,16 @@
   <!-- Open Graph / Social -->
   <meta property="og:title" content="Fade to Focus Photography – Omaha photographer capturing authentic, moody portraits" />
   <meta property="og:description" content="Omaha-based photographer capturing candid and authentic portraits, families, couples, and private sessions. Real moments > stiff poses." />
-  <!-- primary preview -->
-  <meta property="og:image" content="IMG_0554.jpeg" />
-  <!-- fallback logo (in case headshot fails to load for a crawler) -->
-  <meta property="og:image:alt" content="Terry Fuller — Fade to Focus headshot" />
+  <!-- Share preview image: BUSINESS LOGO (not headshot) -->
+  <meta property="og:image" content="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" />
+  <meta property="og:image:alt" content="Fade to Focus Photography logo" />
   <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" />
   <meta property="og:url" content="https://www.fadetofocusphoto.com" />
   <meta property="og:type" content="website" />
+
+  <!-- Icons (optional but helpful for crawlers) -->
+  <link rel="icon" href="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,7 +26,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Gloock&family=Cormorant+Garamond:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <style>
-    /* ==== theme variables ==== */
     :root{
       --bg:#0b0f14; --bg-soft:#121821; --ink:#e9edf2; --muted:#9aa6b2; --stroke:#1b2533;
       --brand-logo:url('assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png');
@@ -34,25 +36,22 @@
       --accent:#ffffff;
     }
 
-    /* Background crest behind content */
     html{background:var(--bg)}
     body{position:relative;background:transparent}
     body::before{
       content:"";
       position:fixed; inset:0;
       background:var(--brand-logo) center 46% / min(1200px,82vw) no-repeat;
-      opacity:.65;                /* a bit lower than before so sections read better */
+      opacity:.65;
       filter:grayscale(1) contrast(1.1);
       pointer-events:none; z-index:-1;
     }
 
-    /* Base */
     *{box-sizing:border-box}
     html,body{margin:0; color:var(--ink); font:18px/1.7 var(--font-body)}
     .wrap{max-width:1100px; margin:auto; padding:20px}
     a{color:inherit; text-decoration:none}
 
-    /* Header */
     header{
       position:sticky; top:0; z-index:50;
       background:rgba(11,15,20,var(--glass-header));
@@ -65,7 +64,6 @@
     .pill{padding:8px 14px; border:1px solid #243244; border-radius:999px; background:#0f1520}
     .pill.cta{background:var(--accent); color:#0c1117!important; border:none; font-weight:700}
 
-    /* Hero */
     #hero{position:relative; isolation:isolate}
     #hero::before{content:""; position:absolute; inset:0; background:rgba(11,15,20,.96); backdrop-filter:saturate(140%) blur(var(--glass-blur)); z-index:-1}
     .hero-logo{width:200px; height:auto; filter:drop-shadow(0 2px 18px rgba(255,255,255,.05))}
@@ -75,12 +73,10 @@
     .tiny-btn{padding:8px 12px; border:1px solid #243244; border-radius:999px; background:#0f1520}
     .tiny-btn.cta{background:#fff; color:#0c1117!important; border:none; font-weight:700}
 
-    /* Sections */
     section{padding:28px 0; border-top:1px solid var(--stroke); background:rgba(11,15,20,var(--glass-section))}
     h3{margin:0 0 14px; font:24px/1.2 var(--font-head)}
 
-    /* About section fix: make it opaque enough to read and lock the headshot size */
-    #about{background:rgba(11,15,20,0.90)}               /* darker so text pops over crest */
+    #about{background:rgba(11,15,20,0.90)}
     .about-content{display:flex; flex-wrap:wrap; gap:22px; align-items:center}
     .about-content .headshot{
       width:240px; height:240px; border-radius:50%;
@@ -98,7 +94,6 @@
     }
     .about-box .tag{color:#dfe6ee}
 
-    /* Cards / packages */
     .cards{display:grid; gap:12px}
     @media(min-width:780px){.cards{grid-template-columns:repeat(3,1fr)}}
     .card{background:rgba(18,24,33,var(--glass-panel)); border:1px solid var(--stroke); border-radius:16px; padding:16px}
@@ -108,19 +103,16 @@
     #packages{background:rgba(11,15,20,.40)}
     #packages .card{background:rgba(18,24,33,.32); backdrop-filter:blur(calc(var(--glass-blur) + 2px))}
 
-    /* Gallery masonry */
     .gallery{column-width:340px; column-gap:12px}
     .ph{display:block; break-inside:avoid; position:relative; overflow:hidden; background:rgba(18,24,33,var(--glass-panel)); border:1px solid var(--stroke); border-radius:16px; margin:0 0 12px}
     .ph img{width:100%; display:block}
     .ph::after{content:""; position:absolute; bottom:var(--wm-inset); right:var(--wm-inset); width:var(--wm-size); height:var(--wm-size); opacity:var(--wm-opacity); background:var(--brand-logo) center/contain no-repeat}
 
-    /* Contact form */
     form.contact-form input, form.contact-form textarea{
       width:100%; padding:10px; border:1px solid var(--stroke); border-radius:8px; background:rgba(11,15,20,.70); color:var(--ink)
     }
     form.contact-form button{padding:12px 20px; background:#fff; color:#0c1117; border:none; border-radius:8px; font-weight:700; cursor:pointer}
 
-    /* Footer */
     footer{background:rgba(11,15,20,var(--glass-footer)); border-top:1px solid var(--stroke)}
   </style>
 </head>
@@ -135,7 +127,7 @@
         <a class="pill" href="#about">About</a>
         <a class="pill" href="#contact">Contact</a>
         <a class="pill" href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener">Facebook</a>
-        <a class="pill" href="https://linktr.ee/Fadetofocusphoto?utm_source=linktree_profile_share&ltsid=6e1872da-a101-4672-a9d7-ab14032c11c1" target="_blank" rel="noopener">Linktree</a>
+        <a class="pill" href="https://linktr.ee/Fadetofocusphoto?utm_source=linktree_profile_share&ltsid=6e1872da-a101-4672-a9d7-ab14032c11c1" target="_blank" rel="noopener">All links</a>
         <a class="pill cta" href="mailto:book@fadetofocusphoto.com?subject=Book%20a%20session">Book now</a>
       </nav>
     </div>
@@ -159,7 +151,7 @@
     </div>
   </section>
 
-  <!-- About (fixed) -->
+  <!-- About -->
   <section id="about">
     <div class="wrap">
       <h3>The Photographer</h3>
@@ -251,12 +243,16 @@
     </div>
   </section>
 
-  <!-- Portfolio (auto-built from your GitHub filenames) -->
+  <!-- Portfolio -->
   <section id="shots">
     <div class="wrap">
       <h3>Portfolio</h3>
 
-      <h4 class="tag" style="margin-top:0">Families</h4>
+      <!-- Latest uploads at the top -->
+      <h4 class="tag" style="margin-top:0">Latest uploads</h4>
+      <div class="gallery" id="latest-gallery"></div>
+
+      <h4 class="tag" style="margin-top:20px">Families</h4>
       <div class="gallery" id="fam-gallery"></div>
 
       <h4 class="tag" style="margin-top:20px">Portraits</h4>
@@ -300,7 +296,7 @@
         <a class="tiny-btn cta" href="mailto:book@fadetofocusphoto.com?subject=Booking%20Inquiry&body=Hi%20Terry%2C%0A%0AI%27d%20like%20to%20book%20a%20session.%20Here%20are%20the%20basics%3A%0APreferred%20date(s)%3A%0ALocation%3A%0ASession%20type%3A%0A">Email booking</a>
         <a class="tiny-btn" href="tel:+15315413891">(531) 541-3891</a>
         <a class="tiny-btn" href="https://fadetofocusphotography.pixieset.com/" target="_blank" rel="noopener">Pixieset</a>
-        <a class="tiny-btn" href="https://linktr.ee/Fadetofocusphoto?utm_source=linktree_profile_share&ltsid=6e1872da-a101-4672-a9d7-ab14032c11c1" target="_blank" rel="noopener">Linktree</a>
+        <a class="tiny-btn" href="https://linktr.ee/Fadetofocusphoto?utm_source=linktree_profile_share&ltsid=6e1872da-a101-4672-a9d7-ab14032c11c1" target="_blank" rel="noopener">All links</a>
         <a class="tiny-btn" href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener">Facebook</a>
       </div>
 
@@ -323,17 +319,15 @@
       <div class="cta-row" style="justify-content:center">
         <a class="tiny-btn" href="mailto:book@fadetofocusphoto.com">Email</a>
         <a class="tiny-btn" href="https://fadetofocusphotography.pixieset.com/" target="_blank" rel="noopener">Pixieset</a>
-        <a class="tiny-btn" href="https://linktr.ee/Fadetofocusphoto?utm_source=linktree_profile_share&ltsid=6e1872da-a101-4672-a9d7-ab14032c11c1" target="_blank" rel="noopener">Linktree</a>
+        <a class="tiny-btn" href="https://linktr.ee/Fadetofocusphoto?utm_source=linktree_profile_share&ltsid=6e1872da-a101-4672-a9d7-ab14032c11c1" target="_blank" rel="noopener">All links</a>
         <a class="tiny-btn" href="#hero">Top</a>
       </div>
     </div>
   </footer>
 
   <script>
-    // Footer year
     document.getElementById('y').textContent = new Date().getFullYear();
 
-    // Helper to add images to a gallery. Encodes path segments, keeps case.
     function addImages(containerId, files, altPrefix){
       const el = document.getElementById(containerId);
       if(!el) return;
@@ -350,7 +344,19 @@
       });
     }
 
-    // Filenames from your repo (case/spacing preserved)
+    // Latest uploads shown first
+    const latest = [
+      "IMG_0875.jpg",
+      "IMG_2118.jpg",
+      "IMG_2137.jpg",
+      "IMG_2140.jpg",
+      "IMG_2159.jpg",
+      "IMG_2172.jpg",
+      "IMG_2174.jpg",
+      "IMG_2177.jpg"
+    ];
+
+    // Existing sets from your repo
     const families = [
       "Family 2.JPG","Family 3.JPG","Family 4.JPG","Family 5.JPG","Family 6.JPG","Family 7.JPG","Family 8.JPG","Family 9.JPG",
       "Family 10.JPG","Family 11.JPG","Family 12.JPG","Family 15.JPG","Family 16.jpg","Family 17.JPG","Family.JPG"
@@ -370,6 +376,7 @@
 
     const events = ["Event 1.JPG","Event.JPG"];
 
+    addImages("latest-gallery", latest, "Latest");
     addImages("fam-gallery", families, "Family");
     addImages("portraits-gallery", portraits, "Portrait");
     addImages("street-gallery", street, "Street");
