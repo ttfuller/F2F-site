@@ -6,17 +6,18 @@
     <title>Fade to Focus Photography — Omaha | Portrait & Lifestyle Photographer</title>
     <meta name="description" content="Omaha-based photographer capturing candid, moody images for families, portraits, couples, private sessions and events. Real moments > stiff poses.">
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph / Social -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fadetofocusphoto.com/">
     <meta property="og:title" content="Fade to Focus Photography – Omaha photographer capturing authentic, moody portraits">
     <meta property="og:description" content="Omaha-based photographer capturing candid and authentic portraits, families, couples, and private sessions. Real moments > stiff poses.">
-    <meta property="og:image" content="IMG_0554.jpeg">
-    
-    <!-- Google Fonts (added Great Vibes for the calligraphy logo) -->
+    <!-- Use logo for share preview (not headshot) -->
+    <meta property="og:image" content="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png">
+
+    <!-- Fonts: Great Vibes (brand script), Playfair (headings), Lora (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
     
     <style>
         /* CSS Variables */
@@ -32,9 +33,9 @@
             --color-text-primary: #e8e8e8;
             --color-text-secondary: #d0d0d0;
             --color-text-muted: #999999;
-            --font-heading: 'Bebas Neue', sans-serif;
-            --font-accent: 'Great Vibes', cursive; /* calligraphy script for brand */
-            --font-body: 'Inter', sans-serif;
+            --font-heading: 'Playfair Display', serif;   /* updated */
+            --font-accent: 'Great Vibes', cursive;       /* updated */
+            --font-body: 'Lora', serif;                  /* updated */
             --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -45,36 +46,39 @@
             background-color: var(--color-dark-primary);
             color: var(--color-text-primary);
             font-family: var(--font-body);
-            line-height: 1.6;
+            line-height: 1.8;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            font-size: 17px;
         }
 
         /* Typography */
         .hero-title {
             font-family: var(--font-heading);
             font-size: clamp(3rem, 8vw, 7rem);
-            line-height: 0.9;
+            line-height: 0.95;
             letter-spacing: 0.02em;
-            text-transform: uppercase;
-            font-weight: 400;
+            text-transform: none; /* let Playfair breathe */
+            font-weight: 700;
         }
 
         .section-title {
             font-family: var(--font-heading);
             font-size: clamp(2rem, 5vw, 4rem);
-            line-height: 1.1;
-            letter-spacing: 0.03em;
-            text-transform: uppercase;
+            line-height: 1.15;
+            letter-spacing: 0.01em;
+            text-transform: none;
             margin-bottom: 1rem;
         }
 
         .section-subtitle {
             font-family: var(--font-body);
-            font-size: clamp(0.875rem, 2vw, 1.125rem);
+            font-size: clamp(0.875rem, 2vw, 1.0625rem);
             color: var(--color-text-muted);
             text-transform: uppercase;
             letter-spacing: 0.15em;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         /* Navigation */
@@ -84,25 +88,22 @@
             backdrop-filter: blur(10px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
-
         .nav-content {
             max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem;
             display: flex; justify-content: space-between; align-items: center;
             flex-wrap: wrap; gap: 1rem;
         }
-
         .nav-logo {
-            font-family: var(--font-accent);
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-family: var(--font-accent); /* script brand */
+            font-size: 2rem;
+            font-weight: 400;
             color: var(--color-text-primary);
             text-decoration: none;
             transition: var(--transition-smooth);
+            letter-spacing: .3px;
         }
         .nav-logo:hover { color: var(--color-accent); }
-
         .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; flex-wrap: wrap; }
-
         .nav-link {
             font-size: 0.875rem;
             text-transform: uppercase;
@@ -110,7 +111,8 @@
             color: var(--color-text-secondary);
             text-decoration: none;
             transition: var(--transition-smooth);
-            font-weight: 500;
+            font-weight: 600;
+            font-family: var(--font-body);
         }
         .nav-link:hover { color: var(--color-accent); }
 
@@ -120,44 +122,38 @@
             display: flex; align-items: center; justify-content: center;
             position: relative; overflow: hidden; padding-top: 80px;
         }
-
         .hero-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
-
         .hero-background img {
             width: 100%; height: 100%; object-fit: cover;
-            filter: brightness(0.4) contrast(1.1);
+            filter: brightness(0.45) contrast(1.1) saturate(0.9);
         }
-
         .hero-overlay {
-            position: absolute; top: 0; left: 0; width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.3), rgba(10, 10, 10, 0.7));
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.3), rgba(10, 10, 10, 0.75));
             z-index: 1;
         }
-
         .hero-content { position: relative; z-index: 2; text-align: center; max-width: 1000px; padding: 0 2rem; }
-
         .hero-subtitle {
-            font-size: clamp(1rem, 2vw, 1.5rem);
+            font-size: clamp(1rem, 2vw, 1.25rem);
             color: var(--color-accent);
             text-transform: uppercase;
             letter-spacing: 0.2em;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
+            margin-bottom: 1.25rem;
+            font-weight: 700;
+            font-family: var(--font-body);
         }
-
         .hero-description {
-            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-size: clamp(1rem, 2vw, 1.15rem);
             color: var(--color-text-secondary);
-            max-width: 600px; margin: 2rem auto; line-height: 1.8;
+            max-width: 640px; margin: 1.75rem auto 0;
+            line-height: 1.9;
         }
-
-        .hero-cta { display: flex; gap: 1.5rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap; }
+        .hero-cta { display: flex; gap: 1.5rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap; }
 
         /* Buttons */
         .btn {
-            padding: 1rem 2.5rem;
-            font-size: 0.875rem; font-weight: 600;
+            padding: 1rem 2.25rem;
+            font-size: 0.875rem; font-weight: 700;
             text-transform: uppercase; letter-spacing: 0.1em;
             border: none; cursor: pointer; transition: var(--transition-smooth);
             text-decoration: none; display: inline-block; font-family: var(--font-body);
@@ -174,10 +170,13 @@
         /* About Section */
         .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; margin-top: 3rem; }
         .about-image { width: 100%; aspect-ratio: 3/4; overflow: hidden; border-radius: 4px; }
-        .about-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.3) contrast(1.1); }
-        .about-text h3 { font-family: var(--font-heading); font-size: 2rem; text-transform: uppercase; margin-bottom: 0.5rem; }
-        .about-text .role { color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem; display: block; }
-        .about-text p { font-size: 1.0625rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+        .about-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.15) contrast(1.08); }
+        .about-text h3 { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 0.5rem; letter-spacing: .3px; }
+        .about-text .role {
+            color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.1em;
+            font-size: 0.875rem; font-weight: 700; margin-bottom: 1.5rem; display: block; font-family: var(--font-body);
+        }
+        .about-text p { font-size: 1.0625rem; line-height: 1.9; color: var(--color-text-secondary); margin-bottom: 1.25rem; }
 
         /* Packages */
         .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
@@ -185,8 +184,8 @@
         .package-card:hover { border-color: var(--color-accent); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
         .package-card.popular { border-color: var(--color-accent); background-color: rgba(201, 113, 50, 0.05); }
         .popular-badge { position: absolute; top: 1rem; right: 1rem; background-color: var(--color-accent); color: var(--color-dark-primary); padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
-        .package-name { font-family: var(--font-heading); font-size: 2rem; text-transform: uppercase; margin-bottom: 0.5rem; }
-        .package-price { font-size: 2.5rem; font-weight: 700; color: var(--color-accent); margin-bottom: 0.5rem; }
+        .package-name { font-family: var(--font-heading); font-size: 2rem; margin-bottom: 0.5rem; }
+        .package-price { font-size: 2.25rem; font-weight: 800; color: var(--color-accent); margin-bottom: 0.5rem; }
         .package-duration { color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.1em; }
         .package-features { list-style: none; margin-bottom: 2rem; }
         .package-features li { padding: 0.75rem 0; border-bottom: 1px solid var(--color-grey-dark); color: var(--color-text-secondary); font-size: 0.9375rem; }
@@ -198,27 +197,26 @@
             padding: 0.75rem 1.5rem; background-color: transparent; color: var(--color-text-secondary);
             border: 1px solid var(--color-grey-mid); cursor: pointer; font-size: 0.875rem;
             text-transform: uppercase; letter-spacing: 0.1em; transition: var(--transition-smooth);
-            font-family: var(--font-body); font-weight: 500;
+            font-family: var(--font-body); font-weight: 700;
         }
         .filter-btn:hover, .filter-btn.active { background-color: var(--color-accent); color: var(--color-dark-primary); border-color: var(--color-accent); }
-
         .gallery-masonry { column-count: 3; column-gap: 1.5rem; margin-top: 2rem; }
         .gallery-item { break-inside: avoid; margin-bottom: 1.5rem; position: relative; overflow: hidden; background-color: var(--color-dark-secondary); }
-        .gallery-item img { width: 100%; display: block; transition: var(--transition-smooth); filter: grayscale(0.2) contrast(1.1); }
+        .gallery-item img { width: 100%; display: block; transition: var(--transition-smooth); filter: grayscale(0.1) contrast(1.1); }
         .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0) contrast(1.2); }
 
         /* Testimonials */
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
         .testimonial-card { background-color: var(--color-dark-secondary); padding: 2.5rem 2rem; border-left: 3px solid var(--color-accent); }
         .testimonial-text { font-size: 1.125rem; line-height: 1.8; color: var(--color-text-secondary); font-style: italic; margin-bottom: 1.5rem; }
-        .testimonial-author { font-weight: 600; color: var(--color-text-primary); font-size: 0.9375rem; }
+        .testimonial-author { font-weight: 700; color: var(--color-text-primary); font-size: 0.9375rem; }
 
         /* Contact Form */
         .contact-form { max-width: 700px; margin: 3rem auto 0; }
         .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
         .form-group { display: flex; flex-direction: column; }
         .form-group.full { grid-column: 1 / -1; }
-        .form-label { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--color-text-muted); font-weight: 600; }
+        .form-label { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--color-text-muted); font-weight: 700; }
         .form-input, .form-textarea {
             background-color: var(--color-dark-secondary); border: 1px solid var(--color-grey-dark);
             color: var(--color-text-primary); padding: 1rem; font-size: 1rem; font-family: var(--font-body);
@@ -230,7 +228,7 @@
         /* Footer */
         .footer { background-color: var(--color-dark-secondary); border-top: 1px solid var(--color-grey-dark); padding: 4rem 0 2rem; margin-top: 6rem; }
         .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
-        .footer-section h4 { font-family: var(--font-heading); font-size: 1.5rem; text-transform: uppercase; margin-bottom: 1rem; }
+        .footer-section h4 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1rem; }
         .footer-section p, .footer-section a {
             color: var(--color-text-muted); font-size: 0.9375rem; line-height: 1.8; text-decoration: none; transition: var(--transition-smooth); display: block; margin-bottom: 0.5rem;
         }
@@ -253,7 +251,10 @@
         @media (max-width: 480px) { .gallery-masonry { column-count: 1; } }
 
         /* Animations */
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
         .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
         .delay-1 { animation-delay: 0.1s; opacity: 0; }
         .delay-2 { animation-delay: 0.2s; opacity: 0; }
@@ -267,7 +268,7 @@
         .private-tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
         .tier-card { background-color: var(--color-dark-tertiary); padding: 1.5rem; border: 1px solid var(--color-grey-dark); }
         .tier-card h5 { font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-accent); margin-bottom: 0.5rem; }
-        .tier-price { font-size: 1.75rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 1rem; }
+        .tier-price { font-size: 1.75rem; font-weight: 800; color: var(--color-text-primary); margin-bottom: 1rem; }
         .tier-features { list-style: none; font-size: 0.875rem; color: var(--color-text-secondary); }
         .tier-features li { padding: 0.5rem 0; border-bottom: 1px solid var(--color-grey-dark); }
         .tier-features li:last-child { border-bottom: none; }
@@ -293,7 +294,8 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-background">
-            <img src="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" alt="Fade to Focus Photography" onerror="this.src='https://images.unsplash.com/photo-1555655139-6098ba690004?w=1920&q=80'">
+            <!-- Use BTS.jpg as hero background -->
+            <img src="BTS.jpg" alt="Fade to Focus Photography hero" onerror="this.src='https://images.unsplash.com/photo-1555655139-6098ba690004?w=1920&q=80'">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
@@ -302,8 +304,7 @@
                 Candid.<br>Moody.<br>Real Life.
             </h1>
             <p class="hero-description fade-in-up delay-3">
-                <strong>Real moments &gt; stiff poses.</strong><br>
-                Capturing authentic portraits, families, couples, and private sessions here in Omaha.
+                Sessions are relaxed, creative, and built around you. I capture authentic portraits, families, couples, and private sessions here in Omaha.
             </p>
             <div class="hero-cta fade-in-up delay-4">
                 <a href="mailto:book@fadetofocusphoto.com?subject=Book%20a%20session" class="btn btn-primary">Start a Booking</a>
@@ -320,13 +321,14 @@
             
             <div class="about-content">
                 <div class="about-image">
-                    <img src="IMG_0554.jpeg" alt="Terry Fuller - Photographer">
+                    <!-- Use the exact filename with space; encode the space in HTML -->
+                    <img src="Profile%20pic.jpg" alt="Terry Fuller - Photographer">
                 </div>
                 <div class="about-text">
                     <h3>Terry Fuller</h3>
                     <span class="role">Photographer • Omaha, Nebraska</span>
-                    <p>I'm Terry Fuller, the eye behind Fade to Focus. I capture candid, moody and authentic moments for portraits, families, couples and creatives here in Omaha. My sessions are relaxed and collaborative so your personality actually shows up.</p>
-                    <p>Photography is more than pictures. It's your story. If you want images that feel like you, let's work together.</p>
+                    <p>I’m Terry Fuller, the guy behind the lens at Fade to Focus. My approach is raw, intentional, and never stiff. Every session turns small, honest moments into something cinematic that actually feels like you.</p>
+                    <p>I shoot in Omaha and nearby areas, focusing on portraits, families, and creatives who want photos that stand out. My editing leans moody and cinematic because light and shadow tell the truth better than anything posed.</p>
                     <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
                         <a href="mailto:book@fadetofocusphoto.com" class="btn btn-primary">Email Me</a>
                         <a href="tel:+15315413891" class="btn btn-secondary">(531) 541-3891</a>
@@ -403,7 +405,7 @@
 
             <!-- Private Sessions (18+) -->
             <div style="margin-top: 4rem; padding: 2.5rem; background-color: var(--color-dark-tertiary); border: 1px solid var(--color-grey-dark);">
-                <h3 style="font-family: var(--font-heading); font-size: 2rem; text-transform: uppercase; margin-bottom: 1rem;">Private Sessions (18+)</h3>
+                <h3 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem;">Private Sessions (18+)</h3>
                 <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">Intimate, empowering sessions in a comfortable setting. 18+ only; ID required.</p>
                 
                 <div class="private-tiers">
@@ -495,29 +497,6 @@
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="section-spacing" style="background-color: var(--color-dark-secondary);">
-        <div class="container">
-            <p class="section-subtitle">What Clients Say</p>
-            <h2 class="section-title">Testimonials</h2>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"We felt welcome and completely at ease, and our photos truly captured our family's shine."</p>
-                    <p class="testimonial-author">— Alexandria Bivens</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"Relaxed, fun, and the images feel alive. Pricing and quality are excellent."</p>
-                    <p class="testimonial-author">— Aaron Ray</p>
-                </div>
-                <div class="testimonial-card">
-                    <p class="testimonial-text">"I usually hate photos. Terry made it easy and the edits are gorgeous."</p>
-                    <p class="testimonial-author">— Claire Nosal</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
     <section id="contact" class="section-spacing">
         <div class="container">
@@ -606,57 +585,29 @@
         const street = ['Street .JPG', 'Street 2.JPG', 'Street 4.JPG', 'Street 5.JPG', 'Street 6.JPG', 'Street 7.JPG', 'Street 8.JPG', 'Street 9.JPG', 'Street 10.JPG', 'Street 11.JPG', 'Street 12.JPG', 'Street 13.JPG', 'Street 14.JPG'];
         const events = ['Event 1.JPG', 'Event.JPG'];
 
-        /* ---- minimal loader enhancements for reliable filenames (case/spaces) ---- */
-        function candidateNames(name) {
-          const trimmed = name.trim().replace(/\s{2,}/g, ' ');
-          const noSpaceBeforeDot = trimmed.replace(/\s+\.(jpg|JPG|jpeg|JPEG)$/, '.$1');
-          const out = new Set([name, noSpaceBeforeDot]);
-          const m = noSpaceBeforeDot.match(/^(.*)\.(jpg|JPG|jpeg|JPEG)$/);
-          const exts = ['.JPG', '.jpg', '.JPEG', '.jpeg'];
-          if (m) {
-            const base = m[1];
-            exts.forEach(e => out.add(base + e));
-          } else {
-            exts.forEach(e => out.add(noSpaceBeforeDot + e));
-          }
-          return Array.from(out);
-        }
-        function loadWithFallbacks(imgEl, containerEl, candidates) {
-          let i = 0;
-          function tryNext() {
-            if (i >= candidates.length) { containerEl.style.display = 'none'; return; }
-            imgEl.src = encodeURI(candidates[i++]);
-          }
-          imgEl.onerror = tryNext;
-          tryNext();
-        }
-
-        // Helper function to add images to gallery (uses fallbacks above)
+        // Helper to add images
         function addImages(galleryId, images, category) {
             const container = document.getElementById(galleryId);
             images.forEach(filename => {
                 const item = document.createElement('div');
                 item.className = 'gallery-item';
                 item.setAttribute('data-category', category);
-
                 const img = document.createElement('img');
                 img.loading = 'lazy';
                 img.alt = `${category} photography by Fade to Focus`;
-
-                const candidates = candidateNames(filename);
-                loadWithFallbacks(img, item, candidates);
-
+                img.src = encodeURI(filename); // keeps your spaces/case intact
+                img.onerror = function(){ item.style.display = 'none'; };
                 item.appendChild(img);
                 container.appendChild(item);
             });
         }
 
-        // Load all galleries
+        // Load galleries
         addImages('gallery-families', families, 'families');
         addImages('gallery-portraits', portraits, 'portraits');
         addImages('gallery-street', street, 'street');
         addImages('gallery-events', events, 'events');
-        
+
         // Combined "All"
         const allImages = [...families, ...portraits, ...street, ...events];
         addImages('gallery-all', allImages, 'all');
@@ -665,7 +616,7 @@
         function filterGallery(category) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
-            document.querySelectorAll('.gallery-masonry').forEach(gallery => gallery.classList.add('hidden'));
+            document.querySelectorAll('.gallery-masonry').forEach(g => g.classList.add('hidden'));
             if (category === 'all') document.getElementById('gallery-all').classList.remove('hidden');
             else document.getElementById('gallery-' + category).classList.remove('hidden');
         }
