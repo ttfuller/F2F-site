@@ -18,10 +18,10 @@
 
   <link rel="icon" href="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" />
 
-  <!-- Fonts: keep script + Playfair; swap body to Manrope for more pop -->
+  <!-- Fonts: Great Vibes (signature), Playfair (headings), Lora (body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700;800&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -30,7 +30,7 @@
       --ink:#e9eef4;
       --muted:#a7b3c3;
       --stroke:#1b2533;
-      --accent:#c8a56a;           /* muted bronze */
+      --accent:#c8a56a;
       --accent-ink:#0b0f14;
       --brand:url('assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png');
       --radius:18px;
@@ -45,9 +45,12 @@
         radial-gradient(1200px 800px at 20% -10%, #1b2635 0%, transparent 60%),
         radial-gradient(1200px 800px at 120% 110%, #131b26 0%, transparent 60%),
         var(--bg);
-      font:16.5px/1.75 Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      letter-spacing:.1px;
+      font:17px/1.78 "Lora", Georgia, "Times New Roman", serif;
+      -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
     }
+
+    p{margin:0 0 10px}
+    .tag{color:var(--muted); margin:0 auto 14px; max-width:760px}
 
     a{color:inherit;text-decoration:none}
     .wrap{max-width:1120px; margin:auto; padding:20px}
@@ -95,9 +98,8 @@
       font-family:"Playfair Display", serif;
       font-size:34px; font-weight:800;
     }
-    .tag{color:var(--muted); margin:0 auto 14px; max-width:760px}
     .cta-row{display:flex; flex-wrap:wrap; gap:10px; justify-content:center}
-    .btn{padding:10px 16px; border:1px solid #2b3a52; border-radius:999px; background:#0f1520}
+    .btn{padding:10px 16px; border:1px solid #2b3a52; border-radius:999px; background:#0f1520; font-weight:600}
     .btn.cta{background:var(--accent); color:var(--accent-ink); border:none; font-weight:700}
 
     /* Quick links */
@@ -184,7 +186,6 @@
   <!-- HERO -->
   <section id="hero">
     <div class="slide">
-      <!-- Updated to BTS.jpg -->
       <img class="hero-img" src="BTS.jpg" alt="Behind the scenes at a Fade to Focus session" />
       <div class="veil"></div>
       <div class="hero-content wrap fade">
@@ -213,7 +214,6 @@
   <!-- FEATURED / LATEST -->
   <section id="featured">
     <div class="wrap feature fade">
-      <!-- First image set to 2172 -->
       <img src="IMG_2172.jpg" alt="Recent session highlight" />
       <div class="panel">
         <h3>Latest work</h3>
@@ -300,11 +300,12 @@
   <!-- ABOUT -->
   <section id="about">
     <div class="wrap about fade">
-      <img class="headshot" src="IMG_0554.jpeg" alt="Terry Fuller headshot" />
+      <!-- Updated to use the new file name exactly -->
+      <img class="headshot" src="Profile%20pic.jpg" alt="Terry Fuller headshot" />
       <div class="panel">
         <div class="script" style="font-size:40px">Terry Fuller</div>
         <h3>Photographer • Omaha</h3>
-        <p class="tag">I shoot candid, moody, authentic sessions for portraits, families, creatives and events. The process is simple: plan the vibe, set the light, then let real life happen.</p>
+        <p class="tag">I’m Terry Fuller, the guy behind the lens at Fade to Focus. My approach is raw, intentional, and never stiff. Every session turns small, honest moments into something cinematic that actually feels like you. I shoot in Omaha and nearby areas, focusing on portraits, families, and creatives who want photos that stand out. My editing leans moody and cinematic because light and shadow tell the truth better than anything posed.</p>
         <div class="cta-row" style="margin-top:6px">
           <a class="btn cta" href="#contact">Start a booking</a>
           <a class="btn" href="https://linktr.ee/Fadetofocusphoto" target="_blank" rel="noopener">All links</a>
