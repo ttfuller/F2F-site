@@ -4,21 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fade to Focus Photography — Omaha | Portrait & Lifestyle Photographer</title>
-    <meta name="description" content="Omaha-based photographer capturing candid, moody images for families, portraits, couples, private sessions and events. Real moments &gt; stiff poses.">
+    <meta name="description" content="Omaha-based photographer capturing candid, moody images for families, portraits, couples, private sessions and events. Real moments > stiff poses.">
     
-    <!-- Open Graph / Social -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://fadetofocusphoto.com/">
     <meta property="og:title" content="Fade to Focus Photography – Omaha photographer capturing authentic, moody portraits">
-    <meta property="og:description" content="Omaha-based photographer capturing candid and authentic portraits, families, couples, and private sessions. Real moments &gt; stiff poses.">
-    <meta property="og:image" content="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png">
-
-    <!-- Fonts -->
+    <meta property="og:description" content="Omaha-based photographer capturing candid and authentic portraits, families, couples, and private sessions. Real moments > stiff poses.">
+    <meta property="og:image" content="IMG_0554.jpeg">
+    
+    <!-- Google Fonts (added Great Vibes for the calligraphy logo) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <style>
+        /* CSS Variables */
         :root {
             --color-dark-primary: #0a0a0a;
             --color-dark-secondary: #1a1a1a;
@@ -31,135 +32,245 @@
             --color-text-primary: #e8e8e8;
             --color-text-secondary: #d0d0d0;
             --color-text-muted: #999999;
-            --font-heading: 'Playfair Display', serif;
-            --font-accent: 'Great Vibes', cursive;
-            --font-body: 'Lora', serif;
+            --font-heading: 'Bebas Neue', sans-serif;
+            --font-accent: 'Great Vibes', cursive; /* calligraphy script for brand */
+            --font-body: 'Inter', sans-serif;
             --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        *{margin:0;padding:0;box-sizing:border-box}
-        html{scroll-behavior:smooth}
-        body{
-            background-color:var(--color-dark-primary);
-            color:var(--color-text-primary);
-            font-family:var(--font-body);
-            line-height:1.8;
-            overflow-x:hidden;
-            -webkit-font-smoothing:antialiased;
-            text-rendering:optimizeLegibility;
-            font-size:17px;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--color-dark-primary);
+            color: var(--color-text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .hero-title{font-family:var(--font-heading);font-size:clamp(3rem,8vw,7rem);line-height:.95;letter-spacing:.02em;text-transform:none;font-weight:700}
-        .section-title{font-family:var(--font-heading);font-size:clamp(2rem,5vw,4rem);line-height:1.15;letter-spacing:.01em;text-transform:none;margin-bottom:1rem}
-        .section-subtitle{font-family:var(--font-body);font-size:clamp(.875rem,2vw,1.0625rem);color:var(--color-text-muted);text-transform:uppercase;letter-spacing:.15em;font-weight:600}
-
-        .nav-container{position:fixed;top:0;left:0;right:0;z-index:1000;background-color:rgba(10,10,10,.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.05)}
-        .nav-content{max-width:1400px;margin:0 auto;padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-        .nav-logo{font-family:var(--font-accent);font-size:2rem;font-weight:400;color:var(--color-text-primary);text-decoration:none;transition:var(--transition-smooth);letter-spacing:.3px}
-        .nav-logo:hover{color:var(--color-accent)}
-        .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;flex-wrap:wrap}
-        .nav-link{font-size:.875rem;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-secondary);text-decoration:none;transition:var(--transition-smooth);font-weight:600;font-family:var(--font-body)}
-        .nav-link:hover{color:var(--color-accent)}
-
-        .hero-section{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding-top:80px}
-        .hero-background{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
-        .hero-background img{width:100%;height:100%;object-fit:cover;filter:brightness(.45) contrast(1.1) saturate(.9)}
-        .hero-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(10,10,10,.3),rgba(10,10,10,.75));z-index:1}
-        .hero-content{position:relative;z-index:2;text-align:center;max-width:1000px;padding:0 2rem}
-        .hero-subtitle{font-size:clamp(1rem,2vw,1.25rem);color:var(--color-accent);text-transform:uppercase;letter-spacing:.2em;margin-bottom:1.25rem;font-weight:700;font-family:var(--font-body)}
-        .hero-description{font-size:clamp(1rem,2vw,1.15rem);color:var(--color-text-secondary);max-width:640px;margin:1.75rem auto 0;line-height:1.9}
-        .hero-cta{display:flex;gap:1.5rem;justify-content:center;margin-top:2.5rem;flex-wrap:wrap}
-
-        .btn{padding:1rem 2.25rem;font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border:none;cursor:pointer;transition:var(--transition-smooth);text-decoration:none;display:inline-block;font-family:var(--font-body)}
-        .btn-primary{background-color:var(--color-accent);color:var(--color-dark-primary)}
-        .btn-primary:hover{background-color:var(--color-accent-hover);transform:translateY(-2px);box-shadow:0 10px 30px rgba(201,113,50,.3)}
-        .btn-secondary{background-color:transparent;color:var(--color-text-primary);border:2px solid var(--color-text-primary)}
-        .btn-secondary:hover{background-color:var(--color-text-primary);color:var(--color-dark-primary);transform:translateY(-2px)}
-
-        .container{max-width:1400px;margin:0 auto;padding:0 2rem}
-        .section-spacing{padding:6rem 0}
-
-        .about-content{display:grid;grid-template-columns:1fr 2fr;gap:4rem;align-items:center;margin-top:3rem}
-        .about-image{width:100%;aspect-ratio:3/4;overflow:hidden;border-radius:4px}
-        .about-image img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) contrast(1.08)}
-        .about-text h3{font-family:var(--font-heading);font-size:2rem;margin-bottom:.5rem;letter-spacing:.3px}
-        .about-text .role{color:var(--color-accent);text-transform:uppercase;letter-spacing:.1em;font-size:.875rem;font-weight:700;margin-bottom:1.5rem;display:block;font-family:var(--font-body)}
-        .about-text p{font-size:1.0625rem;line-height:1.9;color:var(--color-text-secondary);margin-bottom:1.25rem}
-
-        .packages-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin-top:3rem}
-        .package-card{background-color:var(--color-dark-secondary);border:1px solid var(--color-grey-dark);padding:2.5rem 2rem;transition:var(--transition-smooth);position:relative}
-        .package-card:hover{border-color:var(--color-accent);transform:translateY(-5px);box-shadow:0 20px 40px rgba(0,0,0,.3)}
-        .package-card.popular{border-color:var(--color-accent);background-color:rgba(201,113,50,.05)}
-        .popular-badge{position:absolute;top:1rem;right:1rem;background-color:var(--color-accent);color:var(--color-dark-primary);padding:.25rem .75rem;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
-        .package-name{font-family:var(--font-heading);font-size:2rem;margin-bottom:.5rem}
-        .package-price{font-size:2.25rem;font-weight:800;color:var(--color-accent);margin-bottom:.5rem}
-        .package-duration{color:var(--color-text-muted);font-size:.875rem;margin-bottom:2rem;text-transform:uppercase;letter-spacing:.1em}
-        .package-features{list-style:none;margin-bottom:2rem}
-        .package-features li{padding:.75rem 0;border-bottom:1px solid var(--color-grey-dark);color:var(--color-text-secondary);font-size:.9375rem}
-        .package-features li:last-child{border-bottom:none}
-
-        .portfolio-filters{display:flex;gap:1rem;justify-content:center;margin-bottom:3rem;flex-wrap:wrap}
-        .filter-btn{padding:.75rem 1.5rem;background-color:transparent;color:var(--color-text-secondary);border:1px solid var(--color-grey-mid);cursor:pointer;font-size:.875rem;text-transform:uppercase;letter-spacing:.1em;transition:var(--transition-smooth);font-family:var(--font-body);font-weight:700}
-        .filter-btn:hover,.filter-btn.active{background-color:var(--color-accent);color:var(--color-dark-primary);border-color:var(--color-accent)}
-        .gallery-masonry{column-count:3;column-gap:1.5rem;margin-top:2rem}
-        .gallery-item{break-inside:avoid;margin-bottom:1.5rem;position:relative;overflow:hidden;background-color:var(--color-dark-secondary)}
-        .gallery-item img{width:100%;display:block;transition:var(--transition-smooth);filter:grayscale(.1) contrast(1.1)}
-        .gallery-item:hover img{transform:scale(1.05);filter:grayscale(0) contrast(1.2)}
-
-        .testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:2rem;margin-top:3rem}
-        .testimonial-card{background-color:var(--color-dark-secondary);padding:2.5rem 2rem;border-left:3px solid var(--color-accent)}
-        .testimonial-text{font-size:1.125rem;line-height:1.8;color:var(--color-text-secondary);font-style:italic;margin-bottom:1.5rem}
-        .testimonial-author{font-weight:700;color:var(--color-text-primary);font-size:.9375rem}
-
-        .contact-form{max-width:700px;margin:3rem auto 0}
-        .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:1.5rem}
-        .form-group{display:flex;flex-direction:column}
-        .form-group.full{grid-column:1 / -1}
-        .form-label{font-size:.875rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem;color:var(--color-text-muted);font-weight:700}
-        .form-input,.form-textarea{background-color:var(--color-dark-secondary);border:1px solid var(--color-grey-dark);color:var(--color-text-primary);padding:1rem;font-size:1rem;font-family:var(--font-body);transition:var(--transition-smooth)}
-        .form-input:focus,.form-textarea:focus{outline:none;border-color:var(--color-accent);background-color:var(--color-dark-tertiary)}
-        .form-textarea{resize:vertical;min-height:150px}
-
-        .footer{background-color:var(--color-dark-secondary);border-top:1px solid var(--color-grey-dark);padding:4rem 0 2rem;margin-top:6rem}
-        .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:3rem;margin-bottom:3rem}
-        .footer-section h4{font-family:var(--font-heading);font-size:1.5rem;margin-bottom:1rem}
-        .footer-section p,.footer-section a{color:var(--color-text-muted);font-size:.9375rem;line-height:1.8;text-decoration:none;transition:var(--transition-smooth);display:block;margin-bottom:.5rem}
-        .footer-section a:hover{color:var(--color-accent)}
-        .footer-bottom{text-align:center;padding-top:2rem;border-top:1px solid var(--color-grey-dark);color:var(--color-text-muted);font-size:.875rem}
-
-        .hidden{display:none}
-
-        @media (max-width:768px){
-            .nav-links{gap:1rem}
-            .nav-link{font-size:.75rem}
-            .hero-cta{flex-direction:column;align-items:center}
-            .btn{width:100%;max-width:300px}
-            .about-content{grid-template-columns:1fr;gap:2rem}
-            .form-grid{grid-template-columns:1fr}
-            .gallery-masonry{column-count:2}
-            .footer-content{grid-template-columns:1fr;text-align:center}
+        /* Typography */
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(3rem, 8vw, 7rem);
+            line-height: 0.9;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+            font-weight: 400;
         }
-        @media (max-width:480px){.gallery-masonry{column-count:1}}
 
-        @keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-        .fade-in-up{animation:fadeInUp .8s ease-out forwards}
-        .delay-1{animation-delay:.1s;opacity:0}
-        .delay-2{animation-delay:.2s;opacity:0}
-        .delay-3{animation-delay:.3s;opacity:0}
-        .delay-4{animation-delay:.4s;opacity:0}
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 4rem);
+            line-height: 1.1;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+        }
 
-        .policies-box{margin-top:4rem;padding:2rem;background-color:var(--color-dark-tertiary);border-left:3px solid var(--color-accent)}
-        .policies-box h4{font-family:var(--font-heading);font-size:1.5rem;margin-bottom:1rem}
-        .policies-box ul{color:var(--color-text-secondary);line-height:1.8;padding-left:1.5rem}
+        .section-subtitle {
+            font-family: var(--font-body);
+            font-size: clamp(0.875rem, 2vw, 1.125rem);
+            color: var(--color-text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-weight: 500;
+        }
 
-        .private-tiers{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;margin:1.5rem 0}
-        .tier-card{background-color:var(--color-dark-tertiary);padding:1.5rem;border:1px solid var(--color-grey-dark)}
-        .tier-card h5{font-family:var(--font-heading);font-size:1.25rem;color:var(--color-accent);margin-bottom:.5rem}
-        .tier-price{font-size:1.75rem;font-weight:800;color:var(--color-text-primary);margin-bottom:1rem}
-        .tier-features{list-style:none;font-size:.875rem;color:var(--color-text-secondary)}
-        .tier-features li{padding:.5rem 0;border-bottom:1px solid var(--color-grey-dark)}
-        .tier-features li:last-child{border-bottom:none}
+        /* Navigation */
+        .nav-container {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            background-color: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-content {
+            max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem;
+            display: flex; justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1rem;
+        }
+
+        .nav-logo {
+            font-family: var(--font-accent);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+        .nav-logo:hover { color: var(--color-accent); }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; flex-wrap: wrap; }
+
+        .nav-link {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            font-weight: 500;
+        }
+        .nav-link:hover { color: var(--color-accent); }
+
+        /* Hero Section */
+        .hero-section {
+            min-height: 100vh;
+            display: flex; align-items: center; justify-content: center;
+            position: relative; overflow: hidden; padding-top: 80px;
+        }
+
+        .hero-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; }
+
+        .hero-background img {
+            width: 100%; height: 100%; object-fit: cover;
+            filter: brightness(0.4) contrast(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute; top: 0; left: 0; width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(10, 10, 10, 0.3), rgba(10, 10, 10, 0.7));
+            z-index: 1;
+        }
+
+        .hero-content { position: relative; z-index: 2; text-align: center; max-width: 1000px; padding: 0 2rem; }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2vw, 1.5rem);
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+
+        .hero-description {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            color: var(--color-text-secondary);
+            max-width: 600px; margin: 2rem auto; line-height: 1.8;
+        }
+
+        .hero-cta { display: flex; gap: 1.5rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap; }
+
+        /* Buttons */
+        .btn {
+            padding: 1rem 2.5rem;
+            font-size: 0.875rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 0.1em;
+            border: none; cursor: pointer; transition: var(--transition-smooth);
+            text-decoration: none; display: inline-block; font-family: var(--font-body);
+        }
+        .btn-primary { background-color: var(--color-accent); color: var(--color-dark-primary); }
+        .btn-primary:hover { background-color: var(--color-accent-hover); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201, 113, 50, 0.3); }
+        .btn-secondary { background-color: transparent; color: var(--color-text-primary); border: 2px solid var(--color-text-primary); }
+        .btn-secondary:hover { background-color: var(--color-text-primary); color: var(--color-dark-primary); transform: translateY(-2px); }
+
+        /* Container */
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+        .section-spacing { padding: 6rem 0; }
+
+        /* About Section */
+        .about-content { display: grid; grid-template-columns: 1fr 2fr; gap: 4rem; align-items: center; margin-top: 3rem; }
+        .about-image { width: 100%; aspect-ratio: 3/4; overflow: hidden; border-radius: 4px; }
+        .about-image img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(0.3) contrast(1.1); }
+        .about-text h3 { font-family: var(--font-heading); font-size: 2rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .about-text .role { color: var(--color-accent); text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.875rem; font-weight: 600; margin-bottom: 1.5rem; display: block; }
+        .about-text p { font-size: 1.0625rem; line-height: 1.8; color: var(--color-text-secondary); margin-bottom: 1.5rem; }
+
+        /* Packages */
+        .packages-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .package-card { background-color: var(--color-dark-secondary); border: 1px solid var(--color-grey-dark); padding: 2.5rem 2rem; transition: var(--transition-smooth); position: relative; }
+        .package-card:hover { border-color: var(--color-accent); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+        .package-card.popular { border-color: var(--color-accent); background-color: rgba(201, 113, 50, 0.05); }
+        .popular-badge { position: absolute; top: 1rem; right: 1rem; background-color: var(--color-accent); color: var(--color-dark-primary); padding: 0.25rem 0.75rem; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+        .package-name { font-family: var(--font-heading); font-size: 2rem; text-transform: uppercase; margin-bottom: 0.5rem; }
+        .package-price { font-size: 2.5rem; font-weight: 700; color: var(--color-accent); margin-bottom: 0.5rem; }
+        .package-duration { color: var(--color-text-muted); font-size: 0.875rem; margin-bottom: 2rem; text-transform: uppercase; letter-spacing: 0.1em; }
+        .package-features { list-style: none; margin-bottom: 2rem; }
+        .package-features li { padding: 0.75rem 0; border-bottom: 1px solid var(--color-grey-dark); color: var(--color-text-secondary); font-size: 0.9375rem; }
+        .package-features li:last-child { border-bottom: none; }
+
+        /* Portfolio Gallery */
+        .portfolio-filters { display: flex; gap: 1rem; justify-content: center; margin-bottom: 3rem; flex-wrap: wrap; }
+        .filter-btn {
+            padding: 0.75rem 1.5rem; background-color: transparent; color: var(--color-text-secondary);
+            border: 1px solid var(--color-grey-mid); cursor: pointer; font-size: 0.875rem;
+            text-transform: uppercase; letter-spacing: 0.1em; transition: var(--transition-smooth);
+            font-family: var(--font-body); font-weight: 500;
+        }
+        .filter-btn:hover, .filter-btn.active { background-color: var(--color-accent); color: var(--color-dark-primary); border-color: var(--color-accent); }
+
+        .gallery-masonry { column-count: 3; column-gap: 1.5rem; margin-top: 2rem; }
+        .gallery-item { break-inside: avoid; margin-bottom: 1.5rem; position: relative; overflow: hidden; background-color: var(--color-dark-secondary); }
+        .gallery-item img { width: 100%; display: block; transition: var(--transition-smooth); filter: grayscale(0.2) contrast(1.1); }
+        .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0) contrast(1.2); }
+
+        /* Testimonials */
+        .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .testimonial-card { background-color: var(--color-dark-secondary); padding: 2.5rem 2rem; border-left: 3px solid var(--color-accent); }
+        .testimonial-text { font-size: 1.125rem; line-height: 1.8; color: var(--color-text-secondary); font-style: italic; margin-bottom: 1.5rem; }
+        .testimonial-author { font-weight: 600; color: var(--color-text-primary); font-size: 0.9375rem; }
+
+        /* Contact Form */
+        .contact-form { max-width: 700px; margin: 3rem auto 0; }
+        .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem; }
+        .form-group { display: flex; flex-direction: column; }
+        .form-group.full { grid-column: 1 / -1; }
+        .form-label { font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem; color: var(--color-text-muted); font-weight: 600; }
+        .form-input, .form-textarea {
+            background-color: var(--color-dark-secondary); border: 1px solid var(--color-grey-dark);
+            color: var(--color-text-primary); padding: 1rem; font-size: 1rem; font-family: var(--font-body);
+            transition: var(--transition-smooth);
+        }
+        .form-input:focus, .form-textarea:focus { outline: none; border-color: var(--color-accent); background-color: var(--color-dark-tertiary); }
+        .form-textarea { resize: vertical; min-height: 150px; }
+
+        /* Footer */
+        .footer { background-color: var(--color-dark-secondary); border-top: 1px solid var(--color-grey-dark); padding: 4rem 0 2rem; margin-top: 6rem; }
+        .footer-content { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 3rem; margin-bottom: 3rem; }
+        .footer-section h4 { font-family: var(--font-heading); font-size: 1.5rem; text-transform: uppercase; margin-bottom: 1rem; }
+        .footer-section p, .footer-section a {
+            color: var(--color-text-muted); font-size: 0.9375rem; line-height: 1.8; text-decoration: none; transition: var(--transition-smooth); display: block; margin-bottom: 0.5rem;
+        }
+        .footer-section a:hover { color: var(--color-accent); }
+        .footer-bottom { text-align: center; padding-top: 2rem; border-top: 1px solid var(--color-grey-dark); color: var(--color-text-muted); font-size: 0.875rem; }
+
+        .hidden { display: none; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { gap: 1rem; }
+            .nav-link { font-size: 0.75rem; }
+            .hero-cta { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; }
+            .about-content { grid-template-columns: 1fr; gap: 2rem; }
+            .form-grid { grid-template-columns: 1fr; }
+            .gallery-masonry { column-count: 2; }
+            .footer-content { grid-template-columns: 1fr; text-align: center; }
+        }
+        @media (max-width: 480px) { .gallery-masonry { column-count: 1; } }
+
+        /* Animations */
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+        .delay-1 { animation-delay: 0.1s; opacity: 0; }
+        .delay-2 { animation-delay: 0.2s; opacity: 0; }
+        .delay-3 { animation-delay: 0.3s; opacity: 0; }
+        .delay-4 { animation-delay: 0.4s; opacity: 0; }
+
+        .policies-box { margin-top: 4rem; padding: 2rem; background-color: var(--color-dark-tertiary); border-left: 3px solid var(--color-accent); }
+        .policies-box h4 { font-family: var(--font-heading); font-size: 1.5rem; margin-bottom: 1rem; }
+        .policies-box ul { color: var(--color-text-secondary); line-height: 1.8; padding-left: 1.5rem; }
+
+        .private-tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+        .tier-card { background-color: var(--color-dark-tertiary); padding: 1.5rem; border: 1px solid var(--color-grey-dark); }
+        .tier-card h5 { font-family: var(--font-heading); font-size: 1.25rem; color: var(--color-accent); margin-bottom: 0.5rem; }
+        .tier-price { font-size: 1.75rem; font-weight: 700; color: var(--color-text-primary); margin-bottom: 1rem; }
+        .tier-features { list-style: none; font-size: 0.875rem; color: var(--color-text-secondary); }
+        .tier-features li { padding: 0.5rem 0; border-bottom: 1px solid var(--color-grey-dark); }
+        .tier-features li:last-child { border-bottom: none; }
     </style>
 </head>
 <body>
@@ -174,7 +285,7 @@
                 <li><a href="#contact" class="nav-link">Contact</a></li>
                 <li><a href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener" class="nav-link">Facebook</a></li>
                 <li><a href="https://linktr.ee/Fadetofocusphoto" target="_blank" rel="noopener" class="nav-link">Linktree</a></li>
-                <li><a href="mailto:book@fadetofocusphoto.com?subject=Book%20a%20session" class="btn btn-primary" style="padding: .75rem 1.5rem;">Book Now</a></li>
+                <li><a href="mailto:book@fadetofocusphoto.com?subject=Book%20a%20session" class="btn btn-primary" style="padding: 0.75rem 1.5rem;">Book Now</a></li>
             </ul>
         </div>
     </nav>
@@ -182,14 +293,17 @@
     <!-- Hero Section -->
     <section id="hero" class="hero-section">
         <div class="hero-background">
-            <img src="BTS.jpg" alt="Fade to Focus Photography hero" onerror="this.src='https://images.unsplash.com/photo-1555655139-6098ba690004?w=1920&q=80'">
+            <img src="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" alt="Fade to Focus Photography" onerror="this.src='https://images.unsplash.com/photo-1555655139-6098ba690004?w=1920&q=80'">
         </div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <p class="hero-subtitle fade-in-up delay-1">Fade to Focus • Omaha</p>
-            <h1 class="hero-title fade-in-up delay-2">Candid.<br>Moody.<br>Real Life.</h1>
+            <h1 class="hero-title fade-in-up delay-2">
+                Candid.<br>Moody.<br>Real Life.
+            </h1>
             <p class="hero-description fade-in-up delay-3">
-                Sessions are relaxed, creative, and built around you. I capture authentic portraits, families, couples, and private sessions here in Omaha.
+                <strong>Real moments &gt; stiff poses.</strong><br>
+                Capturing authentic portraits, families, couples, and private sessions here in Omaha.
             </p>
             <div class="hero-cta fade-in-up delay-4">
                 <a href="mailto:book@fadetofocusphoto.com?subject=Book%20a%20session" class="btn btn-primary">Start a Booking</a>
@@ -203,16 +317,17 @@
         <div class="container">
             <p class="section-subtitle">The Photographer</p>
             <h2 class="section-title">About</h2>
+            
             <div class="about-content">
                 <div class="about-image">
-                    <img src="Profile%20pic.jpg" alt="Terry Fuller - Photographer">
+                    <img src="IMG_0554.jpeg" alt="Terry Fuller - Photographer">
                 </div>
                 <div class="about-text">
                     <h3>Terry Fuller</h3>
                     <span class="role">Photographer • Omaha, Nebraska</span>
-                    <p>I’m Terry Fuller, the guy behind the lens at Fade to Focus. My approach is raw, intentional, and never stiff. Every session turns small, honest moments into something cinematic that actually feels like you.</p>
-                    <p>I shoot in Omaha and nearby areas, focusing on portraits, families, and creatives who want photos that stand out. My editing leans moody and cinematic because light and shadow tell the truth better than anything posed.</p>
-                    <div style="display:flex;gap:1rem;margin-top:2rem;flex-wrap:wrap;">
+                    <p>I'm Terry Fuller, the eye behind Fade to Focus. I capture candid, moody and authentic moments for portraits, families, couples and creatives here in Omaha. My sessions are relaxed and collaborative so your personality actually shows up.</p>
+                    <p>Photography is more than pictures. It's your story. If you want images that feel like you, let's work together.</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 2rem; flex-wrap: wrap;">
                         <a href="mailto:book@fadetofocusphoto.com" class="btn btn-primary">Email Me</a>
                         <a href="tel:+15315413891" class="btn btn-secondary">(531) 541-3891</a>
                     </div>
@@ -226,11 +341,12 @@
         <div class="container">
             <p class="section-subtitle">Investment</p>
             <h2 class="section-title">Packages</h2>
-            <p style="color:var(--color-text-secondary);font-size:1.0625rem;margin-bottom:3rem;max-width:700px;">
+            <p style="color: var(--color-text-secondary); font-size: 1.0625rem; margin-bottom: 3rem; max-width: 700px;">
                 Choose the package that fits your vision. All sessions include professional editing and high-resolution delivery.
             </p>
 
             <div class="packages-grid">
+                <!-- Core Package -->
                 <div class="package-card">
                     <h3 class="package-name">Core</h3>
                     <div class="package-price">$150</div>
@@ -240,9 +356,10 @@
                         <li>20 edited images (my selects)</li>
                         <li>Delivery in 7 days</li>
                     </ul>
-                    <a href="mailto:book@fadetofocusphoto.com?subject=Booking%20Inquiry%20-%20Core&body=Hi%20Terry%2C%0A%0AI%27m%20interested%20in%20the%20Core%20package.%20Preferred%20date(s)%3A%0ALocation%3A%0ASession%20type%3A%0A" class="btn btn-primary" style="width:100%;">Request Booking</a>
+                    <a href="mailto:book@fadetofocusphoto.com?subject=Booking%20Inquiry%20-%20Core&body=Hi%20Terry%2C%0A%0AI%27m%20interested%20in%20the%20Core%20package.%20Preferred%20date(s)%3A%0ALocation%3A%0ASession%20type%3A%0A" class="btn btn-primary" style="width: 100%;">Request Booking</a>
                 </div>
 
+                <!-- Story Package (Popular) -->
                 <div class="package-card popular">
                     <span class="popular-badge">Most Popular</span>
                     <h3 class="package-name">Story</h3>
@@ -253,4 +370,306 @@
                         <li>35 edited images • custom vibe</li>
                         <li>Delivery in 7 days (rush available)</li>
                     </ul>
-                    <a href="mailto:book@fadetofocusphoto.com?subject=Booking%20Inquiry%20-%20
+                    <a href="mailto:book@fadetofocusphoto.com?subject=Booking%20Inquiry%20-%20Story&body=Hi%20Terry%2C%0A%0AI%27m%20interested%20in%20the%20Story%20package.%20Preferred%20date(s)%3A%0ALocation%3A%0ASession%20type%3A%0A" class="btn btn-primary" style="width: 100%;">Request Booking</a>
+                </div>
+
+                <!-- Minis/Seasonal Package -->
+                <div class="package-card">
+                    <h3 class="package-name">Minis</h3>
+                    <div class="package-price">Seasonal</div>
+                    <p class="package-duration">30 minutes</p>
+                    <ul class="package-features">
+                        <li>Themed sessions</li>
+                        <li>Limited slots</li>
+                        <li>Theme posted with each drop</li>
+                        <li>Watch socials for dates & pricing</li>
+                    </ul>
+                    <a href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener" class="btn btn-primary" style="width: 100%;">Watch Socials</a>
+                </div>
+
+                <!-- Custom Package -->
+                <div class="package-card">
+                    <h3 class="package-name">Custom</h3>
+                    <div class="package-price">Quote</div>
+                    <p class="package-duration">Variable</p>
+                    <ul class="package-features">
+                        <li>Events • creative • editorial • brand</li>
+                        <li>We'll shape the right coverage</li>
+                        <li>Tailored to your needs</li>
+                    </ul>
+                    <a href="mailto:book@fadetofocusphoto.com?subject=Custom%20Project%20Quote" class="btn btn-primary" style="width: 100%;">Get a Quote</a>
+                </div>
+            </div>
+
+            <!-- Private Sessions (18+) -->
+            <div style="margin-top: 4rem; padding: 2.5rem; background-color: var(--color-dark-tertiary); border: 1px solid var(--color-grey-dark);">
+                <h3 style="font-family: var(--font-heading); font-size: 2rem; text-transform: uppercase; margin-bottom: 1rem;">Private Sessions (18+)</h3>
+                <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">Intimate, empowering sessions in a comfortable setting. 18+ only; ID required.</p>
+                
+                <div class="private-tiers">
+                    <div class="tier-card">
+                        <h5>Intro</h5>
+                        <div class="tier-price">$125</div>
+                        <ul class="tier-features">
+                            <li>35–45 minutes</li>
+                            <li>1 outfit</li>
+                            <li>In home or private outdoor</li>
+                            <li>10 edited images</li>
+                            <li>Delivery in 5 days</li>
+                        </ul>
+                    </div>
+                    <div class="tier-card">
+                        <h5>Classic</h5>
+                        <div class="tier-price">$200</div>
+                        <ul class="tier-features">
+                            <li>60–75 minutes</li>
+                            <li>Up to 2 outfits</li>
+                            <li>In home or Airbnb/hotel</li>
+                            <li>18 edited images</li>
+                            <li>Delivery in 7 days</li>
+                        </ul>
+                    </div>
+                    <div class="tier-card">
+                        <h5>Signature</h5>
+                        <div class="tier-price">$300</div>
+                        <ul class="tier-features">
+                            <li>90 minutes</li>
+                            <li>2–3 looks/sets</li>
+                            <li>Window light, chair, sheets</li>
+                            <li>28 edited images</li>
+                            <li>Delivery in 7 days</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p style="color: var(--color-text-muted); font-size: 0.875rem; margin-top: 1.5rem; text-align: center;">
+                    Add-ons: Rush 48h +$25 • Extra edits +$5 each
+                </p>
+
+                <a href="mailto:book@fadetofocusphoto.com?subject=Private%20Session%20Booking%20(18%2B)&body=Hi%20Terry%2C%0A%0AI%27d%20like%20to%20book%20the%20Intro%20/%20Classic%20/%20Signature%20private%20session.%20Preferred%20date(s)%3A%0ALocation%3A%0A" class="btn btn-primary" style="width: 100%; margin-top: 2rem;">Request Private Session</a>
+            </div>
+
+            <!-- Policies -->
+            <div class="policies-box">
+                <h4>Policies</h4>
+                <ul>
+                    <li>$25 booking deposit holds your time (credited to session)</li>
+                    <li>24-hour reschedule window</li>
+                    <li>Weather: photographer's call; free reschedule if we cancel</li>
+                    <li>Personal use rights included; commercial use by permission</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="shots" class="section-spacing">
+        <div class="container">
+            <p class="section-subtitle">Latest Work</p>
+            <h2 class="section-title">Portfolio</h2>
+            <p style="color: var(--color-text-secondary); font-size: 1.0625rem; margin-bottom: 3rem; max-width: 700px;">
+                A few favorites from recent sessions. Each image tells a story of real moments captured with moody, authentic style.
+            </p>
+            
+            <div class="portfolio-filters">
+                <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+                <button class="filter-btn" onclick="filterGallery('families')">Families</button>
+                <button class="filter-btn" onclick="filterGallery('portraits')">Portraits</button>
+                <button class="filter-btn" onclick="filterGallery('street')">Street & Lifestyle</button>
+                <button class="filter-btn" onclick="filterGallery('events')">Events</button>
+            </div>
+
+            <div id="gallery-families" class="gallery-masonry"></div>
+            <div id="gallery-portraits" class="gallery-masonry hidden"></div>
+            <div id="gallery-street" class="gallery-masonry hidden"></div>
+            <div id="gallery-events" class="gallery-masonry hidden"></div>
+            <div id="gallery-all" class="gallery-masonry"></div>
+
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="https://fadetofocusphotography.pixieset.com/" target="_blank" rel="noopener" class="btn btn-primary">Open Full Pixieset Gallery</a>
+            </div>
+
+            <p style="color: var(--color-text-muted); font-size: 0.875rem; margin-top: 2rem; text-align: center;">
+                On-site watermark is for previews only. Delivered images are clean unless requested.
+            </p>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="section-spacing" style="background-color: var(--color-dark-secondary);">
+        <div class="container">
+            <p class="section-subtitle">What Clients Say</p>
+            <h2 class="section-title">Testimonials</h2>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"We felt welcome and completely at ease, and our photos truly captured our family's shine."</p>
+                    <p class="testimonial-author">— Alexandria Bivens</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"Relaxed, fun, and the images feel alive. Pricing and quality are excellent."</p>
+                    <p class="testimonial-author">— Aaron Ray</p>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">"I usually hate photos. Terry made it easy and the edits are gorgeous."</p>
+                    <p class="testimonial-author">— Claire Nosal</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-spacing">
+        <div class="container">
+            <p class="section-subtitle">Get In Touch</p>
+            <h2 class="section-title">Contact</h2>
+            <p style="color: var(--color-text-secondary); font-size: 1.0625rem; margin-bottom: 3rem; text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+                Tell me what you're dreaming up — family, portraits, lifestyle, events, creative/editorial, and private sessions (18+).
+            </p>
+
+            <form class="contact-form" action="https://formspree.io/f/xandyddg" method="POST">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Your Email *</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="session">Session Type</label>
+                        <input type="text" id="session" name="session" class="form-input" placeholder="e.g. portraits, family, private">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="date">Preferred Date</label>
+                        <input type="date" id="date" name="date" class="form-input">
+                    </div>
+                    <div class="form-group full">
+                        <label class="form-label" for="message">Tell Me About Your Vision *</label>
+                        <textarea id="message" name="message" class="form-textarea" placeholder="Share your ideas, inspiration, or any questions..." required></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 1rem;">Send Message</button>
+            </form>
+
+            <div style="display: flex; gap: 2rem; justify-content: center; margin-top: 3rem; flex-wrap: wrap; color: var(--color-text-muted); font-size: 0.9375rem;">
+                <a href="mailto:book@fadetofocusphoto.com" style="color: var(--color-accent); text-decoration: none;">book@fadetofocusphoto.com</a>
+                <span>•</span>
+                <a href="tel:+15315413891" style="color: var(--color-accent); text-decoration: none;">(531) 541-3891</a>
+                <span>•</span>
+                <a href="https://fadetofocusphotography.pixieset.com/" target="_blank" rel="noopener" style="color: var(--color-accent); text-decoration: none;">Pixieset</a>
+                <span>•</span>
+                <a href="https://linktr.ee/Fadetofocusphoto" target="_blank" rel="noopener" style="color: var(--color-accent); text-decoration: none;">Linktree</a>
+                <span>•</span>
+                <a href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener" style="color: var(--color-accent); text-decoration: none;">Facebook</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Fade to Focus</h4>
+                    <p>Omaha-based photographer capturing candid, moody, authentic moments. Real moments &gt; stiff poses.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <a href="#packages">Packages</a>
+                    <a href="#shots">Portfolio</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <a href="mailto:book@fadetofocusphoto.com">Email</a>
+                    <a href="https://fadetofocusphotography.pixieset.com/" target="_blank" rel="noopener">Pixieset</a>
+                    <a href="https://linktr.ee/Fadetofocusphoto" target="_blank" rel="noopener">Linktree</a>
+                    <a href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener">Facebook</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="y"></span> Fade to Focus Photography • Omaha<br>Real moments &gt; stiff poses</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Update year in footer
+        document.getElementById('y').textContent = new Date().getFullYear();
+
+        // Gallery data - your actual image filenames
+        const families = ['Family 2.JPG', 'Family 3.JPG', 'Family 4.JPG', 'Family 5.JPG', 'Family 6.JPG', 'Family 7.JPG', 'Family 8.JPG', 'Family 9.JPG', 'Family 10.JPG', 'Family 11.JPG', 'Family 12.JPG', 'Family 15.JPG', 'Family 16.jpg', 'Family 17.JPG', 'Family.JPG'];
+        const portraits = ['Portrait 2.JPG', 'Portrait 3.JPG', 'Portrait 4.JPG', 'Portrait 5.JPG', 'Portrait 6.JPG', 'Portrait 7.JPG', 'Portrait 8.JPG', 'Portrait 9.JPG', 'Portrait 10.JPG', 'Portrait 11.JPG', 'Portrait 12.JPG', 'Portrait 13.JPG', 'Portrait 14.JPG', 'Portrait 15.JPG', 'Portrait 16.JPG', 'Portrait 17.JPG', 'Portrait 18.JPG', 'Portrait 19.JPG', 'Portrait 20.JPG', 'Portrait 21.JPG', 'Portrait 22.JPG', 'Portrait 23.JPG', 'Portrait 24.JPG', 'Portrait 26.JPG', 'Portrait 27.JPG', 'Portrait 27.jpg', 'Portrait 28.JPG', 'Portrait 29.JPG'];
+        const street = ['Street .JPG', 'Street 2.JPG', 'Street 4.JPG', 'Street 5.JPG', 'Street 6.JPG', 'Street 7.JPG', 'Street 8.JPG', 'Street 9.JPG', 'Street 10.JPG', 'Street 11.JPG', 'Street 12.JPG', 'Street 13.JPG', 'Street 14.JPG'];
+        const events = ['Event 1.JPG', 'Event.JPG'];
+
+        /* ---- minimal loader enhancements for reliable filenames (case/spaces) ---- */
+        function candidateNames(name) {
+          const trimmed = name.trim().replace(/\s{2,}/g, ' ');
+          const noSpaceBeforeDot = trimmed.replace(/\s+\.(jpg|JPG|jpeg|JPEG)$/, '.$1');
+          const out = new Set([name, noSpaceBeforeDot]);
+          const m = noSpaceBeforeDot.match(/^(.*)\.(jpg|JPG|jpeg|JPEG)$/);
+          const exts = ['.JPG', '.jpg', '.JPEG', '.jpeg'];
+          if (m) {
+            const base = m[1];
+            exts.forEach(e => out.add(base + e));
+          } else {
+            exts.forEach(e => out.add(noSpaceBeforeDot + e));
+          }
+          return Array.from(out);
+        }
+        function loadWithFallbacks(imgEl, containerEl, candidates) {
+          let i = 0;
+          function tryNext() {
+            if (i >= candidates.length) { containerEl.style.display = 'none'; return; }
+            imgEl.src = encodeURI(candidates[i++]);
+          }
+          imgEl.onerror = tryNext;
+          tryNext();
+        }
+
+        // Helper function to add images to gallery (uses fallbacks above)
+        function addImages(galleryId, images, category) {
+            const container = document.getElementById(galleryId);
+            images.forEach(filename => {
+                const item = document.createElement('div');
+                item.className = 'gallery-item';
+                item.setAttribute('data-category', category);
+
+                const img = document.createElement('img');
+                img.loading = 'lazy';
+                img.alt = `${category} photography by Fade to Focus`;
+
+                const candidates = candidateNames(filename);
+                loadWithFallbacks(img, item, candidates);
+
+                item.appendChild(img);
+                container.appendChild(item);
+            });
+        }
+
+        // Load all galleries
+        addImages('gallery-families', families, 'families');
+        addImages('gallery-portraits', portraits, 'portraits');
+        addImages('gallery-street', street, 'street');
+        addImages('gallery-events', events, 'events');
+        
+        // Combined "All"
+        const allImages = [...families, ...portraits, ...street, ...events];
+        addImages('gallery-all', allImages, 'all');
+
+        // Filters
+        function filterGallery(category) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            document.querySelectorAll('.gallery-masonry').forEach(gallery => gallery.classList.add('hidden'));
+            if (category === 'all') document.getElementById('gallery-all').classList.remove('hidden');
+            else document.getElementById('gallery-' + category).classList.remove('hidden');
+        }
+        document.getElementById('gallery-all').classList.remove('hidden');
+    </script>
+</body>
+</html>
