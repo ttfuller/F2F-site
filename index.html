@@ -18,10 +18,10 @@
 
   <link rel="icon" href="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png" />
 
-  <!-- Fonts: script accent + classy serif + readable sans -->
+  <!-- Fonts: keep script + Playfair; swap body to Manrope for more pop -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700;800&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@500;700;800&family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root{
@@ -45,7 +45,8 @@
         radial-gradient(1200px 800px at 20% -10%, #1b2635 0%, transparent 60%),
         radial-gradient(1200px 800px at 120% 110%, #131b26 0%, transparent 60%),
         var(--bg);
-      font:16.5px/1.75 Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font:16.5px/1.75 Manrope, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      letter-spacing:.1px;
     }
 
     a{color:inherit;text-decoration:none}
@@ -183,13 +184,13 @@
   <!-- HERO -->
   <section id="hero">
     <div class="slide">
-      <!-- Replace src with one of your strongest horizontals -->
-      <img class="hero-img" src="IMG_0875.jpg" alt="Signature portrait by Fade to Focus" />
+      <!-- Updated to BTS.jpg -->
+      <img class="hero-img" src="BTS.jpg" alt="Behind the scenes at a Fade to Focus session" />
       <div class="veil"></div>
       <div class="hero-content wrap fade">
         <div class="script">Fade to Focus</div>
         <h1 class="hero-title">Moody. High-end. Honest.</h1>
-        <p class="tag">Portraits and lifestyle sessions in Omaha with a cinematic edge. Sessions are calm, collaborative, and built around how you actually are.</p>
+        <p class="tag">Sessions are relaxed, creative, and built around you.</p>
         <div class="cta-row">
           <a class="btn cta" href="#work">View work</a>
           <a class="btn" href="#packages">See packages</a>
@@ -212,7 +213,8 @@
   <!-- FEATURED / LATEST -->
   <section id="featured">
     <div class="wrap feature fade">
-      <img src="IMG_2140.jpg" alt="Recent session highlight" />
+      <!-- First image set to 2172 -->
+      <img src="IMG_2172.jpg" alt="Recent session highlight" />
       <div class="panel">
         <h3>Latest work</h3>
         <p class="tag">A few favorites from recent sessions. The full gallery lives on Pixieset, but the best live here first.</p>
@@ -302,7 +304,7 @@
       <div class="panel">
         <div class="script" style="font-size:40px">Terry Fuller</div>
         <h3>Photographer • Omaha</h3>
-        <p class="tag">I shoot candid, moody, authentic sessions for portraits, families, creatives and events. The process is simple: plan the vibe, set the light, then let real life happen. I keep it relaxed so your personality shows up.</p>
+        <p class="tag">I shoot candid, moody, authentic sessions for portraits, families, creatives and events. The process is simple: plan the vibe, set the light, then let real life happen.</p>
         <div class="cta-row" style="margin-top:6px">
           <a class="btn cta" href="#contact">Start a booking</a>
           <a class="btn" href="https://linktr.ee/Fadetofocusphoto" target="_blank" rel="noopener">All links</a>
@@ -368,7 +370,6 @@
     document.querySelectorAll('.fade').forEach(el => io.observe(el));
 
     // GALLERY DATA
-    // Put images at repo root or adjust paths. JPG/JPEG case must match your files.
     const images = [
       // Latest uploads (shown first and filterable)
       {src:"IMG_0875.jpg", alt:"Latest portrait", cat:["latest","portraits"]},
@@ -395,7 +396,7 @@
     function render(filter="all"){
       g.innerHTML = "";
       const list = images.filter(it => filter==="all" ? true : it.cat.includes(filter));
-      // Latest first ethos: stable order with latest near top
+      // Latest-first preference
       const ordered = list.sort((a,b) => {
         const l = a.cat.includes("latest") ? -1 : 0;
         const r = b.cat.includes("latest") ? -1 : 0;
