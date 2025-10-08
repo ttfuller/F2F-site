@@ -33,9 +33,9 @@
             --color-text-primary: #e8e8e8;
             --color-text-secondary: #d0d0d0;
             --color-text-muted: #999999;
-            --font-heading: 'Playfair Display', serif;   /* updated */
-            --font-accent: 'Great Vibes', cursive;       /* updated */
-            --font-body: 'Lora', serif;                  /* updated */
+            --font-heading: 'Playfair Display', serif;
+            --font-accent: 'Great Vibes', cursive;
+            --font-body: 'Lora', serif;
             --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
@@ -200,8 +200,12 @@
             font-family: var(--font-body); font-weight: 700;
         }
         .filter-btn:hover, .filter-btn.active { background-color: var(--color-accent); color: var(--color-dark-primary); border-color: var(--color-accent); }
+
         .gallery-masonry { column-count: 3; column-gap: 1.5rem; margin-top: 2rem; }
-        .gallery-item { break-inside: avoid; margin-bottom: 1.5rem; position: relative; overflow: hidden; background-color: var(--color-dark-secondary); }
+
+        /* GAP FIX: hide items until image loads */
+        .gallery-item { display: none; margin-bottom: 1.5rem; position: relative; overflow: hidden; background-color: var(--color-dark-secondary); }
+        .gallery-item.loaded { display: block; }
         .gallery-item img { width: 100%; display: block; transition: var(--transition-smooth); filter: grayscale(0.1) contrast(1.1); }
         .gallery-item:hover img { transform: scale(1.05); filter: grayscale(0) contrast(1.2); }
 
@@ -455,7 +459,7 @@
             <div class="policies-box">
                 <h4>Policies</h4>
                 <ul>
-                    <li>$50 booking deposit holds your time (credited to session)</li>
+                    <li>$25 booking deposit holds your time (credited to session)</li>
                     <li>24-hour reschedule window</li>
                     <li>Weather: photographer's call; free reschedule if we cancel</li>
                     <li>Personal use rights included; commercial use by permission</li>
@@ -473,27 +477,27 @@
                 A few favorites from recent sessions. Each image tells a story of real moments captured with moody, authentic style.
             </p>
             
-            <div class="portfolio-filters">
-                <button class="filter-btn active" onclick="filterGallery('all', event)">All</button>
-                <button class="filter-btn" onclick="filterGallery('families', event)">Families</button>
-                <button class="filter-btn" onclick="filterGallery('portraits', event)">Portraits</button>
-                <button class="filter-btn" onclick="filterGallery('street', event)">Street & Lifestyle</button>
-                <button class="filter-btn" onclick="filterGallery('events', event)">Events</button>
-            </div>
+        <div class="portfolio-filters">
+            <button class="filter-btn active" onclick="filterGallery('all')">All</button>
+            <button class="filter-btn" onclick="filterGallery('families')">Families</button>
+            <button class="filter-btn" onclick="filterGallery('portraits')">Portraits</button>
+            <button class="filter-btn" onclick="filterGallery('street')">Street & Lifestyle</button>
+            <button class="filter-btn" onclick="filterGallery('events')">Events</button>
+        </div>
 
-            <div id="gallery-families" class="gallery-masonry"></div>
-            <div id="gallery-portraits" class="gallery-masonry hidden"></div>
-            <div id="gallery-street" class="gallery-masonry hidden"></div>
-            <div id="gallery-events" class="gallery-masonry hidden"></div>
-            <div id="gallery-all" class="gallery-masonry"></div>
+        <div id="gallery-families" class="gallery-masonry"></div>
+        <div id="gallery-portraits" class="gallery-masonry hidden"></div>
+        <div id="gallery-street" class="gallery-masonry hidden"></div>
+        <div id="gallery-events" class="gallery-masonry hidden"></div>
+        <div id="gallery-all" class="gallery-masonry"></div>
 
-            <div style="text-align: center; margin-top: 3rem;">
-                <a href="https://fadetofocusphotography.pixieset.com/" target="_blank" rel="noopener" class="btn btn-primary">Open Full Pixieset Gallery</a>
-            </div>
+        <div style="text-align: center; margin-top: 3rem;">
+            <a href="https://fadetofocusphotography.pixieset.com/" target="_blank" rel="noopener" class="btn btn-primary">Open Full Pixieset Gallery</a>
+        </div>
 
-            <p style="color: var(--color-text-muted); font-size: 0.875rem; margin-top: 2rem; text-align: center;">
-                On-site watermark is for previews only. Delivered images are clean unless requested.
-            </p>
+        <p style="color: var(--color-text-muted); font-size: 0.875rem; margin-top: 2rem; text-align: center;">
+            On-site watermark is for previews only. Delivered images are clean unless requested.
+        </p>
         </div>
     </section>
 
@@ -502,7 +506,7 @@
         <div class="container">
             <p class="section-subtitle">Get In Touch</p>
             <h2 class="section-title">Contact</h2>
-        <p style="color: var(--color-text-secondary); font-size: 1.0625rem; margin-bottom: 3rem; text-align: center; max-width: 700px; margin: 0 auto 3rem;">
+            <p style="color: var(--color-text-secondary); font-size: 1.0625rem; margin-bottom: 3rem; text-align: center; max-width: 700px; margin: 0 auto 3rem;">
                 Tell me what you're dreaming up — family, portraits, lifestyle, events, creative/editorial, and private sessions (18+).
             </p>
 
@@ -585,18 +589,27 @@
         const street = ['Street .JPG', 'Street 2.JPG', 'Street 4.JPG', 'Street 5.JPG', 'Street 6.JPG', 'Street 7.JPG', 'Street 8.JPG', 'Street 9.JPG', 'Street 10.JPG', 'Street 11.JPG', 'Street 12.JPG', 'Street 13.JPG', 'Street 14.JPG'];
         const events = ['Event 1.JPG', 'Event.JPG'];
 
-        // Helper to add images
+        // Helper to add images (gap-free)
         function addImages(galleryId, images, category) {
             const container = document.getElementById(galleryId);
             images.forEach(filename => {
                 const item = document.createElement('div');
-                item.className = 'gallery-item';
-                item.setAttribute('data-category', category);
+                item.className = 'gallery-item'; // hidden by default
+
                 const img = document.createElement('img');
                 img.loading = 'lazy';
                 img.alt = `${category} photography by Fade to Focus`;
-                img.src = encodeURI(filename); // keeps your spaces/case intact
-                img.onerror = function(){ item.style.display = 'none'; };
+                img.src = encodeURI(filename); // preserves spaces/case
+
+                // Show only after the image actually loads
+                img.onload = function () {
+                    item.classList.add('loaded'); // display: block
+                };
+                // Remove item if the image fails
+                img.onerror = function () {
+                    if (item.parentNode) item.parentNode.removeChild(item);
+                };
+
                 item.appendChild(img);
                 container.appendChild(item);
             });
@@ -612,10 +625,10 @@
         const allImages = [...families, ...portraits, ...street, ...events];
         addImages('gallery-all', allImages, 'all');
 
-        // Filters (robust: no reliance on a global event)
-        function filterGallery(category, e) {
+        // Filters
+        function filterGallery(category) {
             document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            if (e && e.currentTarget) e.currentTarget.classList.add('active');
+            event.target.classList.add('active');
             document.querySelectorAll('.gallery-masonry').forEach(g => g.classList.add('hidden'));
             if (category === 'all') document.getElementById('gallery-all').classList.remove('hidden');
             else document.getElementById('gallery-' + category).classList.remove('hidden');
