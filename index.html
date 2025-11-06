@@ -1,154 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fade to Focus Photography — Omaha | Portrait & Lifestyle Photographer</title>
-    <meta name="description" content="Omaha-based photographer capturing candid, moody images for families, portraits, couples, private sessions and events. Real moments > stiff poses.">
-    
-    <!-- Open Graph / Social -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://fadetofocusphoto.com/">
-    <meta property="og:title" content="Fade to Focus Photography – Omaha photographer capturing authentic, moody portraits">
-    <meta property="og:description" content="Omaha-based photographer capturing candid and authentic portraits, families, couples, and private sessions. Real moments > stiff poses.">
-    <meta property="og:image" content="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fade to Focus Photography — Omaha | Portrait & Lifestyle Photographer</title>
+  <meta name="description" content="Omaha-based photographer capturing candid, moody images for families, portraits, couples, private sessions and events. Real moments > stiff poses.">
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fadetofocusphoto.com/">
+  <meta property="og:title" content="Fade to Focus Photography – Omaha photographer capturing authentic, moody portraits">
+  <meta property="og:description" content="Omaha-based photographer capturing candid and authentic portraits, families, couples, and private sessions. Real moments > stiff poses.">
+  <meta property="og:image" content="assets/branding/48f0b1b4-06a8-426e-bca6-fc2fd6d45b00.png">
 
-    <style>
-        :root {
-            --color-dark-primary: #0a0a0a;
-            --color-dark-secondary: #1a1a1a;
-            --color-dark-tertiary: #2a2a2a;
-            --color-grey-dark: #3a3a3a;
-            --color-grey-mid: #4a4a4a;
-            --color-grey-light: #6a6a6a;
-            --color-accent: #c97132;
-            --color-accent-hover: #d4af37;
-            --color-text-primary: #e8e8e8;
-            --color-text-secondary: #d0d0d0;
-            --color-text-muted: #999999;
-            --font-heading: 'Playfair Display', serif;
-            --font-accent: 'Great Vibes', cursive;
-            --font-body: 'Lora', serif;
-            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 
-        * {margin: 0; padding: 0; box-sizing: border-box;}
-        html {scroll-behavior: smooth;}
-        body {
-            background-color: var(--color-dark-primary);
-            color: var(--color-text-primary);
-            font-family: var(--font-body);
-            line-height: 1.8;
-            overflow-x: hidden;
-            font-size: 17px;
-        }
-
-        .hero-title {
-            font-family: var(--font-heading);
-            font-size: clamp(3rem, 8vw, 7rem);
-            line-height: 0.95;
-            font-weight: 700;
-        }
-
-        .section-title {
-            font-family: var(--font-heading);
-            font-size: clamp(2rem, 5vw, 4rem);
-            margin-bottom: 1rem;
-        }
-
-        .nav-container {
-            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-            background-color: rgba(10,10,10,0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .nav-content {
-            max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem;
-            display: flex; justify-content: space-between; align-items: center;
-            flex-wrap: wrap; gap: 1rem;
-        }
-        .nav-logo {
-            font-family: var(--font-accent);
-            font-size: 2rem;
-            color: var(--color-text-primary);
-            text-decoration: none;
-            transition: var(--transition-smooth);
-        }
-        .nav-logo:hover {color: var(--color-accent);}
-        .nav-links {display: flex; gap: 2rem; list-style: none; align-items: center;}
-        .nav-link {
-            font-size: 0.875rem; text-transform: uppercase;
-            letter-spacing: 0.1em; color: var(--color-text-secondary);
-            text-decoration: none; font-weight: 600;
-            transition: var(--transition-smooth);
-        }
-        .nav-link:hover {color: var(--color-accent);}
-        .btn {
-            padding: 1rem 2.25rem;
-            font-size: 0.875rem; font-weight: 700;
-            text-transform: uppercase; letter-spacing: 0.1em;
-            border: none; cursor: pointer;
-            text-decoration: none; display: inline-block;
-            font-family: var(--font-body);
-            transition: var(--transition-smooth);
-        }
-        .btn-primary {background-color: var(--color-accent); color: var(--color-dark-primary);}
-        .btn-primary:hover {background-color: var(--color-accent-hover); transform: translateY(-2px);}
-        .btn-secondary {background-color: transparent; color: var(--color-text-primary); border: 2px solid var(--color-text-primary);}
-        .btn-secondary:hover {background-color: var(--color-text-primary); color: var(--color-dark-primary); transform: translateY(-2px);}
-        .hero-section {min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding-top: 80px;}
-        .hero-background img {width: 100%; height: 100%; object-fit: cover; filter: brightness(0.45) contrast(1.1);}
-        .hero-overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(10,10,10,0.3), rgba(10,10,10,0.75));}
-        .hero-content {position: relative; z-index: 2; text-align: center; max-width: 1000px; padding: 0 2rem;}
-        .hero-cta {display: flex; gap: 1.5rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap;}
-
-        .container {max-width: 1400px; margin: 0 auto; padding: 0 2rem;}
-        .section-spacing {padding: 6rem 0;}
-    </style>
+  <style>
+    :root {
+      --color-dark-primary: #0a0a0a;
+      --color-dark-secondary: #1a1a1a;
+      --color-dark-tertiary: #2a2a2a;
+      --color-grey-dark: #3a3a3a;
+      --color-accent: #c97132;
+      --color-accent-hover: #d4af37;
+      --color-text-primary: #e8e8e8;
+      --color-text-secondary: #d0d0d0;
+      --font-heading: 'Playfair Display', serif;
+      --font-accent: 'Great Vibes', cursive;
+      --font-body: 'Lora', serif;
+      --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    html {scroll-behavior: smooth;}
+    body {background-color: var(--color-dark-primary); color: var(--color-text-primary); font-family: var(--font-body); line-height: 1.8; overflow-x: hidden; font-size: 17px;}
+    .nav-container {position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background-color: rgba(10,10,10,0.95); backdrop-filter: blur(10px);}
+    .nav-content {max-width: 1400px; margin: 0 auto; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;}
+    .nav-logo {font-family: var(--font-accent); font-size: 2rem; color: var(--color-text-primary); text-decoration: none;}
+    .nav-logo:hover {color: var(--color-accent);}
+    .nav-links {display: flex; gap: 2rem; list-style: none; align-items: center;}
+    .nav-link {font-size: 0.875rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--color-text-secondary); text-decoration: none; font-weight: 600;}
+    .nav-link:hover {color: var(--color-accent);}
+    .btn {padding: 1rem 2.25rem; font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; border: none; cursor: pointer; text-decoration: none; display: inline-block; font-family: var(--font-body); transition: var(--transition-smooth);}
+    .btn-primary {background-color: var(--color-accent); color: var(--color-dark-primary);}
+    .btn-primary:hover {background-color: var(--color-accent-hover); transform: translateY(-2px);}
+    .btn-secondary {background-color: transparent; color: var(--color-text-primary); border: 2px solid var(--color-text-primary);}
+    .btn-secondary:hover {background-color: var(--color-text-primary); color: var(--color-dark-primary);}
+    .hero-section {min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; padding-top: 80px;}
+    .hero-background img {width: 100%; height: 100%; object-fit: cover; filter: brightness(0.45);}
+    .hero-overlay {position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(10,10,10,0.3), rgba(10,10,10,0.75));}
+    .hero-content {position: relative; z-index: 2; text-align: center; max-width: 1000px; padding: 0 2rem;}
+    .hero-cta {display: flex; gap: 1.5rem; justify-content: center; margin-top: 2.5rem; flex-wrap: wrap;}
+  </style>
 </head>
 
 <body>
-    <nav class="nav-container">
-        <div class="nav-content">
-            <a href="#hero" class="nav-logo">Fade to Focus</a>
-            <ul class="nav-links">
-                <li><a href="#packages" class="nav-link">Packages</a></li>
-                <li><a href="#shots" class="nav-link">Portfolio</a></li>
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-                <li><a href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener" class="nav-link">Facebook</a></li>
-                <li><a href="https://linktr.ee/Fadetofocusphoto" target="_blank" rel="noopener" class="nav-link">Linktree</a></li>
-                <li><a href="mailto:book@fadetofocusphoto.com?subject=Book%20a%20session" class="btn btn-primary" style="padding:0.75rem 1.5rem;">Book Now</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav class="nav-container">
+    <div class="nav-content">
+      <a href="#hero" class="nav-logo">Fade to Focus</a>
+      <ul class="nav-links">
+        <li><a href="#packages" class="nav-link">Packages</a></li>
+        <li><a href="#shots" class="nav-link">Portfolio</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="https://facebook.com/fadetofocusphoto" target="_blank" rel="noopener" class="nav-link">Facebook</a></li>
+        <li><a href="https://linktr.ee/Fadetofocusphoto" target="_blank" rel="noopener" class="nav-link">Linktree</a></li>
+        <li><a href="https://app.squareup.com/appointments/book/hghvcq8uhj6f5m/L240TR5EF1GYA/start" target="_blank" rel="noopener" class="btn btn-primary" style="padding:0.75rem 1.5rem;">Book Now</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <section id="hero" class="hero-section">
-        <div class="hero-background">
-            <img src="BTS.jpg" alt="Fade to Focus Photography hero" onerror="this.src='https://images.unsplash.com/photo-1555655139-6098ba690004?w=1920&q=80'">
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <p class="hero-subtitle">Fade to Focus • Omaha</p>
-            <h1 class="hero-title">Candid.<br>Moody.<br>Real Life.</h1>
-            <p class="hero-description">Sessions are relaxed, creative, and built around you. I capture authentic portraits, families, couples, and private sessions here in Omaha.</p>
-            <div class="hero-cta">
-                <a href="https://app.squareup.com/appointments/book/hghvcq8uhj6f5m/L240TR5EF1GYA/start"
-                   target="_blank" rel="noopener"
-                   class="btn btn-primary">Book &amp; Pay Deposit</a>
-                <a href="https://fadetofocusphotography.pixieset.com/"
-                   target="_blank" rel="noopener"
-                   class="btn btn-secondary">View Full Portfolio</a>
-            </div>
-        </div>
-    </section>
+  <!-- Hero -->
+  <section id="hero" class="hero-section">
+    <div class="hero-background">
+      <img src="BTS.jpg" alt="Fade to Focus Photography hero" onerror="this.src='https://images.unsplash.com/photo-1555655139-6098ba690004?w=1920&q=80'">
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <p class="hero-subtitle">Fade to Focus • Omaha</p>
+      <h1 class="hero-title">Candid.<br>Moody.<br>Real Life.</h1>
+      <p class="hero-description">Sessions are relaxed, creative, and built around you. I capture authentic portraits, families, couples, and private sessions here in Omaha.</p>
+      <div class="hero-cta">
+        <a href="https://app.squareup.com/appointments/book/hghvcq8uhj6f5m/L240TR5EF1GYA/start" target="_blank" rel="noopener" class="btn btn-primary">Book &amp; Pay Deposit</a>
+        <a href="https://fadetofocusphotography.pixieset.com/" target="_blank" rel="noopener" class="btn btn-secondary">View Full Portfolio</a>
+      </div>
+    </div>
+  </section>
 
-    <!-- all remaining content identical to your previous file -->
-    <!-- (About, Packages, Portfolio, Testimonials, Contact, Footer, Scripts, etc.) -->
+  <!-- Packages -->
+  <section id="packages" class="section-spacing" style="background-color: var(--color-dark-secondary);">
+    <div class="container">
+      <p class="section-subtitle">Investment</p>
+      <h2 class="section-title">Packages</h2>
+      <p style="color: var(--color-text-secondary); margin-bottom: 3rem;">Choose the package that fits your vision. All sessions include professional editing and high-resolution delivery.</p>
+
+      <div class="packages-grid">
+        <!-- Core -->
+        <div class="package-card">
+          <h3 class="package-name">Core</h3>
+          <div class="package-price">$150</div>
+          <p class="package-duration">60 minutes</p>
+          <ul class="package-features">
+            <li>1–2 looks / 1–2 spots</li>
+            <li>20 edited images (my selects)</li>
+            <li>Delivery in 7 days</li>
+          </ul>
+          <a href="https://app.squareup.com/appointments/book/hghvcq8uhj6f5m/L240TR5EF1GYA/start" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;">Book Now</a>
+        </div>
+
+        <!-- Story -->
+        <div class="package-card popular">
+          <span class="popular-badge">Most Popular</span>
+          <h3 class="package-name">Story</h3>
+          <div class="package-price">$250</div>
+          <p class="package-duration">90 minutes</p>
+          <ul class="package-features">
+            <li>Up to 2 locations</li>
+            <li>35 edited images • custom vibe</li>
+            <li>Delivery in 7 days (rush available)</li>
+          </ul>
+          <a href="https://app.squareup.com/appointments/book/hghvcq8uhj6f5m/L240TR5EF1GYA/start" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;">Book Now</a>
+        </div>
+
+        <!-- Minis -->
+        <div class="package-card">
+          <h3 class="package-name">Minis</h3>
+          <div class="package-price">Seasonal</div>
+          <p class="package-duration">30 minutes</p>
+          <ul class="package-features">
+            <li>Themed sessions</li>
+            <li>Limited slots</li>
+            <li>Theme posted with each drop</li>
+            <li>Watch socials for dates & pricing</li>
+          </ul>
+          <a href="https://app.squareup.com/appointments/book/hghvcq8uhj6f5m/L240TR5EF1GYA/start" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%;">Book Now</a>
+        </div>
+
+        <!-- Custom -->
+        <div class="package-card">
+          <h3 class="package-name">Custom</h3>
+          <div class="package-price">Quote</div>
+          <p class="package-duration">Variable</p>
+          <ul class="package-features">
+            <li>Events • creative • editorial • brand</li>
+            <li>We'll shape the right coverage</li>
+            <li>Tailored to your needs</li>
+          </ul>
+          <a href="mailto:book@fadetofocusphoto.com?subject=Custom%20Project%20Quote" class="btn btn-primary" style="width:100%;">Get a Quote</a>
+        </div>
+      </div>
+
+      <!-- Private Sessions -->
+      <div style="margin-top: 4rem; padding: 2.5rem; background-color: var(--color-dark-tertiary); border: 1px solid var(--color-grey-dark);">
+        <h3 style="font-family: var(--font-heading); font-size: 2rem; margin-bottom: 1rem;">Private Sessions - Boudoir (18+)</h3>
+        <p style="color: var(--color-text-secondary); margin-bottom: 2rem;">Intimate, empowering sessions in a comfortable setting. 18+ only; ID required.</p>
+        <div class="private-tiers">
+          <div class="tier-card"><h5>Intro</h5><div class="tier-price">$125</div></div>
+          <div class="tier-card"><h5>Classic</h5><div class="tier-price">$200</div></div>
+          <div class="tier-card"><h5>Signature</h5><div class="tier-price">$300</div></div>
+        </div>
+        <a href="mailto:book@fadetofocusphoto.com?subject=Private%20Session%20Booking%20(18%2B)" class="btn btn-primary" style="width:100%; margin-top:2rem;">Request Private Session</a>
+      </div>
+
+      <div class="policies-box">
+        <h4>Policies</h4>
+        <ul>
+          <li>$50 booking deposit holds your time (credited to session)</li>
+          <li>24-hour reschedule window</li>
+          <li>Weather: photographer's call; free reschedule if we cancel</li>
+          <li>Personal use rights included; commercial use by permission</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 </body>
 </html>
